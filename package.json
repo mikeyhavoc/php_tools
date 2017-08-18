@@ -1,0 +1,46 @@
+{
+  "name": "garyselling",
+  "version": "0.0.5",
+  "description": "selling body tools local to bradenton fl",
+  "main": "index.html",
+  "scripts": {
+    "test": "standard && node my-tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeyhavoc/js_gary.git"
+  },
+  "keywords": [
+    "body",
+    "tools",
+    "bradenton",
+    "mechanic",
+    "tools",
+    "sockets"
+  ],
+  "author": "michael williams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeyhavoc/js_gary/issues"
+  },
+  "homepage": "https://github.com/mikeyhavoc/js_gary#readme",
+  "devDependencies": {
+    "build": "^0.1.4",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-postcss": "^6.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^2.1.2",
+    "jasmine": "^2.5.3",
+    "rename": "^1.0.4",
+    "standard": "^9.0.2",
+    "uglify": "^0.1.5"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.6",
+    "mustache": "^2.3.0"
+  }
+}
