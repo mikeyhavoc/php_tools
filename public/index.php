@@ -28,7 +28,6 @@ require('../inc/nav.php');
                       <li>if any questions about an Item please email</li>
                       <li>listing will be updated asap after sales occur</li>
                     </ul>
-                  </p>
               </article>
 
             </section>
