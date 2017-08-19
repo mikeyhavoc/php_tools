@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Sirin+Stencil" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/helpers.css">
+   <!--<link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/helpers.css">-->
     <link rel="stylesheet" href="css/main.css">
 
     <title>Garys Tool Selling Site</title>
