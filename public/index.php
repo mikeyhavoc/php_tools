@@ -9,6 +9,15 @@
 
 require( '../inc/header.php');
 require('../inc/nav.php');
+try {
+    require_once '../inc/connection.php';
+    $sql = 'SELECT item, price, sold
+            FROM tools limit 10';
+    $tools = $con->query($sql);
+}catch(Exception $e){
+    echo $error = $e->getMessage();
+
+}
 ?>
     <div class="container-fluid">
         <div class="row">
@@ -29,13 +38,15 @@ require('../inc/nav.php');
                       <li>listing will be updated asap after sales occur</li>
                     </ul>
               </article>
+            </section><!--article section -->
+       </div><!-- / row -->
+    </div><!--/ container-fluid-->
+    <div class="container-fluid">
+        <section class="tools-display">
 
-            </section>
-
-       </div>
-
-
+        </section>
     </div>
+
 
 
 <?php
