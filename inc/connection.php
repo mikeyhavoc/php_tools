@@ -8,6 +8,15 @@
 $user = 'mikey';
 $pass = 'DroidsLie#9';
 $base = 'gary';
+$dsn = 'mysql:host=localhost;dbname=gary';
 
-$con = mysqli_connect('localhost', $user, $pass, $base);
 
+
+try {
+    $con = new PDO($dsn, $user, $pass);
+}catch(Exception $e){
+    echo $error = $e->getMessage();
+
+
+}
+?>
