@@ -6,9 +6,29 @@
  * Time: 1:49 PM
  */
 
-define("PRIVATE_PATH", dirname(__FILE__));
-define("PROJECT_PATH", dirname(PRIVATE_PATH));
-define("PUBLIC_PATH", PROJECT_PATH . '/public');
-define("SHARED_PATH", PRIVATE_PATH . '/shared');
+
+// __FILE__ returns the current path to this file => Private folder
+// dirname() returns the path to the parent directory
+
+
+define("PRIVATE_PATH", dirname(__FILE__));  # private folder for private items.
+define("PROJECT_PATH", dirname(PRIVATE_PATH)); # pprivate folder for shared things
+define("PUBLIC_PATH", PROJECT_PATH . '/public'); # public folder
+define("SHARED_PATH", PRIVATE_PATH . '/shared'); # shared folder
+
+// Assign the root URL to a PHP constant
+// * Do not need to include the domain
+// * Use same document root as web server
+// * Can ser a hardcoded value:
+// e.g define("WWW_ROOT", '/~mike/globebank/public');
+// define("WWW_ROOT", '');
+// * Can be dynamically find everything in URL up to "/public"
+
+$public_end = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;
+$doc_root = subtr(S_SERVER['SCRIPT_NAME'], 0, $public_end);
+define("WWW_ROOT", $doc_root);
+
+
+
 
 require_once('functions.php');
