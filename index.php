@@ -1,4 +1,4 @@
-<?php require_once('private/initalize.php'); ?>
+<?php require_once('private/initialize.php'); ?>
 <?php
 /**
  * Created by PhpStorm.
@@ -41,31 +41,28 @@ require(SHARED_PATH . '/nav.php');
         <section class="tools-display">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-3">
+                    <?php foreach($tools as $tool) : { ?>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <article>
-                            <?php foreach($tools as $tool) { ?>
+
                             <h3 class="center-text">
-                            Item: <!-- insert item code -->
+                            Item: <?php echo $tool['item']; ?>
                             </h3>
                             <p>
-                                Tool Type: <!-- tool type --><br>
-                                Brand: <!-- insert brand--> <br>
-                                Style:
-                            <ul><!-- loop through styles -->
-                               <li>
-                                   <!-- style-->
-                               </li>
-                            </ul><br>
-                                Retail: <!-- retail --><br>
-                                Price: <!-- price --><br>
-                                Description: <!--descrip --><br>
+                                Tool Type: <?php echo $tool['item']; ?><br>
+                                Brand: <?php echo $tool['brand']; ?><br>
+                                <?php $style = implode(", ", $tool['style']); ?>
+                                Style: <?php echo $style; ?> </br>
+                                Retail: <?php echo $tool['retail']; ?><br>
+                                Price: <?php echo $tool['price']; ?><br>
+                                Description: <?php echo $tool['description']; ?><br>
                             </p>
-                                ThumbImage: <!--remove name and just leave image-->
+                                <img src="<?php echo url_for('public/'. $tool['thumb']); ?>">
 
                         </article>
-                         <?php } ?><!-- end loop -->
                     </div><!--/ item one -->
-                </div><!-- / row for container for the four items on front page.
+                    <?php } endforeach; ?><!-- end loop -->
+                </div><!-- / row for container for the four items on front page.-->
             </div>
 
         </section>
