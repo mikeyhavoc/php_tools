@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <!--<link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/helpers.css">-->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="<?php echo url_for('public/css/main.css'); ?>">
 
     <title>Garys Tool Selling Site</title>
 </head>
