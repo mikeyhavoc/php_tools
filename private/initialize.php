@@ -16,6 +16,7 @@ define("PROJECT_PATH", dirname(PRIVATE_PATH)); # private folder for shared thing
 define("PUBLIC_PATH", PROJECT_PATH . '/public'); # public folder
 define("SHARED_PATH", PRIVATE_PATH . '/shared'); # shared folder
 
+
 // Assign the root URL to a PHP constant
 // * Do not need to include the domain
 // * Use same document root as web server
@@ -30,6 +31,8 @@ define("SHARED_PATH", PRIVATE_PATH . '/shared'); # shared folder
 
 //ROOT of file.
 define("WWW_ROOT", '');
+
+define("IMAGES", WWW_ROOT . '/public/');
 
 
 
