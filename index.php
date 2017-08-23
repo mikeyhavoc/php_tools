@@ -43,13 +43,17 @@ require(SHARED_PATH . '/nav.php');
                 <div class="row">
                     <?php foreach($tools as $tool) : { ?>
                     <div class="col-xs-12 col-sm-6 col-md-4">
-                        <article>
+                        <article class="card">
 
-                            <h3 class="center-text">
-                            Item: <?php echo $tool['item']; ?>
+                            <h3 class="text-center">
+                                <button type="button" class="btn btn-danger btn-lg" data-target="<?php echo $tool['item']; ?>">
+
+                                    Item: <?php echo $tool['item']; ?>
+                                </button>
+
                             </h3>
                             <p>
-                                Tool Type: <?php echo $tool['item']; ?><br>
+                                Tool Type: <?php echo $tool['type']; ?><br>
                                 Brand: <?php echo $tool['brand']; ?><br>
                                 <?php $style = implode(", ", $tool['style']); ?>
                                 Style: <?php echo $style; ?> </br>
@@ -57,7 +61,7 @@ require(SHARED_PATH . '/nav.php');
                                 Price: <?php echo $tool['price']; ?><br>
                                 Description: <?php echo $tool['description']; ?><br>
                             </p>
-                                <img src="<?php echo url_for('public/'. $tool['thumb']); ?>">
+                                <img class="center-block" src="<?php echo url_for(IMAGES . $tool['thumb']); ?>">
 
                         </article>
                     </div><!--/ item one -->
@@ -67,6 +71,11 @@ require(SHARED_PATH . '/nav.php');
 
         </section>
     </div>
+    <section>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" >Trial One</button>
+    </section>
+
+
 
 
 
