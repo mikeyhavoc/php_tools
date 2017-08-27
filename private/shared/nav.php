@@ -104,7 +104,7 @@
 <!--                </button>-->
                 <ul class="nav navbar-nav" id="miniMenu">
                      <li class="dropdown">
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-target="#miniMenu">
+                         <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" data-target="#miniMenu">
                              <span class="caret"></span>
                          </a>
                      </li>
