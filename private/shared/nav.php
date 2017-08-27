@@ -102,7 +102,7 @@
 <!--                <button class="btn btn-primary navbar-toggle" type="button" date-toggle="dropdown" data-target="#miniMenu">-->
 <!--                    <span class="caret"></span>-->
 <!--                </button>-->
-                <ul class="nav navbar-nav" id="miniMenu">
+                <ul class="nav navbar-nav col-xs-2" id="miniMenu">
                      <li class="dropdown">
                          <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" data-target="#miniMenu">
                              <span class="caret"></span>
