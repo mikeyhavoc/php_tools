@@ -5,8 +5,8 @@
  * Date: 8/18/17
  * Time: 10:56 AM
  */
-$user = 'mikey';
-$pass = 'DroidsLie#9';
+$user = '';
+$pass = '';
 $base = 'gary';
 $dsn = 'mysql:host=localhost;dbname=gary';
 
