@@ -19,13 +19,13 @@ require(SHARED_PATH . '/nav.php');
         <div class="row">
             <section>
               <article class="info col-xs-12 col-sm-3 col-sm-offset-3">
-                <h2>Info</h2>
+                <h2 class="text-center">Info</h2>
                 <p>
                   Greetings, I am a retired body and fender man. I am selling off my tools now. I am located in the West Bradenton area. Sales are local only, no shipping tools.
                 </p>
               </article>
               <article class="tool-info col-xs-12 col-sm-3">
-                  <h2>Tool Info</h2>
+                  <h2 class="text-center">Tool Info</h2>
                   <p>
                     Important to note:
                     <ul>
@@ -52,14 +52,10 @@ require(SHARED_PATH . '/nav.php');
                                 </button>
 
                             </h3>
-                            <p>
+                            <p class="text-center">
                                 Tool Type: <?php echo $tool['type']; ?><br>
                                 Brand: <?php echo $tool['brand']; ?><br>
-                                <?php $style = implode(", ", $tool['style']); ?>
-                                Style: <?php echo $style; ?> </br>
-                                Retail: <?php echo $tool['retail']; ?><br>
                                 Price: <?php echo $tool['price']; ?><br>
-                                Description: <?php echo $tool['description']; ?><br>
                             </p>
                                 <img class="center-block" src="<?php echo url_for(IMAGES . $tool['thumb']); ?>">
 
