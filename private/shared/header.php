@@ -16,7 +16,7 @@
 <body>
     <header class='container-fluid'>
       <div class='row'>
-        <h1 class="col-xs-12 col-sm-6 tools">
+        <h1 class="col-xs-12 col-md-6 tools">
             Garys Tool List
         </h1>
      </header>
