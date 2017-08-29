@@ -41,28 +41,64 @@ require(SHARED_PATH . '/nav.php');
         <section class="tools-display">
             <div class="container-fluid">
                 <div class="row">
-                    <?php foreach($tools as $tool) : { ?>
+
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <article class="card">
 
-                            <h3 class="text-center">
-                                <button type="button" class="btn btn-danger btn-lg" data-target="<?php echo $tool['item']; ?>">
-
-                                    Item: <?php echo $tool['item']; ?>
-                                </button>
-
-                            </h3>
+                            <h3 class="text-center">Wrenches</h3>
                             <p class="text-center">
-                                Tool Type: <?php echo $tool['type']; ?><br>
-                                Brand: <?php echo $tool['brand']; ?><br>
-                                Price: <?php echo $tool['price']; ?><br>
+                                Tool Type: Mostly wrench sets some singles.<br>
                             </p>
-                                <img class="center-block" src="<?php echo url_for(IMAGES . $tool['thumb']); ?>">
+                                <img class="center-block img-responsive img-thumbnail" src="<?php echo url_for(  IMAGES . '/images/med_img/wrench/a2_wrench.jpg'); ?>" >
 
                         </article>
                     </div><!--/ item one -->
-                    <?php } endforeach; ?><!-- end loop -->
-                </div><!-- / row for container for the four items on front page.-->
+
+                </div><!-- / row for container for the three items on front page.-->
+            </div>
+
+        </section>
+        <section class="tools-display">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <article class="card">
+
+                            <h3 class="text-center"></h3>
+                            <p class="text-center">
+                                Tool Type: <br>
+
+
+                            </p>
+                            <img class="center-block" src="">
+
+                        </article>
+                    </div><!--/ item one -->
+
+                </div><!-- / row for container for the three items on front page.-->
+            </div>
+
+        </section>
+        <section class="tools-display">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <article class="card">
+
+                            <h3 class="text-center"></h3>
+                            <p class="text-center">
+                                Tool Type: <br>
+
+
+                            </p>
+                            <img class="center-block" src="">
+
+                        </article>
+                    </div><!--/ item one -->
+
+                </div><!-- / row for container for the three items on front page.-->
             </div>
 
         </section>
