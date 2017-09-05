@@ -1,3 +1,4 @@
+<?php $page_title = 'Garys Tool Selling Site'; ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="css/helpers.css">-->
     <link rel="stylesheet" href="<?php echo url_for('public/css/main.css'); ?>">
 
-    <title>Garys Tool Selling Site</title>
+    <title><?php $page_title; ?></title>
 </head>
 <body>
     <header class='container-fluid'>
