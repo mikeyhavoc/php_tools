@@ -35,77 +35,79 @@ require(SHARED_PATH . '/nav.php');
                     </ul>
               </article>
             </section><!--article section -->
-       </div><!-- / row -->
-    </div><!--/ container-fluid-->
-    <div class="container-fluid">
-        <section class="tools-display">
+        </div>
+        <div class="container-fluid">
+            <div class="row">
             <div class="container-fluid">
-                <div class="row">
+                <section class="tools-display">
 
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <article class="card">
 
-                            <h3 class="text-center">Wrenches</h3>
+                            <h3 class="text-center">
+                                <a class="btn btn-lg btn-danger" href="<?php echo rawurldecode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>" >
+                                    Wrenches
+                                </a>
+                            </h3>
                             <p class="text-center">
                                 Tool Type: Mostly wrench sets some singles.<br>
                             </p>
-                                <img class="center-block img-responsive img-thumbnail" src="<?php echo url_for(  IMAGES . '/images/med_img/wrench/a2_wrench.jpg'); ?>" >
-
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>">
+                                <img class="center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/images/med_img/wrench/a2_wrench.jpg'); ?>" >
+                            </a>
                         </article>
                     </div><!--/ item one -->
-
-                </div><!-- / row for container for the three items on front page.-->
-            </div>
-
-        </section>
-        <section class="tools-display">
-            <div class="container-fluid">
-                <div class="row">
+                    <div class="container-fluid">
+                        <section class="tools-display">
 
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <article class="card">
 
-                            <h3 class="text-center"></h3>
+                            <h2 class="text-center">
+                                <a class="btn btn-lg btn-danger" href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/sockets.php')); ?>" >
+                                    Sockets
+                                </a>
+                            </h2>
                             <p class="text-center">
-                                Tool Type: <br>
-
-
+                                Tool Type: Sockets.<br>
                             </p>
-                            <img class="center-block" src="">
-
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>">
+                                <img class="center-block img-responsive img- img-rounded" src="<?php echo rawurlencode(url_for(  IMAGES . '/images/med_img/socket/i322_socket-1.jpg')); ?>" >
+                            </a>
                         </article>
                     </div><!--/ item one -->
-
-                </div><!-- / row for container for the three items on front page.-->
-            </div>
-
-        </section>
-        <section class="tools-display">
-            <div class="container-fluid">
-                <div class="row">
+                    <div class="container-fluid">
+                    <section class="tools-display">
 
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <article class="card">
 
-                            <h3 class="text-center"></h3>
+                            <h3 class="text-center">
+                                <a class="btn btn-lg btn-danger" href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/air_tools.php')); ?>" >
+                                    Air Tools
+                                </a>
+                            </h3>
                             <p class="text-center">
-                                Tool Type: <br>
-
-
+                                Tool Type: Air drills, etc.<br>
                             </p>
-                            <img class="center-block" src="">
-
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/air_tools.php')); ?>">
+                                <img class="center-block img-responsive img- img-rounded" src="<?php echo rawurlencode(url_for(  IMAGES . '/images/med_img/air/b48_air.jpg')); ?>" >
+                            </a>
                         </article>
-                    </div><!--/ item one -->
-
-                </div><!-- / row for container for the three items on front page.-->
+                    </div>
+                </section>
             </div>
+            </div>
+        </div>
 
-        </section>
     </div>
+
+
+
     <section>
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" >Trial One</button>
     </section>
+
 
 
 
