@@ -7,7 +7,7 @@
                 <button class="close" data-miss="modal" aria-label="close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title"><?php echo $tool['title'] ?></h4>
+                <h4 class="modal-title"></h4>
             </div>
             <div class="modal-body">
                 <p>
@@ -21,6 +21,10 @@
     </div><!--/ modal-dialog-->
 </div><!--/ modal-->
 
+<footer>
+    <p>Created by Michael Williams, &copy;2017  last update <?php echo DATE("d, m, Y H:i:s.", getlastmod()); ?></p>
+
+</footer>
 
 
 
