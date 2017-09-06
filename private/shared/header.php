@@ -18,6 +18,6 @@
     <header class='container-fluid'>
       <div class='row'>
         <h1 class="col-xs-12 col-md-6 tools">
-            Garys Tool List
+            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'index.php')); ?>">Garys Tool List</a>
         </h1>
      </header>
