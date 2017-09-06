@@ -20,7 +20,7 @@ require(SHARED_PATH . '/nav.php');
         <div class="col-xs-12">
            <ul class="breadcrumb ">
                <li><a href="<?php echo rawurlencode(url_for('/index.php')); ?>">Home</a></li>
-               <li><a href="<?php echo rawurlencode(url_for('/public/pages/air_tools.php')); ?>">Air Tools</a></li>
+               <li class="active"><a href="<?php echo rawurlencode(url_for('/public/pages/air_tools.php')); ?>">Air Tools</a></li>
            </ul>
         </div>
     </div>
@@ -36,20 +36,27 @@ require(SHARED_PATH . '/nav.php');
     </header>
     <main>
         <section class="container-fluid">
+
             <div class="row">
+                <?php foreach ($tools as $tool) : { ?>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <article class="card">
-                        <img src="<?php echo url_for(IMAGES . '/images/med_img/air/b48_air.jpg'); ?>" alt="air tool" class="half left">
-                        <p class="f-right text-center">
-                            Item: a22<br>
-                            Brand: Matco<br>
+                        <img src="<?php echo url_for(IMAGES . '/images/med_img/air/b48_air.jpg'); ?>" alt="air tool" class="half img-thumbnail img-responsive center-block">
+                        <p class="text-center">
+                            Item: <?php echo $tool['item']; ?><br>
+                            Brand: <?php echo $tool['brand']; ?><br>
+                            Price: <?php echo $tool['price']; ?><br>
+                            <button class="btn btn-default btn-lg">
+                                <a href="#"><?php echo $tool['item']; ?></a>
+                            </button>
                         </p>
 
-
-
                     </article>
+
                 </div>
+                <?php } endforeach; ?>
             </div>
+
         </section>
     </main>
 
