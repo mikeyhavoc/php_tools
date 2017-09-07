@@ -21,11 +21,11 @@
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/ratchets.html">Ratchet</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/ratchets.php')); ?>">Ratchets</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/crimps.html">Crimps</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/crimps.php')); ?>">Crimps/Cutters</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
@@ -64,11 +64,11 @@
                 <a href="pages/misc.html">Misc</a>
             </button>
           <button type="button" class="btn btn-lg btn-default">
-            <a href="pages/discs.html">cut/grind wheels</a>
+            <a href="pages/discs.html">Discs</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="pages/clamps.html">Clamps</a>
+            <a href="pages/clamps.html">Clamps/Hooks/Chains</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
@@ -126,11 +126,11 @@
                         </li>
 
                         <li>
-                            <a href="pages/ratchets.html">Ratchet</a>
+                            <a href="pages/ratchets.html">Ratchets</a>
                         </li>
 
                         <li>
-                            <a href="pages/crimps.html">Crimps</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/crimps.php')); ?>">Crimps</a>
                         </li>
 
                         <li>
@@ -170,11 +170,11 @@
                         </li>
 
                         <li>
-                            <a href="pages/discs.html">cut/grind wheels</a>
+                            <a href="pages/discs.html">Discs</a>
                         </li>
 
                         <li>
-                            <a href="pages/clamps.html">Clamps</a>
+                            <a href="pages/clamps.html">Clamps/hooks/chains</a>
                         </li>
 
                         <li>
