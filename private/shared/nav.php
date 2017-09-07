@@ -13,7 +13,7 @@
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/bits.html">Bits</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/bits.php')); ?>">Bits</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
@@ -118,7 +118,7 @@
                         </li>
 
                         <li>
-                            <a href="pages/bits.html">Bits</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/bits.php')); ?>">Bits</a>
                         </li>
 
                         <li>
