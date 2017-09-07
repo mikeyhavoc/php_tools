@@ -29,7 +29,7 @@
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/drills.html">Drills</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/drills.php')); ?>">Drills</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
@@ -37,7 +37,7 @@
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/removers.html">Removers</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/removers.php')); ?>">Removers</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
@@ -126,7 +126,7 @@
                         </li>
 
                         <li>
-                            <a href="pages/ratchets.html">Ratchets</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/ratchets.php')); ?>">Ratchets</a>
                         </li>
 
                         <li>
@@ -134,7 +134,7 @@
                         </li>
 
                         <li>
-                            <a href="pages/drills.html">Drills</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/drills.php')); ?>">Drills</a>
                         </li>
 
                         <li>
@@ -142,7 +142,7 @@
                         </li>
 
                         <li>
-                            <a href="pages/removers.html">Removers</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/removers.php')); ?>">Removers</a>
                         </li>
 
                         <li>
