@@ -45,11 +45,11 @@
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/screwdrivers.html">Screwdrivers</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/screwdrivers.php')); ?>">Screwdrivers</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/prybars.html">pry and pic bars</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/bars.php')); ?>">pry and pic bars</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
@@ -146,15 +146,15 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/page/extensions.php')); ?>">Extensions</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/extensions.php')); ?>">Extensions</a>
                         </li>
 
                         <li>
-                            <a href="pages/screwdrivers.html">Screwdrivers</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/screwdrivers.php')); ?>">Screwdrivers</a>
                         </li>
 
                         <li>
-                            <a href="pages/prybars.html">pry and pic bars</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/bars.php')); ?>">pry and pic bars</a>
                         </li>
 
                         <li>
