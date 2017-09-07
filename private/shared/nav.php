@@ -64,7 +64,7 @@
                 <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/misc.php')); ?>">Misc Tools</a>
             </button>
           <button type="button" class="btn btn-lg btn-default">
-            <a href="pages/discs.html">Discs</a>
+            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/discs.php')); ?>">Discs</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
@@ -170,7 +170,7 @@
                         </li>
 
                         <li>
-                            <a href="pages/discs.html">Discs</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/discs.php')); ?>">Discs</a>
                         </li>
 
                         <li>
