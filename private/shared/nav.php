@@ -53,11 +53,11 @@
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/cable.html">cables</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/cables.php')); ?>">cables</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/jacks.html">Jacks</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/jacks.php')); ?>">Jacks</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
@@ -158,11 +158,11 @@
                         </li>
 
                         <li>
-                            <a href="pages/cable.html">cables</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/cables.php')); ?>">cables</a>
                         </li>
 
                         <li>
-                            <a href="pages/jacks.html">Jacks</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/jacks.php')); ?>">Jacks</a>
                         </li>
 
                         <li>
