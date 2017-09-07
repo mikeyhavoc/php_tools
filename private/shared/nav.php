@@ -68,7 +68,7 @@
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="pages/clamps.html">Clamps/Hooks/Chains</a>
+            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/clamps.php')); ?>">Clamps/Hooks/Chains</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
@@ -174,7 +174,7 @@
                         </li>
 
                         <li>
-                            <a href="pages/clamps.html">Clamps/hooks/chains</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/clamps.php')); ?>">Clamps/hooks/chains</a>
                         </li>
 
                         <li>
