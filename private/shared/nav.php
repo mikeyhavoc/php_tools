@@ -72,7 +72,7 @@
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="pages/chisels.html">chisels</a>
+            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/chisels.php')); ?>">chisels</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
@@ -84,24 +84,17 @@
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="pages/visegrips.html">Vise Grips</a>
+            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/visegrips.php')); ?>">Vise Grips</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
             <a href="pages/blades.html">Blades</a>
           </button>
-
-
         </nav>
+
         <section class="visible-xs visible-sm">
-
-
-
             </div>
             <div class="dropdown">
-<!--                <button class="btn btn-primary navbar-toggle" type="button" date-toggle="dropdown" data-target="#miniMenu">-->
-<!--                    <span class="caret"></span>-->
-<!--                </button>-->
                 <div class="dropdown col-xs-2">
                     <button class="btn btn-default dropdown-toggle type=button" id="minimenu" data-toggle="dropdown"><span class="caret"></span></button>
                     <ul class="dropdown-menu" role="menu" aria-labeledby="minimenu">
@@ -178,7 +171,7 @@
                         </li>
 
                         <li>
-                            <a href="pages/chisels.html">chisels</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/chisels.php')); ?>">chisels</a>
                         </li>
 
                         <li>
@@ -190,7 +183,7 @@
                         </li>
 
                         <li>
-                            <a href="pages/visegrips.html">Vise Grips</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/visegrips.php')); ?>">Vise Grips</a>
                         </li>
 
                         <li>
@@ -199,12 +192,4 @@
                     </ul>
                 </div>
             </div>
-
         </section>
-
-
-
-
-        </div>
-        </div>
-
