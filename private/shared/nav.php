@@ -41,7 +41,7 @@
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/extensions.html">Extensions</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/extensions.php')); ?>">Extensions</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
@@ -146,7 +146,7 @@
                         </li>
 
                         <li>
-                            <a href="pages/extensions.html">Extensions</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/page/extensions.php')); ?>">Extensions</a>
                         </li>
 
                         <li>
