@@ -76,11 +76,11 @@
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="pages/hammers">Hammers</a>
+            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/hammers.php')); ?>">Hammers</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="pages/spoons.html">spoons</a>
+            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/spoons.php')); ?>">spoons</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
@@ -182,11 +182,11 @@
                         </li>
 
                         <li>
-                            <a href="pages/hammers">Hammers</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/hammers.php')); ?>">Hammers</a>
                         </li>
 
                         <li>
-                            <a href="pages/spoons.html">spoons</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/page/spoons.php')); ?>">spoons</a>
                         </li>
 
                         <li>
