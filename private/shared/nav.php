@@ -5,11 +5,11 @@
                 <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>">Wrenches</a>
             </button>
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/files.html">Files</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/files.php')); ?>">Files</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="pages/pliers.html">Pliers</a>
+                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/pliers.php')); ?>">Pliers</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
@@ -110,11 +110,11 @@
                         </li>
 
                         <li>
-                            <a href="pages/files.html">Files</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/files.php')); ?>">Files</a>
                         </li>
 
                         <li>
-                            <a href="pages/pliers.html">Pliers</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/files.php')); ?>">Pliers</a>
                         </li>
 
                         <li>
