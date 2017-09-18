@@ -5,18 +5,15 @@
  * Date: 8/18/17
  * Time: 10:56 AM
  */
-$user = '';
-$pass = '';
+$user = 'mikey';
+$pass = 'DroidsLie#9';
 $base = 'gary';
-$dsn = 'mysql:host=localhost;dbname=gary';
+$host = 'localhost';
 
 
 
 try {
-    $con = new PDO($dsn, $user, $pass);
+    $mysqli = new MySQLi('localhost', 'mikey', 'DroidsLie#9', 'Tools');
 }catch(Exception $e){
     echo $error = $e->getMessage();
-
-
 }
-?>
