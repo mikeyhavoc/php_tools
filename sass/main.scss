@@ -1,18 +1,43 @@
+/******* variables *******/
+@mixin box-size { box-sizing: border-box; }
+@mixin info { font-size: 1.2em;  padding: 1em 0.75em;
+
+$color-black: #000000;
+$logo-font: 4.75em;
+
+$card-background: lightgrey;
+
+
+$tool-btn-background: lightcoral;
+$tool-btn-radius: 39px 0px 72px 0px;
+
+$font-stack-family: 'Sirin Stencil', cursive;
+
+$global-width: 100%;
+
+
+/**** end variables   ******/
+
 html {
-  box-sizing: border-box;
+  @include box-size;
 }
-*, *:before, *:after {
-  boxsizing: inherit;
+
+* { @include box-size;
+
+  &:before { @include box-size; }
+
+
+  &:after { @include box-size;  }
 }
 
 .tools { /* Gary's Tool List TITLE */
-  font-family: 'Sirin Stencil', cursive;
-  font-size: 4.75em;
-  background : lightcoral;
-  border-radius: 39px 0px 72px 0px;
-  -moz-border-radius: 39px 0px 72px 0px;
-  -webkit-border-radius: 39px 0px 72px 0px;
-  border: 7px double #000000;
+  font-family: $font-stack-family;
+  font-size: $logo-font;
+  background : $tool-btn-background;
+  border-radius: $tool-btn-radius;
+  -moz-border-radius: $tool-btn-radius;
+  -webkit-border-radius: $tool-btn-radius;
+  border: 7px double $color-black;
 
 }
 img {
@@ -20,8 +45,8 @@ img {
 }
 .card {
   padding: 0.75em;
-  width: 100%;
-  background: lightgrey;
+  width: $global-width;
+  background: $card-background;
   border-radius: 5%;
   border: 1px solid red;
   margin-bottom: 1.75em;
@@ -30,10 +55,7 @@ img {
 
 .half { width: 50%; border-radius: 5%; }
 
-.info, .tool-info {
-  font-size: 1.2em;
-  padding: 1em 0.75em;
-}
+.info, .tool-info { @include info; }
 
 .large { font-size: 3em; }
 
