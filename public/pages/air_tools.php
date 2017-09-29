@@ -11,25 +11,29 @@
     if ($mysqli->connect_error) {
         die("$mysqli->connect_errno: $mysqli->connect_error");
     }
-    $query = 'SELECT t.item, t.price, t.sold, i.image, b.brand FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id JOIN Brands AS b ON t.b_id = b.b_id';
-    $stmt = $mysqli->query($query)
-/* prepare statement */
 
-
-    /* Bind variable for placeholder */
-
-
-
-    /* execute statement */
-  ;
-
-    printf("rows inserted: %d\n", $stmt = $mysqli->affected_rows);
-
-    /* close statement */
+    $query = "SELECT t.item, t.price, t.sold, i.image, b.brand, c.category FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id JOIN Brands AS b ON t.b_id = b.b_id JOIN Categories AS c ON t.c_id = c.c_id WHERE c.category LIKE 'wren%'";
+//    $stmt = $mysqli->query($query)
+?>
+<?php
+if ($mysqli->multi_query($query)) {
+    do {
+        if ($result = $mysqli->use_result()) {
+            while ($row = $result->fetch_row()) {
+?>
+                Item: <?php echo $row[0]; ?><br>
+                Brand: <?php echo $row[4]; ?><br>
+                Price: <?php echo $row[1]; ?><br>
+                <?php $result->close(); ?>
+                            <?php } // end inner while block?>
+                            <?php  $result->close(); ?>
+                        <?php      }
+    } while ($mysqli->next_result());
     $mysqli->close();
+} ?>
 
 
-
+<?php
 
 require(SHARED_PATH . '/header.php');
 require(SHARED_PATH . '/nav.php');
@@ -61,25 +65,29 @@ require(SHARED_PATH . '/nav.php');
             <div class="row">
 
                 <?php
-                if (isset($stmt)) {
-                foreach ($stmt as $tool) : { ?>
+                if ($mysqli->multi_query($query)) {
+                        do{
+                            if ($result = $mysqli->use_result()) {
+                                while ($row = $result->fetch_row()); { ?>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <article class="card">
-                        <img src="<?php echo url_for($tool['image']); ?>" alt="air tool" class="half img-thumbnail img-responsive center-block">
+<!--                        <img src="--><?php //echo url_for($row[2]); ?><!--" alt="air tool" class="half img-thumbnail img-responsive center-block">-->
                         <p class="text-center">
-                            Item: <?php echo $tool['i.item']; ?><br>
-                            Brand: <?php echo $tool['b.brand']; ?><br>
-                            Price: <?php echo $tool['t.price']; ?><br>
+                            Item: <?php echo $row[0]; ?><br>
+                            Brand: <br>
+                            Price: <?php echo $row[1]; ?><br>
                             <button class="btn btn-default btn-lg">
-                                <a href="#"><?php echo $tool['t.item']; ?></a>
+                                <a href="#"></a>
                             </button>
                         </p>
-
                     </article>
-
                 </div>
-                <?php } endforeach; ?>
-                <?php } ?>
+                              <?php } // end inner while block?>
+                              <?php  $result->close(); ?>
+                         <?php   }
+                    }while($mysqli->next_result()); // end while block?>
+                <?php } // end if multi_query?>
+
 
             </div>
 
