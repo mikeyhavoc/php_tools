@@ -28,7 +28,7 @@
 
 
 
-
+<script src="<?php url_for('public/js/vendor/modernizr-2.8.9-respond-1.4.2.min.js'); ?>"></script>
 <script
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
