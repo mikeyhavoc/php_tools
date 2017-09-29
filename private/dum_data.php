@@ -19,7 +19,7 @@ $tools = [
         "price" => "150.00",
         "description" => "This was a shop set and is in great shape.",
         "thumb" => "images/thumbs/wrench/g1_wrench.jpg",
-        "regular_img" => "images/med_img/wrench/g1_wrench.jpg"
+        "regular_img" => "IMAGES . 'images/med_img/wrench/g1_wrench.jpg'"
 
     ],
     [
@@ -35,7 +35,22 @@ $tools = [
         "price" => "150.00",
         "description" => "this is an unused home set.",
         "thumb" => "images/thumbs/wrench/a2_wrench.jpg",
-        "regular_img" => "images/med_img/wrench/a2_wrench.jpg"
+        "regular_img" => "IMAGES . 'images/med_img/wrench/a2_wrench.jpg'"
+    ],
+    [
+        "item" => "x36",
+        "type" => "sockets",
+        "size" => "19mm - 50mm",
+        "brand" => "Tekton",
+        "style" => [
+            "sockets", "plus extras"
+        ],
+        "piece" => "21",
+        "retail" => "138.00",
+        "price" => "50.00",
+        "description" => "This docket set comes with two ratchets, extension braker, and case. Was a work set but very littl use. Works well.",
+        "thumb" => "images/thumbs/socket/x36_socket.jpg",
+        "regular_img" => "IMAGES. 'images/med_img/socket/x36_socket.jpg'"
     ],
     [
         "item" => "g4",
@@ -66,7 +81,8 @@ $tools = [
         "description" => "Little or no use for this home set, these are lifetime tools.",
         "thumb" => "images/thumbs/wrench/ii5_wrench.jpg",
         "regular_img" => "images/med_img/wrench/ii5_wrench.jpg"
-    ]
+    ],
+
 
 
 ];
