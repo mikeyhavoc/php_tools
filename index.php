@@ -45,7 +45,7 @@ require(SHARED_PATH . '/nav.php');
                         <article class="card">
 
                             <h3 class="text-center">
-                                <a class="btn btn-lg btn-danger" href="<?php echo rawurldecode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>" >
+                                <a class="btn btn-lg btn-danger" href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>" >
                                     Wrenches
                                 </a>
                             </h3>
@@ -72,7 +72,7 @@ require(SHARED_PATH . '/nav.php');
                                 Tool Type: Sockets.<br>
                             </p>
                             <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>">
-                                <img class="center-block img-responsive img- img-rounded" src="<?php echo rawurlencode(url_for(  IMAGES . '/images/med_img/socket/i322_socket-1.jpg')); ?>" >
+                                <img class="center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/images/med_img/socket/i322_socket-1.jpg'); ?>" >
                             </a>
                         </article>
                     </div><!--/ item one -->
@@ -91,7 +91,7 @@ require(SHARED_PATH . '/nav.php');
                                 Tool Type: Air drills, etc.<br>
                             </p>
                             <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/air_tools.php')); ?>">
-                                <img class="center-block img-responsive img- img-rounded" src="<?php echo rawurlencode(url_for(  IMAGES . '/images/med_img/air/b48_air.jpg')); ?>" >
+                                <img class="center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/images/med_img/air/b48_air.jpg'); ?>" >
                             </a>
                         </article>
                     </div>
