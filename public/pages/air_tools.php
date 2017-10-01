@@ -16,20 +16,6 @@ require_once '../../private/connection.php';
 
 
 ?>
-<pre>
-    <?php
-       if ($result = $mysqli->query($query)) {
-           while($obj = $result->fetch_object()) {
-               echo 'item ' . $obj->item . '<br>';
-               echo 'price ' .  $obj->price . '<br>'; ?>
-           <img src="<?php echo url_for(IMAGES . $obj->image); ?>"  alt="y31">
-    <?php   }
-       } mysqli_free_result($query);
-     ?>
-</pre>
-
-
-
 
 <?php
 
@@ -64,14 +50,14 @@ require(SHARED_PATH . '/nav.php');
 
                 <?php
                 if ($result = $mysqli->query($query)) {
-                    while ($tool = $result->fetch_object()); { ?>
+                    while ($obj = $result->fetch_object()) { ?>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <article class="card">
-                        <img src="<?php echo url_for(IMAGES . $tool->image); ?>" alt="air tool" class="half img-thumbnail img-responsive center-block">
+                        <img src="<?php echo url_for(IMAGES . $obj->image); ?>" alt="air tool" class="half img-thumbnail img-responsive center-block">
                         <p class="text-center">
-                            Item: <?php echo $tool->item; ?><br>
+                            Item: <?php echo $obj->item; ?><br>
                             Brand: <br>
-                            Price: <?php echo $tool->price; ?><br>
+                            Price: <?php echo $obj->price; ?><br>
                             <button class="btn btn-default btn-lg">
                                 <a href="#"></a>
                             </button>
@@ -79,7 +65,7 @@ require(SHARED_PATH . '/nav.php');
                     </article>
                 </div>
                               <?php } // end inner while block?>
-                              <?php  mysqli_free_result($query); ?>
+                              <?php  mysqli_free_result($result); ?>
                          <?php   } ?>
 
 
