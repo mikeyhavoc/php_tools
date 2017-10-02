@@ -1,4 +1,6 @@
-<?php require_once('../../private/initialize.php'); ?>
+<?php require_once('../../private/initialize.php');
+      require_once '../../private/connection.php';
+?>
 <?php
 /**
  * Created by PhpStorm.
@@ -6,9 +8,16 @@
  * Date: 8/21/17
  * Time: 7:02 PM
  */
-// dummy data testing !! take out for database later
-require(PRIVATE_PATH . '/dum_data.php');
-// !! future removal
+
+    $wrench = 'wren%';
+    $query = "SELECT t.item AS item, t.price AS price, t.sold AS sold, b.brand AS brand,
+          c.category AS category FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id
+          JOIN Brands AS b ON t.b_id = b.b_id JOIN Categories AS c ON t.c_id = c.c_id 
+          WHERE category LIKE 'wren%'";
+
+
+
+
 
 
 require(SHARED_PATH . '/header.php');
@@ -37,25 +46,26 @@ require(SHARED_PATH . '/nav.php');
     <main>
         <section class="container-fluid">
 
-            <div class="row">
-                <?php foreach ($tools as $tool) : { ?>
+            <?php
+             if ($result = $mysqli->query($query)) {
+                while ($obj = $result->fetch_object()) { ?>
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <article class="card">
-                            <img src="<?php echo url_for(IMAGES . '/images/med_img/air/b48_air.jpg'); ?>" alt="air tool" class="half img-thumbnail img-responsive center-block">
+                            <img src="<?php echo url_for(IMAGES . $obj->image); ?>" alt="air tool" class="half img-thumbnail img-responsive center-block">
                             <p class="text-center">
-                                Item: <?php echo $tool['item']; ?><br>
-                                Brand: <?php echo $tool['brand']; ?><br>
-                                Price: <?php echo $tool['price']; ?><br>
-                                <button class="btn btn-default btn-lg">
-                                    <a href="#"><?php echo $tool['item']; ?></a>
+                                Item: <?php echo $obj->item; ?><br>
+                                Brand: <br>
+                                Price: <?php echo $obj->price; ?><br>
+                                <button class="btn btn-default btn-lg" value="<?php echo $obj->item; ?>">
+                                    <a href="#"><?php echo $obj->item; ?></a>
                                 </button>
                             </p>
-
                         </article>
-
                     </div>
-                <?php } endforeach; ?>
-            </div>
+                <?php } // end inner while block?>
+                <?php  mysqli_free_result($result); ?>
+                 <?php } ?>
+
 
         </section>
     </main>
