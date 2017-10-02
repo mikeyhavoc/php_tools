@@ -58,8 +58,8 @@ require(SHARED_PATH . '/nav.php');
                             Item: <?php echo $obj->item; ?><br>
                             Brand: <br>
                             Price: <?php echo $obj->price; ?><br>
-                            <button class="btn btn-default btn-lg">
-                                <a href="#"></a>
+                            <button class="btn btn-default btn-lg" value="<?php echo $obj->item; ?>">
+                                <a href="#"><?php echo $obj->item; ?></a>
                             </button>
                         </p>
                     </article>
