@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "../../sass/main.css",
+	"sources": [
+		"../../sass/main.scss"
+	],
+	"sourcesContent": [
+		"/******* variables *******/\n@mixin box-size { box-sizing: border-box; }\n@mixin info { font-size: 1.2em;  padding: 1em 0.75em;}\n\n$color-black: #000000;\n$logo-font: 4.75em;\n\n$card-background: lightgrey;\n\n\n$tool-btn-background: lightcoral;\n$tool-btn-radius: 39px 0px 72px 0px;\n\n$border-radius: 5%;\n\n$font-stack-family: 'Sirin Stencil', cursive;\n\n$global-width: 100%;\n$global-half-width: 50%;\n\n\n/**** end variables   ******/\n\nhtml {\n  @include box-size;\n}\n\n* { @include box-size;\n\n  &:before { @include box-size; }\n\n\n  &:after { @include box-size;  }\n}\n\n.tools { /* Gary's Tool List TITLE */\n  font-family: $font-stack-family;\n  font-size: $logo-font;\n  background : $tool-btn-background;\n  border-radius: $tool-btn-radius;\n  -moz-border-radius: $tool-btn-radius;\n  -webkit-border-radius: $tool-btn-radius;\n  border: 7px double $color-black;\n\n}\n\nimg {\n  border-radius: $border-radius;\n}\n.card {\n  padding: 0.75em;\n  width: $global-width;\n  background: $card-background;\n  border-radius: $border-radius;\n  border: 1px solid red;\n  margin-bottom: 1.75em;\n\n}\n\n.half { width: $global-half-width; border-radius: $border-radius; }\n\n.info, .tool-info { @include info; }\n\n.large { font-size: 3em; }\n\n.f-right {  float: right;  padding: 1em 2em 1em; }"
+	],
+	"mappings": "AAAA,2BAA2B;AAqB3B,6BAA6B;;AAE7B,AAAA,IAAI,CAAC;EAtBa,UAAU,EAAE,UAAW;CAwBxC;;;AAED,AAAA,CAAC,CAAC;EA1BgB,UAAU,EAAE,UAAW;CAgCxC;;;AAND,AAAA,CAAC,AAEE,OAAO,CAAC;EA5BO,UAAU,EAAE,UAAW;CA4BP;;;AAFlC,AAAA,CAAC,AAKE,MAAM,CAAC;EA/BQ,UAAU,EAAE,UAAW;CA+BP;;;AAGlC,AAAA,MAAM,CAAC;EAAE,4BAA4B;EACnC,WAAW,EArBO,eAAe,EAAE,OAAO;EAsB1C,SAAS,EAhCC,MAAM;EAiChB,UAAU,EA5BU,UAAU;EA6B9B,aAAa,EA5BG,IAAI,CAAC,GAAG,CAAC,IAAI,CAAC,GAAG;EA6BjC,kBAAkB,EA7BF,IAAI,CAAC,GAAG,CAAC,IAAI,CAAC,GAAG;EA8BjC,qBAAqB,EA9BL,IAAI,CAAC,GAAG,CAAC,IAAI,CAAC,GAAG;EA+BjC,MAAM,EAAE,GAAG,CAAC,MAAM,CAtCN,OAAO;CAwCpB;;;AAED,AAAA,GAAG,CAAC;EACF,aAAa,EAlCC,EAAE;CAmCjB;;;AACD,AAAA,KAAK,CAAC;EACJ,OAAO,EAAE,MAAO;EAChB,KAAK,EAlCQ,IAAI;EAmCjB,UAAU,EA7CM,SAAS;EA8CzB,aAAa,EAxCC,EAAE;EAyChB,MAAM,EAAE,aAAc;EACtB,aAAa,EAAE,MAAO;CAEvB;;;AAED,AAAA,KAAK,CAAC;EAAE,KAAK,EAzCO,GAAG;EAyCY,aAAa,EA9ChC,EAAE;CA8CkD;;;AAEpE,AAAA,KAAK,EAAE,AAAA,UAAU,CAAC;EA3DJ,SAAS,EAAE,KAAM;EAAG,OAAO,EAAE,UAAW;CA2DjB;;;AAErC,AAAA,MAAM,CAAC;EAAE,SAAS,EAAE,GAAI;CAAI;;;AAE5B,AAAA,QAAQ,CAAC;EAAG,KAAK,EAAE,KAAM;EAAG,OAAO,EAAE,WAAY;CAAI",
+	"names": []
+}
