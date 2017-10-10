@@ -11,7 +11,7 @@
 
     $wrench = 'wren%';
     $query = "SELECT t.item AS item, t.price AS price, t.sold AS sold, b.brand AS brand,
-          c.category AS category FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id
+          c.category AS category, i.image as image FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id
           JOIN Brands AS b ON t.b_id = b.b_id JOIN Categories AS c ON t.c_id = c.c_id 
           WHERE category LIKE 'wren%'";
 
@@ -48,16 +48,16 @@ require(SHARED_PATH . '/nav.php');
 
             <?php
              if ($result = $mysqli->query($query)) {
-                while ($obj = $result->fetch_object()) { ?>
+                while ($wrench = $result->fetch_object()) { ?>
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <article class="card">
-                            <img src="<?php echo url_for(IMAGES . $obj->image); ?>" alt="air tool" class="half img-thumbnail img-responsive center-block">
+                            <img src="<?php echo url_for(IMAGES . $wrench->image); ?>" alt="wrench" class="box-size-images img-thumbnail img-responsive center-block">
                             <p class="text-center">
-                                Item: <?php echo $obj->item; ?><br>
+                                Item: <?php echo $wrench->item; ?><br>
                                 Brand: <br>
-                                Price: <?php echo $obj->price; ?><br>
-                                <button class="btn btn-default btn-lg" value="<?php echo $obj->item; ?>">
-                                    <a href="#"><?php echo $obj->item; ?></a>
+                                Price: <?php echo $wrench->price; ?><br>
+                                <button class="btn btn-default btn-lg" value="<?php echo $wrench->item; ?>">
+                                    <a href="#"><?php echo $wrench->item; ?></a>
                                 </button>
                             </p>
                         </article>
