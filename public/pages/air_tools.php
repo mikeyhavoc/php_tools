@@ -53,7 +53,7 @@ require(SHARED_PATH . '/nav.php');
                     while ($obj = $result->fetch_object()) { ?>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <article class="card">
-                        <img src="<?php echo url_for(IMAGES . $obj->image); ?>" alt="air tool" class="half img-thumbnail img-responsive center-block">
+                        <img src="<?php echo url_for(IMAGES . $obj->image); ?>" alt="air tool" class="box-size-images img-thumbnail img-responsive center-block">
                         <p class="text-center">
                             Item: <?php echo $obj->item; ?><br>
                             Brand: <br>
