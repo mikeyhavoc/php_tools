@@ -88,7 +88,7 @@
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="pages/blades.html">Blades</a>
+            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/blades.php')); ?>">Blades</a>
           </button>
         </nav>
 
@@ -187,7 +187,7 @@
                         </li>
 
                         <li>
-                            <a href="pages/blades.html">Blades</a>
+                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/blades.php')); ?>">Blades</a>
                         </li>
                     </ul>
                 </div>
