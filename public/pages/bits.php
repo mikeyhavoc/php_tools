@@ -1,4 +1,5 @@
 <?php require_once('../../private/initialize.php'); ?>
+
 <?php
 /**
  * Created by PhpStorm.
@@ -6,9 +7,9 @@
  * Date: 9/7/17
  * Time: 12:15 PM
  */
-// dummy data testing !! take out for database later
-require(PRIVATE_PATH . '/dum_data.php');
-// !! future removal
+
+
+$sql = "SELECT t.item as item, t.price as price, t.sold as sold, i.image as image, b.brand as brand, c.category as category FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id JOIN Brands AS b ON t.b_id = b.b_id JOIN Categories AS c ON t.c_id = c.c_id WHERE category like 'bit%'";
 
 
 require(SHARED_PATH . '/header.php');
@@ -38,23 +39,25 @@ require(SHARED_PATH . '/nav.php');
         <section class="container-fluid">
 
             <div class="row">
-                <?php foreach ($tools as $tool) : { ?>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <article class="card">
-                            <img src="<?php echo url_for(IMAGES . '/images/med_img/air/b48_air.jpg'); ?>" alt="air tool" class="half img-thumbnail img-responsive center-block">
-                            <p class="text-center">
-                                Item: <?php echo $tool['item']; ?><br>
-                                Brand: <?php echo $tool['brand']; ?><br>
-                                Price: <?php echo $tool['price']; ?><br>
-                                <button class="btn btn-default btn-lg">
-                                    <a href="#"><?php echo $tool['item']; ?></a>
-                                </button>
-                            </p>
-
-                        </article>
-
-                    </div>
-                <?php } endforeach; ?>
+                <?php
+                if ($result = $mysqli->query($sql)) {
+                    while ($bits = $result->fetch_object()) { ?>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <article class="card">
+                                <img src="<?php echo url_for(IMAGES .  $bits->image); ?>" alt="bits" class="box-size-images img-thumbnail img-responsive center-block">
+                                <p class="text-center">
+                                    Item: <?php echo $bits->item; ?><br>
+                                    Brand: <br>
+                                    Price: <?php echo $bits->price; ?><br>
+                                    <button class="btn btn-default btn-lg" value="<?php echo $bits->item; ?>">
+                                        <a href="#"><?php echo $bits->item; ?></a>
+                                    </button>
+                                </p>
+                            </article>
+                        </div>
+                    <?php } // end inner while block?>
+                    <?php  mysqli_free_result($result); ?>
+                <?php } ?>
             </div>
 
         </section>
