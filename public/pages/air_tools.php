@@ -9,8 +9,7 @@
 
 
 
-    $query = "SELECT t.item as item, t.price as price, t.sold as sold, i.image as image, b.brand as brand, c.category as category FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id JOIN Brands AS b ON t.b_id = b.b_id JOIN Categories AS c ON t.c_id = c.c_id WHERE category like 'air%'";
-require_once '../../private/connection.php';
+    $query = "SELECT t.item as item, t.price as price, t.sold as sold, i.image as image, b.brand as brand, c.category as category FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id JOIN Brands AS b ON t.b_id = b.b_id JOIN Categories AS c ON t.c_id = c.c_id WHERE category like 'pry%'";
 ?>
 <?php
 
@@ -53,7 +52,7 @@ require(SHARED_PATH . '/nav.php');
                     while ($obj = $result->fetch_object()) { ?>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <article class="card">
-                        <img src="<?php echo url_for(IMAGES . $obj->image); ?>" alt="air tool" class="box-size-images img-thumbnail img-responsive center-block">
+                        <img src="<?php echo url_for($obj->image); ?>" alt="air tool" class="size-image-width size-image img-thumbnail img-responsive center-block">
                         <p class="text-center">
                             Item: <?php echo $obj->item; ?><br>
                             Brand: <br>
