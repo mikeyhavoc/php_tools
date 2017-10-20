@@ -44,7 +44,7 @@ require(SHARED_PATH . '/nav.php');
                     while ($bits = $result->fetch_object()) { ?>
                         <div class="col-xs-12 col-sm-6 col-md-3">
                             <article class="card">
-                                <img src="<?php echo url_for(IMAGES .  $bits->image); ?>" alt="bits" class="box-size-images img-thumbnail img-responsive center-block">
+                                <img src="<?php echo url_for(IMAGES .  $bits->image); ?>" alt="bits" class="box-size-images  img-thumbnail img-responsive center-block">
                                 <p class="text-center">
                                     Item: <?php echo $bits->item; ?><br>
                                     Brand: <br>
