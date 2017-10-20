@@ -38,4 +38,5 @@ define("IMAGES", WWW_ROOT . '/public/');
 
 require_once('functions.php');
 require_once('connection.php');
+require_once('Items.php');
 
