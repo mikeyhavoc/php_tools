@@ -1,14 +1,23 @@
 <?php require_once('../../private/initialize.php'); ?>
 <?php
-/**
- * Created by PhpStorm.
- * User: mike
- * Date: 9/7/17
- * Time: 4:06 PM
- */
-// dummy data testing !! take out for database later
-require(PRIVATE_PATH . '/dum_data.php');
-// !! future removal
+
+$query = "SELECT t.item as item, t.price as price, t.sold as sold, i.image as image, b.brand as brand, c.category as category FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id JOIN Brands AS b ON t.b_id = b.b_id JOIN Categories AS c ON t.c_id = c.c_id WHERE category like 'cable%'";
+
+$cable_query = $mysqli->query($query);
+while ( $rows = mysqli_fetch_array($cable_query)) {
+    var_dump($rows);
+}
+    if ( isset($rows) ){
+
+    }
+
+$cable = new Item();
+
+
+
+
+
+
 
 
 require(SHARED_PATH . '/header.php');
