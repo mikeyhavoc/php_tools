@@ -40,13 +40,25 @@ img {
   margin-bottom: 1.75em;
 }
 
-.box-size-images {
+.box-image-width {
   width: 150px;
+}
+
+.box-blade-width {
+  width: 200px;
+}
+
+.box-image-height {
   height: 150px;
 }
 
 .half {
   width: 50%;
+  border-radius: 5%;
+}
+
+.third {
+  width: 75%;
   border-radius: 5%;
 }
 
