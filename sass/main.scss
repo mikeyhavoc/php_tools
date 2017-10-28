@@ -1,6 +1,6 @@
 /******* variables *******/
 @mixin box-size { box-sizing: border-box; }
-@mixin info { font-size: 1.2em;  padding: 1em 0.75em;
+@mixin info { font-size: 1.2em;  padding: 1em 0.75em;}
 
 $color-black: #000000;
 $logo-font: 4.75em;
@@ -11,9 +11,18 @@ $card-background: lightgrey;
 $tool-btn-background: lightcoral;
 $tool-btn-radius: 39px 0px 72px 0px;
 
+$border-radius: 5%;
+
 $font-stack-family: 'Sirin Stencil', cursive;
 
 $global-width: 100%;
+$global-third-width: 75%;
+$global-half-width: 50%;
+
+
+$mini-image-size-width:   150px;
+$mini-image-size-height:  150px;
+$mini-image-size-blade: 200px;
 
 
 /**** end variables   ******/
@@ -40,26 +49,30 @@ html {
   border: 7px double $color-black;
 
 }
+
 img {
-  border-radius: 5%;
+  border-radius: $border-radius;
 }
 .card {
   padding: 0.75em;
   width: $global-width;
   background: $card-background;
-  border-radius: 5%;
+  border-radius: $border-radius;
   border: 1px solid red;
   margin-bottom: 1.75em;
 
 }
 
-.half { width: 50%; border-radius: 5%; }
+.box-image-width { width: $mini-image-size-height; }
+.box-blade-width { width: $mini-image-size-blade; }
+.box-image-height { height: $mini-image-size-width; }
+
+.half { width: $global-half-width; border-radius: $border-radius; }
+
+.third { width: $global-third-width; border-radius: $border-radius; }
 
 .info, .tool-info { @include info; }
 
 .large { font-size: 3em; }
 
-.f-right {
-  float: right;
-  padding: 1em 2em 1em;
-}
+.f-right {  float: right;  padding: 1em 2em 1em; }
