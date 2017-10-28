@@ -53,7 +53,7 @@ require(SHARED_PATH . '/nav.php');
                                 Tool Type: Mostly wrench sets some singles.<br>
                             </p>
                             <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>">
-                                <img class="center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/images/med_img/wrench/a2_wrench.jpg'); ?>" >
+                                <img class="third center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/images/imgs/wrenches/a2_wrench.jpg'); ?>" >
                             </a>
                         </article>
                     </div><!--/ item one -->
