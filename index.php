@@ -45,14 +45,14 @@ require(SHARED_PATH . '/nav.php');
                         <article class="card">
 
                             <h3 class="text-center">
-                                <a class="btn btn-lg btn-danger" href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>" >
+                                <a class="btn btn-lg btn-danger" href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=wrenches'); ?>" >
                                     Wrenches
                                 </a>
                             </h3>
                             <p class="text-center">
                                 Tool Type: Mostly wrench sets some singles.<br>
                             </p>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>">
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=wrenches'); ?>">
                                 <img class="third center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/images/imgs/wrenches/a2_wrench.jpg'); ?>" >
                             </a>
                         </article>
