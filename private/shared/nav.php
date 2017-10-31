@@ -127,7 +127,7 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=drills'); ?>">Drills</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=drills'); ?>">Drills</a>
                         </li>
 
                         <li>
