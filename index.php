@@ -83,14 +83,14 @@ require(SHARED_PATH . '/nav.php');
                         <article class="card">
 
                             <h3 class="text-center">
-                                <a class="btn btn-lg btn-danger" href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/air_tools.php')); ?>" >
+                                <a class="btn btn-lg btn-danger" href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=air_tools'); ?>" >
                                     Air Tools
                                 </a>
                             </h3>
                             <p class="text-center">
                                 Tool Type: Air drills, etc.<br>
                             </p>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/air_tools.php')); ?>">
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=air_tools'); ?>">
                                 <img class="center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/images/med_img/air/b48_air.jpg'); ?>" >
                             </a>
                         </article>
