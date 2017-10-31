@@ -99,95 +99,95 @@
                     <button class="btn btn-default dropdown-toggle type=button" id="minimenu" data-toggle="dropdown"><span class="caret"></span></button>
                     <ul class="dropdown-menu" role="menu" aria-labeledby="minimenu">
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>">Wrenches</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=wrenches'); ?>">Wrenches</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/files.php')); ?>">Files</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=files'); ?>">Files</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/files.php')); ?>">Pliers</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=pliers'); ?>">Pliers</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/bits.php')); ?>">Bits</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=bits'); ?>">Bits</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/air_tools.php')); ?>">Air Tools</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=air_tools'); ?>">Air Tools</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/ratchets.php')); ?>">Ratchets</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=ratchets'); ?>">Ratchets</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/crimps.php')); ?>">Crimps</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=crimps'); ?>">Crimps/Cutters</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/drills.php')); ?>">Drills</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=drills'); ?>">Drills</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/sockets.php')); ?>">Sockets</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=sockets'); ?>">Sockets</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/removers.php')); ?>">Removers</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=removers'); ?>">Removers</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/extensions.php')); ?>">Extensions</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=extensions'); ?>">Extensions</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/screwdrivers.php')); ?>">Screwdrivers</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=screwdrivers'); ?>">Screwdrivers</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/bars.php')); ?>">pry and pic bars</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=bars'); ?>">pry and pic bars</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/cables.php')); ?>">cables</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=cables'); ?>">cables</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/jacks.php')); ?>">Jacks</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=jacks'); ?>">Jacks</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/misc.php')); ?>">Misc Tools</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=misc'); ?>">Misc Tools</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/discs.php')); ?>">Discs</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=discs'); ?>">Discs</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/clamps.php')); ?>">Clamps/hooks/chains</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=cch'); ?>">Clamps/hooks/chains</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/chisels.php')); ?>">chisels</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=chisels'); ?>">chisels</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/hammers.php')); ?>">Hammers</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=hammers'); ?>">Hammers</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/page/spoons.php')); ?>">spoons</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=spoons'); ?>">spoons</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/visegrips.php')); ?>">Vise Grips</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=vise_grips'); ?>">Vise Grips</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/blades.php')); ?>">Blades</a>
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?=blades'); ?>">Blades</a>
                         </li>
                     </ul>
                 </div>
