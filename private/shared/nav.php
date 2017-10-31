@@ -29,7 +29,7 @@
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=drils'); ?>">Drills</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=drills'); ?>">Drills</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
