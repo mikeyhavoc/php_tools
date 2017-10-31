@@ -9,7 +9,7 @@
 // dummy data testing !! take out for database later
 require(PRIVATE_PATH . '/dum_data.php');
 // !! future removal
-
+$page_title = 'Gary\'s Tool Site';
 
 require(SHARED_PATH . '/header.php');
 require(SHARED_PATH . '/nav.php');
