@@ -2,93 +2,93 @@
         <nav class=" hidden-sm hidden-xs col-xs-12 col-sm-10">
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=wrenches')); ?>">Wrenches</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=wrenches'); ?>">Wrenches</a>
             </button>
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=files')); ?>">Files</a>
-            </button>
-
-            <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=pliers')); ?>">Pliers</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=files'); ?>">Files</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=bits')); ?>">Bits</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=pliers'); ?>">Pliers</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=air_tools')); ?>">Air Tools</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=bits'); ?>">Bits</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=ratchets')); ?>">Ratchets</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=air_tools'); ?>">Air Tools</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=crimps')); ?>">Crimps/Cutters</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=ratchets'); ?>">Ratchets</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=drils')); ?>">Drills</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=crimps'); ?>">Crimps/Cutters</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=sockets')); ?>">Sockets</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=drils'); ?>">Drills</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=removers')); ?>">Removers</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=sockets'); ?>">Sockets</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=extensions')); ?>">Extensions</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=removers'); ?>">Removers</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=screwdrivers')); ?>">Screwdrivers</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=extensions'); ?>">Extensions</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=bars')); ?>">pry and pic bars</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=screwdrivers'); ?>">Screwdrivers</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=cables')); ?>">cables</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=bars'); ?>">pry and pic bars</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=jacks')); ?>">Jacks</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=cables'); ?>">cables</a>
             </button>
 
             <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=misc')); ?>">Misc Tools</a>
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=jacks'); ?>">Jacks</a>
+            </button>
+
+            <button type="button" class="btn btn-lg btn-default">
+                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=misc'); ?>">Misc Tools</a>
             </button>
           <button type="button" class="btn btn-lg btn-default">
-            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=discs')); ?>">Discs</a>
+            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=discs'); ?>">Discs</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=cch')); ?>">Clamps/Chains/Hooks</a>
+            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=cch'); ?>">Clamps/Chains/Hooks</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=chisels')); ?>">chisels</a>
+            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=chisels'); ?>">chisels</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=hammers')); ?>">Hammers</a>
+            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=hammers'); ?>">Hammers</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=spoons')); ?>">spoons</a>
+            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=spoons'); ?>">spoons</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=vise_grips')); ?>">Vise Grips</a>
+            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=vise_grips'); ?>">Vise Grips</a>
           </button>
 
           <button type="button" class="btn btn-lg btn-default">
-            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'catalog.php?cat=blades')); ?>">Blades</a>
+            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=blades'); ?>">Blades</a>
           </button>
         </nav>
 
