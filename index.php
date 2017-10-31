@@ -64,14 +64,14 @@ require(SHARED_PATH . '/nav.php');
                         <article class="card">
 
                             <h2 class="text-center">
-                                <a class="btn btn-lg btn-danger" href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/sockets.php')); ?>" >
+                                <a class="btn btn-lg btn-danger" href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=sockets'); ?>" >
                                     Sockets
                                 </a>
                             </h2>
                             <p class="text-center">
                                 Tool Type: Sockets.<br>
                             </p>
-                            <a href="<?php echo rawurlencode(url_for(WWW_ROOT . 'public/pages/wrenches.php')); ?>">
+                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=sockets'); ?>">
                                 <img class="center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/images/med_img/socket/i322_socket-1.jpg'); ?>" >
                             </a>
                         </article>
