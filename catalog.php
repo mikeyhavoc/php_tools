@@ -8,6 +8,31 @@
  * Time: 7:52 PM
  */
 
+$cats_table = [
+    'wrenches' => 'Wrenches',
+    'files' => 'Files',
+    'bits' => 'Bits',
+    'air_tools' => 'Air_tools',
+    'ratchets' => 'Ratchets',
+    'crimps' => 'Crimps',
+    'drills' => 'Drills',
+    'sockets' => 'Sockets',
+    'removers' => 'Removers',
+    'extensions' => 'Extensions',
+    'screwdrivers' => 'Screwdrivers',
+    'bars' => 'Bars',
+    'cables' => 'Cables',
+    'jacks' => 'Jacks',
+    'misc' => 'Misc',
+    'discs' => 'Wheels',
+    'cch' => 'Hcc',
+    'chisels' => 'Chisels',
+    'hammers' => 'Hammers',
+    'spoons' => 'Spoons',
+    'vise_grips' => 'Visegrips',
+    'blades' => 'Blades'
+];
+
 
 $query = "SELECT t.item as item, t.price as price, t.sold as sold, i.image as image, b.brand as brand, c.category as category FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id JOIN Brands AS b ON t.b_id = b.b_id JOIN Categories AS c ON t.c_id = c.c_id WHERE category like 'pry%'";
 ?>
@@ -26,7 +51,7 @@ $query = "SELECT t.item as item, t.price as price, t.sold as sold, i.image as im
       } elseif ( $_GET['cat'] == 'ratchets') {
           $page_name = 'Ratchets';
       } elseif ( $_GET['cat'] == 'crimps') {
-          $page_name = 'Crimps / Cutters';
+          $page_name = 'Crimps';
       } elseif ( $_GET['cat'] == 'drills') {
           $page_name = 'Drills';
       } elseif ( $_GET['cat'] == 'sockets') {
@@ -77,7 +102,7 @@ require(SHARED_PATH . '/nav.php');
 <header class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
-            <h1 class="text-center large">
+            <h1 class="text-center">
                 <?php if (isset($page_name)) { echo $page_name;  } ?>
             </h1>
         </div>
