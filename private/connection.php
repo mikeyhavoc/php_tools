@@ -7,13 +7,14 @@
  */
 $user = 'mikey';
 $pass = 'DroidsLie#9';
-$base = 'gary';
+$base = 'Sales';
 $host = 'localhost';
 
 
 
 try {
-    $mysqli = new MySQLi('localhost', 'mikey', 'DroidsLie#9', 'Tools');
+    $dbh = new PDO("mysql:host=$host;dbname=$base;", $user, $pass);
 }catch(Exception $e){
     echo $error = $e->getMessage();
 }
+echo 'connection good';
