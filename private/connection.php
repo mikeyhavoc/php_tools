@@ -17,4 +17,3 @@ try {
 }catch(Exception $e){
     echo $error = $e->getMessage();
 }
-echo 'connection good';
