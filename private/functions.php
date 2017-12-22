@@ -20,7 +20,7 @@ function url_for($script_path) {
  * @param $id
  * @return mixed
  */
-function multi_item_query($id) {
+function single_item_query($id) {
     try {
         include('connection.php');
         if(isset($db))
@@ -31,7 +31,7 @@ function multi_item_query($id) {
                                  JOIN Brands AS b ON t.b_id = b.b_id 
                                  JOIN Categories AS c ON t.c_id = c.c_id 
                                  LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id
-                                 WHERE tt.tool_type LIKE '$id'");
+                                 WHERE t.t_id = $id");
         $tools->execute();
         $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
     }catch (PDOException $e) {
