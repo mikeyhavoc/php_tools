@@ -1,15 +1,15 @@
 
 <?php require_once('private/initialize.php'); ?>
 <?php
+$page_title = 'Tools Catalog';
+$section = null;
+
 /**
  * Created by PhpStorm.
  * User: mike
  * Date: 10/30/17
  * Time: 7:52 PM
  */
-
-
-
 
 ?>
 
@@ -84,9 +84,6 @@
       } elseif ( $_GET['cat'] == 'blades') {
           $page_name = 'Blades';
           $section = 'blades';
-      } else {
-          $page_name = 'Full Catalog';
-          $section = null;
       }
 
   }
@@ -116,17 +113,17 @@ require(SHARED_PATH . '/nav.php');
 
 <!--            --><?php
                     $tools = select_query();
-                    foreach($tools as $obj)  {
+                    foreach($tools as $tool)  {
                     ?>
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <article class="card">
 <!--                            <img src="--><?php //echo url_for($obj->image); ?><!--" alt="air tool" class="box-image-width box-image-height img-thumbnail img-responsive center-block">-->
                             <p class="text-center">
-                                Item: <?php echo $obj->name; ?><br>
+                                Item: <?php echo $tool->name; ?><br>
                                 Brand: <br>
-                                Price: <?php echo $obj->price; ?><br>
-                                <button class="btn btn-default btn-lg" value="<?php echo $obj->name; ?>">
-                                    <a href="#"><?php echo $obj->code; ?></a>
+                                Price: <?php echo $tool->price; ?><br>
+                                <button class="btn btn-default btn-lg" value="<?php echo $tool->name; ?>">
+                                    <a href="#"><?php echo $tool->code; ?></a>
                                 </button>
                             </p>
                         </article>
