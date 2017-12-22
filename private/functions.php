@@ -6,6 +6,7 @@
  * Time: 2:31 PM
  */
 
+// script function to connect urls to root path.
 function url_for($script_path) {
     // adds leading '/' if not present.
     if ($script_path[0] != '/') {
@@ -42,7 +43,7 @@ function multi_item_query($id) {
     return $tool;
 }
 
-
+// full catalog query function.
 function select_query () {
     try {
         include('connection.php');
