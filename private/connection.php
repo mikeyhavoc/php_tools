@@ -13,7 +13,7 @@ $host = 'localhost';
 
 
 try {
-    $dbh = new PDO("mysql:host=$host;dbname=$base;", $user, $pass);
+    $db = new PDO("mysql:host=$host;dbname=$base;", $user, $pass);
 }catch(Exception $e){
     echo $error = $e->getMessage();
 }
