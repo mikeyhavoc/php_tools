@@ -1,5 +1,6 @@
 <?php require_once('private/initialize.php'); ?>
 <?php
+$section = null;
 /**
  * Created by PhpStorm.
  * User: mike
