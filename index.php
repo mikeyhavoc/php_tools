@@ -7,9 +7,7 @@ $section = null;
  * Date: 7/13/17
  * Time: 5:47 AM
  */
-// dummy data testing !! take out for database later
-require(PRIVATE_PATH . '/dum_data.php');
-// !! future removal
+
 $page_title = 'Gary\'s Tool Site';
 
 require(SHARED_PATH . '/header.php');
