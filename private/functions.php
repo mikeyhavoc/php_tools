@@ -61,6 +61,7 @@ function select_query () {
     return $tool;
 }
 
+// array AS OF NOW!! sort categories.
 function array_category($catalog, $category) {
     $output = array();
 
@@ -75,5 +76,15 @@ function array_category($catalog, $category) {
     }
     asort($output);
     return array_keys($output);
+}
 
+// Get item html.
+function get_item_html($id,$item) {
+    $output = "<li><a href='details.php?id="
+        . $id . "'><img src='"
+        . $item["img"] . "' alt='"
+        . $item["name"] . "' />"
+        . "<p>View Details</p>"
+        . "</a></li>";
+    return $output;
 }
