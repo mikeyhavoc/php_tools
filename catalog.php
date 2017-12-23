@@ -120,12 +120,7 @@ require(SHARED_PATH . '/nav.php');
                         <article class="card">
                             <img src="<?php echo url_for($obj->image); ?>" alt="air tool" class="box-image-width box-image-height img-thumbnail img-responsive center-block">
                             <p class="text-center">
-                                Item: <?php echo $obj->item; ?><br>
-                                Brand: <br>
-                                Price: <?php echo $obj->price; ?><br>
-                                <button class="btn btn-default btn-lg" value="<?php echo $obj->item; ?>">
-                                    <a href="#"><?php echo $obj->item; ?></a>
-                                </button>
+
                             </p>
                         </article>
                     </div>
