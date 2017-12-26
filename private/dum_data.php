@@ -18,8 +18,7 @@ $tools = [
         "retail" => "277.00",
         "price" => "150.00",
         "description" => "This was a shop set and is in great shape.",
-        "thumb" => "images/thumbs/wrench/g1_wrench.jpg",
-        "regular_img" => "IMAGES . 'images/med_img/wrench/g1_wrench.jpg'"
+        "image" => "IMAGES . 'img/wrench/g1-wrench.jpg'"
 
     ],
     [
@@ -34,8 +33,7 @@ $tools = [
         "retail" => "375.00",
         "price" => "150.00",
         "description" => "this is an unused home set.",
-        "thumb" => "images/thumbs/wrench/a2_wrench.jpg",
-        "regular_img" => "IMAGES . 'images/med_img/wrench/a2_wrench.jpg'"
+        "image" => "IMAGES . 'img/wrench/a2-wrench.jpg'"
     ],
     [
         "item" => "x36",
@@ -49,8 +47,8 @@ $tools = [
         "retail" => "138.00",
         "price" => "50.00",
         "description" => "This docket set comes with two ratchets, extension braker, and case. Was a work set but very littl use. Works well.",
-        "thumb" => "images/thumbs/socket/x36_socket.jpg",
-        "regular_img" => "IMAGES. 'images/med_img/socket/x36_socket.jpg'"
+
+        "image" => "IMAGES. 'img/socket/x36-socket.jpg'"
     ],
     [
         "item" => "g4",
@@ -64,8 +62,8 @@ $tools = [
         "retail" => "177.00",
         "price" => "95.00",
         "description" => "This is a home set that did not really ever leave the tool box. Life time tools, borem704",
-        "thumb" => "images/thumbs/wrench/g4_wrench.jpg",
-        "regular_img" => "images/med_img/wrench/g4_wrench.jpg"
+
+        "image" => "IMAGES . 'img/wrench/g4-wrench.jpg'"
     ],
     [
         "item" => "ii5",
@@ -79,8 +77,7 @@ $tools = [
         "retail" => "n/a",
         "price" => "50.00",
         "description" => "Little or no use for this home set, these are lifetime tools.",
-        "thumb" => "images/thumbs/wrench/ii5_wrench.jpg",
-        "regular_img" => "images/med_img/wrench/ii5_wrench.jpg"
+        "image" => "IMAGES . 'img/wrench/ii5-wrench.jpg'"
     ],
 
 
