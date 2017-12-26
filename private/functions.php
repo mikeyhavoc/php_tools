@@ -66,7 +66,7 @@ function array_category($catalog, $category) {
     $output = array();
 
     foreach($catalog as $id => $item) {
-        if ( $category == null || strtolower($category) == strtolower($tool['tool_type'])) {
+        if ( $category == null || strtolower($category) == strtolower($item['tool_type'])) {
             $sort = $item['name'];
             $sort = ltrim($sort, 'The ');
             $sort = ltrim($sort, 'A ');
@@ -88,3 +88,33 @@ function get_item_html($id,$item) {
         . "</a></li>";
     return $output;
 }
+
+/**
+ * @param $id
+ * @param $item
+ * @return string
+ */
+function get_item_catalog($id, $item) {
+        $output = "<article class='card'>"
+         . "<img src=" .  $item['image'] . " alt='" .  $item['name'] . "'"
+         .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
+         .  "<p class='text-center'> "
+         .  "Item:" . $item['name'] . "<br>"
+         .  "Brand: <br>"
+         .  "Price:" . $item['price'] . "<br>"
+         .  "<button class='btn btn-default btn-lg' value='" . $item['name'] . "'>"
+         .      "<a href='details.php?id=" .  $id . "'></a><br>"
+         .  "</button>"
+         .  "</p>"
+         .  "</article>";
+
+     return $output;
+}
+
+
+
+
+
+
+
+
