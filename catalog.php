@@ -111,13 +111,19 @@ require(SHARED_PATH . '/nav.php');
         <div class="row">
             <article class='card'>
                     <?php
-                    $tools = array_category($catalog, $section);
-                    foreach($tools as $tool)  {
+                    $tools = get_single_item();
+
+
+
+
+
                     ?>
                     <div class="col-xs-12 col-sm-6 col-md-3">
-
+                        <?php
+                        print_r($items);
+                        ?>
                     </div>
-                    <?php }  ?>
+
             </article>
         </div>
     </section>
