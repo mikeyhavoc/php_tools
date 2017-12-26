@@ -43,8 +43,32 @@ function single_item_query($id) {
     return $tool;
 }
 
+function multi_item_query() {
+    try {
+        include('connection.php');
+        if(isset($db))
+            $tools = $db->prepare("SELECT t.item_code as code, t.item_name as name, t.retail_price as retail,
+                                t.sale_price as price, t.item_pieces as pieces, t.qty as quantity,
+                                 t.sold as sold, b.brand as brand, c.category as category, tt.tool_type as tool_type 
+                                 FROM Tools AS t 
+                                 JOIN Brands AS b ON t.b_id = b.b_id 
+                                 JOIN Categories AS c ON t.c_id = c.c_id 
+                                 LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id");
+        $tools->execute();
+        $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e) {
+        echo 'unable to retrieve data';
+        echo $e->getMessage();
+        exit();
+    }
+
+    return $tool;
+}
+
+
+
 // full catalog query function.
-function select_query () {
+function select_tools_query () {
     try {
         include('connection.php');
         if (isset($db))
@@ -94,9 +118,9 @@ function get_item_html($id,$item) {
  * @param $item
  * @return string
  */
-function get_item_catalog($id, $item) {
-        $output = "<article class='card'>"
-         . "<img src=" .  $item['image'] . " alt='" .  $item['name'] . "'"
+function get_catalog_item($id, $item) {
+        $output =
+          "<img src=" .  $item['image'] . " alt='" .  $item['name'] . "'"
          .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
          .  "<p class='text-center'> "
          .  "Item:" . $item['name'] . "<br>"
@@ -105,14 +129,75 @@ function get_item_catalog($id, $item) {
          .  "<button class='btn btn-default btn-lg' value='" . $item['name'] . "'>"
          .      "<a href='details.php?id=" .  $id . "'></a><br>"
          .  "</button>"
-         .  "</p>"
-         .  "</article>";
+         .  "</p>";
 
      return $output;
 }
 
+function get_catalog($item) {
+    $output =
+        "<img src=" .  $item['image'] . " alt='" .  $item['name'] . "'"
+        .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
+        .  "<p class='text-center'> "
+        .  "Item:" . $item['name'] . "<br>"
+        .  "Brand: <br>"
+        .  "Price:" . $item['price'] . "<br>"
+        .  "<button class='btn btn-default btn-lg' value='" . $item['name'] . "'>"
+        .      "<a href='details.php?id=" # "'></a><br>"
+        .  "</button>"
+        .  "</p>";
 
+    return $output;
+}
+// TEST FUNCTIONS DELETE ONCE DONE QA'ING ----------------------------------------------------------------------
+function get_single_item()  {
+    if (!empty($_GET)) {
+        $data = [
+            $name = $_GET['name'],
+            $item = $_GET['item'],
+            $type = $_GET['type'],
+            $brand = $_GET['brand'],
+            $retail = $_GET['retail'],
+            $price = $_GET['price'],
+            $description = $_GET['description'],
+            $image = $_GET['image']
+     ];
+    }
+   $output =
+       "<img src=" .  $data['name'] . " alt='" .  $item['name'] . "'"
+       .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
+       .  "<p class='text-center'> "
+       .  "Item:" . $item['name'] . "<br>"
+       .  "Brand: <br>"
+       .  "Price:" . $item['price'] . "<br>"
+       .  "<button class='btn btn-default btn-lg' value='" . $item['name'] . "'>"
+       .      "<a href='details.php?id=" .  $id . "'></a><br>"
+       .  "</button>"
+       .  "</p>";
+   return $output;
 
+}
+
+/**
+ * @param $id
+ * @param $item
+ * @return string
+ */
+function test_single_item_array($id, $item) {
+    $output =
+        "<img src=" .  $item['image'] . " alt='" .  $item['name'] . "'"
+        .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
+        .  "<p class='text-center'> "
+        .  "Item:" . $item['name'] . "<br>"
+        .  "Brand: <br>"
+        .  "Price:" . $item['price'] . "<br>"
+        .  "<button class='btn btn-default btn-lg' value='" . $item['name'] . "'>"
+        .      "<a href='details.php?id=" .  $id . "'></a><br>"
+        .  "</button>"
+        .  "</p>";
+
+    return $output;
+}
 
 
 
