@@ -1,6 +1,6 @@
 
 <?php require_once('private/initialize.php'); ?>
-<?php
+<?php require_once ('private/dum_data.php');
 $page_title = 'Tools Catalog';
 $section = null;
 
@@ -108,36 +108,18 @@ require(SHARED_PATH . '/nav.php');
 </header>
 <main>
     <section class="container-fluid">
-
         <div class="row">
-
-<!--            --><?php
-                    $tools = select_query();
+            <article class='card'>
+                    <?php
+                    $tools = array_category($catalog, $section);
                     foreach($tools as $tool)  {
                     ?>
                     <div class="col-xs-12 col-sm-6 col-md-3">
-                        <article class="card">
-<!--                            <img src="--><?php //echo url_for($obj->image); ?><!--" alt="air tool" class="box-image-width box-image-height img-thumbnail img-responsive center-block">-->
-                            <p class="text-center">
-                                Item: <?php echo $tool->name; ?><br>
-                                Brand: <br>
-                                Price: <?php echo $tool->price; ?><br>
-                                <button class="btn btn-default btn-lg" value="<?php echo $tool->name; ?>">
-                                    <a href="#"><?php echo $tool->code; ?></a>
-                                </button>
-                            </p>
-                        </article>
+
                     </div>
                     <?php }  ?>
-
-
-
-
-
-
-
+            </article>
         </div>
-
     </section>
 </main>
 
