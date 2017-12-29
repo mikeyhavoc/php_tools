@@ -11,6 +11,7 @@ $test = single_item_query(5);
 if (isset($_GET["id"])) {
     $id = filter_input(INPUT_GET,$test, FILTER_SANITIZE_NUMBER_INT);
     $tool = single_item_query($id);
+    var_dump($tool);
 }
 
 //if (!isset($item)) {
