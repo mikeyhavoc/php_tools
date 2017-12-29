@@ -150,27 +150,16 @@ function get_catalog($item) {
     return $output;
 }
 // TEST FUNCTIONS DELETE ONCE DONE QA'ING ----------------------------------------------------------------------
-function get_single_item()  {
-    if (!empty($_GET)) {
-        $data = [
-            $name = $_GET['name'],
-            $item = $_GET['item'],
-            $type = $_GET['type'],
-            $brand = $_GET['brand'],
-            $retail = $_GET['retail'],
-            $price = $_GET['price'],
-            $description = $_GET['description'],
-            $image = $_GET['image']
-     ];
-    }
+function get_single_item($item, $id)  {
+    include('dum_data.php');
    $output =
-       "<img src=" .  $data['name'] . " alt='" .  $item['name'] . "'"
+       "<img src=" .  $item['item'] . " alt='" .  $item['item'] . "'"
        .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
        .  "<p class='text-center'> "
-       .  "Item:" . $item['name'] . "<br>"
+       .  "Item:" . $item['item'] . "<br>"
        .  "Brand: <br>"
        .  "Price:" . $item['price'] . "<br>"
-       .  "<button class='btn btn-default btn-lg' value='" . $item['name'] . "'>"
+       .  "<button class='btn btn-default btn-lg' value='" . $item['item'] . "'>"
        .      "<a href='details.php?id=" .  $id . "'></a><br>"
        .  "</button>"
        .  "</p>";
@@ -184,6 +173,7 @@ function get_single_item()  {
  * @return string
  */
 function test_single_item_array($id, $item) {
+    include('dum_data.php');
     $output =
         "<img src=" .  $item['image'] . " alt='" .  $item['name'] . "'"
         .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
