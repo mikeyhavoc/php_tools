@@ -31,15 +31,16 @@ function single_item_query($id) {
                                  JOIN Brands AS b ON t.b_id = b.b_id 
                                  JOIN Categories AS c ON t.c_id = c.c_id 
                                  LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id
-                                 WHERE t.t_id = $id");
+                                 WHERE t.t_id = ?");
+        $tools->bindParam(1, $id, PDO::PARAM_INT);
         $tools->execute();
-        $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
+
     }catch (PDOException $e) {
         echo 'unable to retrieve data';
         echo $e->getMessage();
         exit();
     }
-
+    $tool = $tools->fetch(PDO::FETCH_ASSOC);
     return $tool;
 }
 
@@ -55,13 +56,13 @@ function multi_item_query() {
                                  JOIN Categories AS c ON t.c_id = c.c_id 
                                  LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id");
         $tools->execute();
-        $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
+
     }catch (PDOException $e) {
         echo 'unable to retrieve data';
         echo $e->getMessage();
         exit();
     }
-
+    $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
     return $tool;
 }
 
@@ -75,13 +76,14 @@ function select_tools_query () {
         $tools = $db->prepare("SELECT item_code, item_name, retail_price, sale_price,
                             qty, description FROM Tools");
         $tools->execute();
-        $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
+
 
     }catch (Exception $e) {
         echo 'unable to retrieve results';
         echo $e->getMessage();
         exit();
     }
+    $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
     return $tool;
 }
 
