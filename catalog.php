@@ -8,30 +8,7 @@
  * Time: 7:52 PM
  */
 
-$cats_table = [
-    'wrenches' => 'Wrenches',
-    'files' => 'Files',
-    'bits' => 'Bits',
-    'air_tools' => 'Air_tools',
-    'ratchets' => 'Ratchets',
-    'crimps' => 'Crimps',
-    'drills' => 'Drills',
-    'sockets' => 'Sockets',
-    'removers' => 'Removers',
-    'extensions' => 'Extensions',
-    'screwdrivers' => 'Screwdrivers',
-    'bars' => 'Bars',
-    'cables' => 'Cables',
-    'jacks' => 'Jacks',
-    'misc' => 'Misc',
-    'discs' => 'Wheels',
-    'cch' => 'Hcc',
-    'chisels' => 'Chisels',
-    'hammers' => 'Hammers',
-    'spoons' => 'Spoons',
-    'vise_grips' => 'Visegrips',
-    'blades' => 'Blades'
-];
+
 
 
 $query = "SELECT t.item as item, t.price as price, t.sold as sold, i.image as image, b.brand as brand, c.category as category FROM Tools AS t JOIN Images AS i ON t.t_id = i.t_id JOIN Brands AS b ON t.b_id = b.b_id JOIN Categories AS c ON t.c_id = c.c_id WHERE category like 'pry%'";
@@ -113,20 +90,15 @@ require(SHARED_PATH . '/nav.php');
 
         <div class="row">
 
-            <?php
-            if ($result = $mysqli->query($query)) {
-                while ($obj = $result->fetch_object()) { ?>
+            <?php  $categories = array_category($tools, $section);
+                    $item = get_item_html($id, $categories[$id]);  ?>
+
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <article class="card">
-                            <img src="<?php echo url_for($obj->image); ?>" alt="air tool" class="box-image-width box-image-height img-thumbnail img-responsive center-block">
-                            <p class="text-center">
-
-                            </p>
+                            <?php print_r($item); ?>
                         </article>
-                    </div>
-                <?php } // end inner while block?>
-                <?php  mysqli_free_result($result); ?>
-            <?php   } ?>
+
+
 
 
 
