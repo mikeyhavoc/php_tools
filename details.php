@@ -7,9 +7,8 @@
  */
 
 
-$test = single_item_query(5);
-if (isset($_GET["id"])) {
-    $id = filter_input(INPUT_GET,$test, FILTER_SANITIZE_NUMBER_INT);
+if (isset($_get['t_id'])) {
+    $id = filter_input(INPUT_GET, $test, FILTER_SANITIZE_NUMBER_INT);
     $tool = single_item_query($id);
     var_dump($tool);
 }
@@ -28,11 +27,7 @@ include (SHARED_PATH . '/nav.php');
 ?>
 
 <?php
-    foreach($tool as $t) {
-        echo $t->code;
-        echo $t->name;
-        echo $t->price;
-    }
+
     ?>
 
 
