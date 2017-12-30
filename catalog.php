@@ -146,7 +146,7 @@ require(SHARED_PATH . '/nav.php');
                          ?>
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <article class="card">
-                           <?php $tool = item_info($tools);
+                           <?php $tool = item_info_link($tools);
                            echo $tool;
                            ?>
                         </article>
