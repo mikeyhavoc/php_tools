@@ -26,10 +26,12 @@ function single_item_query($id) {
         if(isset($db))
         $tools = $db->prepare("SELECT t.item_code as code, t.item_name as name, t.retail_price as retail,
                                 t.sale_price as price, t.item_pieces as pieces, t.qty as quantity,
-                                 t.sold as sold, b.brand as brand, c.category as category, tt.tool_type as tool_type 
+                                 t.sold as sold, b.brand as brand, c.category as category, tt.tool_type as tool_type, 
+                                 i.image as image
                                  FROM Tools AS t 
-                                 JOIN Brands AS b ON t.b_id = b.b_id 
-                                 JOIN Categories AS c ON t.c_id = c.c_id 
+                                 INNER JOIN Brands AS b ON t.b_id = b.b_id 
+                                 INNER JOIN Categories AS c ON t.c_id = c.c_id
+                                 INNER JOIN Images AS i ON t.t_id = i.t_id                                  
                                  LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id
                                  WHERE t.t_id = ?");
         $tools->bindParam(1, $id, PDO::PARAM_INT);
@@ -49,7 +51,7 @@ function multi_item_query() {
         include('connection.php');
         if(isset($db))
             $tools = $db->prepare("SELECT t.t_id as id, t.item_code as code, t.item_name as name,
-                                    t.retail_price as retail, t.sale_price as sales_price,
+                                    t.retail_price as retail, t.sale_price as price,
                                     t.item_pieces as  pieces, t.qty as quantity,
                                     t.sold as sold, t.description as description,
                                     b.brand as brand, c.category as category,
@@ -59,6 +61,34 @@ function multi_item_query() {
                                    INNER JOIN Categories as c ON t.c_id = c.c_id
                                    INNER JOIN Images AS i ON t.t_id = i.t_id
                                    LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id");
+        $tools->execute();
+
+    }catch (PDOException $e) {
+        echo 'unable to retrieve data';
+        echo $e->getMessage();
+        exit();
+    }
+    $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
+    return $tool;
+}
+
+function multi_item_query_param($param) {
+    try {
+        include('connection.php');
+        if(isset($db))
+            $tools = $db->prepare("SELECT t.t_id as id, t.item_code as code, t.item_name as name,
+                                    t.retail_price as retail, t.sale_price as price,
+                                    t.item_pieces as  pieces, t.qty as quantity,
+                                    t.sold as sold, t.description as description,
+                                    b.brand as brand, c.category as category,
+                                    tt.tool_type as sections, i.image as image
+                                   FROM Tools as t
+                                   INNER JOIN Brands as b on t.b_id = b.b_id
+                                   INNER JOIN Categories as c ON t.c_id = c.c_id
+                                   INNER JOIN Images AS i ON t.t_id = i.t_id
+                                   LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
+                                   WHERE tt.tool_type = ?");
+        $tools->bindParam(1, $param, PDO::PARAM_STR);
         $tools->execute();
 
     }catch (PDOException $e) {
@@ -118,12 +148,25 @@ function get_item_html($id,$item) {
         . "</a></li>";
     return $output;
 }
-function test_data($item) {
-    $output = "<li>"
-        . "<p>ITEM: " . $item['name'] .  "</p>"
-        . "<p>Retail: "  . $item['retail'] . "</p>"
-        . "<p>Sales Price: "  .  $item['sales_price'] .  "</p>"
-        . "<p>Description: " . $item['description'] . "</p>";
+function item_data($item) {
+    $output = "<ul>"
+        . "<li>ITEM: " . $item['name'] .  "</li>"
+        . "<li>Retail: "  . $item['retail'] . "</li>"
+        . "<li>Sales Price: "  .  $item['price'] .  "</li>"
+        . "<img src='".  IMAGES . $item['image'] . "' alt='" . $item['name'] . "' 
+        class='box-image-width box-image-height img-responsive img-thumbnail' >"
+        . "<li>Description: " . $item['description'] . "</li>"
+        . "</ul>";
+    return $output;
+}
+
+function item_info($item) {
+    $output = "<ul>"
+        . "<li>Item Code: " . $item['code'] .  "</li>"
+        . "<li>Sales Price: "  .  $item['price'] .  "</li>"
+        . "<img src='".  IMAGES . $item['image'] . "' alt='" . $item['name'] . "' 
+        class='box-image-width box-image-height img-responsive img-thumbnail' >"
+        . "</ul>";
     return $output;
 }
 
