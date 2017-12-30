@@ -20,6 +20,7 @@ function url_for($script_path) {
  * @param $id
  * @return mixed
  */
+################################################# queries to database,
 function single_item_query($id) {
     try {
         include('connection.php');
@@ -72,7 +73,7 @@ function multi_item_query() {
     return $tool;
 }
 
-function multi_item_query_param($param) {
+function query_group_by_param($param) {
     try {
         include('connection.php');
         if(isset($db))
@@ -100,8 +101,6 @@ function multi_item_query_param($param) {
     return $tool;
 }
 
-
-
 // full catalog query function.
 function select_tools_query () {
     try {
@@ -120,7 +119,7 @@ function select_tools_query () {
     $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
     return $tool;
 }
-
+################################################## End DB Queries.!
 // array AS OF NOW!! sort categories.
 function array_category($catalog, $category) {
     $output = array();
@@ -148,6 +147,7 @@ function get_item_html($id,$item) {
         . "</a></li>";
     return $output;
 }
+// pull by item.
 function item_data($item) {
     $output = "<ul>"
         . "<li>ITEM: " . $item['name'] .  "</li>"
@@ -160,6 +160,7 @@ function item_data($item) {
     return $output;
 }
 
+// same as item_data
 function item_info($item) {
     $output = "<ul>"
         . "<li>Item Code: " . $item['code'] .  "</li>"
@@ -169,6 +170,20 @@ function item_info($item) {
         . "</ul>";
     return $output;
 }
+
+// going to replace item_info
+function item_info_link($item) {
+    $output = "<ul>"
+        . "<li>Item Code: " . $item['code'] .  "</li>"
+        . "<li>Sales Price: "  .  $item['price'] .  "</li>"
+        . "<a href='details.php?id=" . $item['id'] . "'>"
+        . "<img src='".  IMAGES . $item['image'] . "' alt='" . $item['name'] . "' 
+        class='box-image-width box-image-height img-responsive img-thumbnail' ></a>"
+        . "</ul>";
+    return $output;
+}
+
+
 
 /**
  * @param $id
@@ -206,7 +221,7 @@ function get_catalog($item) {
 
     return $output;
 }
-// TEST FUNCTIONS DELETE ONCE DONE QA'ING ----------------------------------------------------------------------
+
 function get_single_item($item, $id)  {
    $output =
        "<img src=" .  $item['item'] . " alt='" .  $item['item'] . "'"
@@ -222,29 +237,6 @@ function get_single_item($item, $id)  {
    return $output;
 
 }
-
-/**
- * @param $id
- * @param $item
- * @return string
- */
-function test_single_item_array($id, $item) {
-    include('dum_data.php');
-    $output =
-        "<img src=" .  $item['image'] . " alt='" .  $item['name'] . "'"
-        .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
-        .  "<p class='text-center'> "
-        .  "Item:" . $item['name'] . "<br>"
-        .  "Brand: <br>"
-        .  "Price:" . $item['price'] . "<br>"
-        .  "<button class='btn btn-default btn-lg' value='" . $item['name'] . "'>"
-        .      "<a href='details.php?id=" .  $id . "'></a><br>"
-        .  "</button>"
-        .  "</p>";
-
-    return $output;
-}
-
 
 
 
