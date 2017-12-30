@@ -37,11 +37,12 @@ img {
   background: lightgrey;
   border-radius: 5%;
   border: 1px solid red;
-  margin-bottom: 1.75em;
+  margin-bottom: 4em;
 }
 
 .box-image-width {
-  width: 150px;
+  min-width: 150px;
+  max-width: 200px;
 }
 
 .box-blade-width {
