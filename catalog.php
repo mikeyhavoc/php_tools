@@ -137,12 +137,12 @@ require(SHARED_PATH . '/nav.php');
 
         <div class="row">
 
-            <?php  $item = multi_item_query();
+            <?php  $items = query_group_by_param($param);
 
 
 
             ?>
-                    <?php foreach ( $item as $tools) {
+                    <?php foreach ( $items as $tools) {
                          ?>
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <article class="card">
