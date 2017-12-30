@@ -139,7 +139,7 @@ function array_category($catalog, $category) {
 
 // Get item html.
 function get_item_html($id,$item) {
-    $output = "<li><a href='details.php?id="
+    $output = "<li class='listing'><a href='details.php?id="
         . $id . "'><img src='"
         . $item["image"] . "' alt='"
         . $item["item"] . "' />"
@@ -149,7 +149,7 @@ function get_item_html($id,$item) {
 }
 // pull by item.
 function item_data($item) {
-    $output = "<ul>"
+    $output = "<ul class='listing'>"
         . "<li>ITEM: " . $item['name'] .  "</li>"
         . "<li>Retail: "  . $item['retail'] . "</li>"
         . "<li>Sales Price: "  .  $item['price'] .  "</li>"
@@ -162,7 +162,7 @@ function item_data($item) {
 
 // same as item_data
 function item_info($item) {
-    $output = "<ul>"
+    $output = "<ul class='listing'>"
         . "<li>Item Code: " . $item['code'] .  "</li>"
         . "<li>Sales Price: "  .  $item['price'] .  "</li>"
         . "<img src='".  IMAGES . $item['image'] . "' alt='" . $item['name'] . "' 
@@ -173,7 +173,7 @@ function item_info($item) {
 
 // going to replace item_info
 function item_info_link($item) {
-    $output = "<ul>"
+    $output = "<ul class='listing'>"
         . "<li>Item Code: " . $item['code'] .  "</li>"
         . "<li>Sales Price: "  .  $item['price'] .  "</li>"
         . "<a href='details.php?id=" . $item['id'] . "'>"
