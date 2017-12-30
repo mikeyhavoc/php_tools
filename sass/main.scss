@@ -24,6 +24,8 @@ $mini-image-size-width:   150px;
 $mini-image-size-height:  150px;
 $mini-image-size-blade: 200px;
 
+$card-bottom-margin: 5%;
+
 
 /**** end variables   ******/
 
@@ -59,7 +61,7 @@ img {
   background: $card-background;
   border-radius: $border-radius;
   border: 1px solid red;
-  margin-bottom: 1.75em;
+  margin-bottom: $card-bottom-margin;
 
 }
 
