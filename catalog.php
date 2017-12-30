@@ -138,9 +138,9 @@ require(SHARED_PATH . '/nav.php');
         <div class="row">
 
             <?php  $items = query_group_by_param($param);
-
-
-
+            // query by param which is inside if statement ^ $param-> then
+            // queries group of items. thus not taking entire catalog at once.
+            // only section that you click for.
             ?>
                     <?php foreach ( $items as $tools) {
                          ?>
