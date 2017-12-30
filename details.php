@@ -15,7 +15,7 @@ if (isset($_get['t_id'])) {
 
 }
 
-//if (!isset($item)) {
+//if (empty($item)) {
 //    header("location:catalog.php");
 //    exit;
 //}
