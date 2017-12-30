@@ -112,6 +112,8 @@
 
   }
 
+
+
 ?>
 
 <?php
@@ -144,7 +146,7 @@ require(SHARED_PATH . '/nav.php');
                          ?>
                     <div class="col-xs-12 col-sm-6 col-md-3">
                         <article class="card">
-                           <?php $tool = test_data($tools);
+                           <?php $tool = item_info($tools);
                            echo $tool;
                            ?>
                         </article>
