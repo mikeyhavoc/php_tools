@@ -28,9 +28,7 @@
                 <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=crimps'); ?>">Crimps/Cutters</a>
             </button>
 
-            <button type="button" class="btn btn-lg btn-default">
-                <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=drills'); ?>">Drills</a>
-            </button>
+
 
             <button type="button" class="btn btn-lg btn-default">
                 <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=sockets'); ?>">Sockets</a>
@@ -126,9 +124,7 @@
                             <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=crimps'); ?>">Crimps/Cutters</a>
                         </li>
 
-                        <li>
-                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=drills'); ?>">Drills</a>
-                        </li>
+
 
                         <li>
                             <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=sockets'); ?>">Sockets</a>
