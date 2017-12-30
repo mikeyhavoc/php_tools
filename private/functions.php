@@ -48,13 +48,17 @@ function multi_item_query() {
     try {
         include('connection.php');
         if(isset($db))
-            $tools = $db->prepare("SELECT t.item_code as code, t.item_name as name, t.retail_price as retail,
-                                t.sale_price as price, t.item_pieces as pieces, t.qty as quantity,
-                                 t.sold as sold, b.brand as brand, c.category as category, tt.tool_type as tool_type 
-                                 FROM Tools AS t 
-                                 JOIN Brands AS b ON t.b_id = b.b_id 
-                                 JOIN Categories AS c ON t.c_id = c.c_id 
-                                 LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id");
+            $tools = $db->prepare("SELECT t.t_id as id, t.item_code as code, t.item_name as name,
+                                    t.retail_price as retail, t.sale_price as sales_price,
+                                    t.item_pieces as  pieces, t.qty as quantity,
+                                    t.sold as sold, t.description as description,
+                                    b.brand as brand, c.category as category,
+                                    tt.tool_type as sections, i.image as image
+                                   FROM Tools as t
+                                   INNER JOIN Brands as b on t.b_id = b.b_id
+                                   INNER JOIN Categories as c ON t.c_id = c.c_id
+                                   INNER JOIN Images AS i ON t.t_id = i.t_id
+                                   LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id");
         $tools->execute();
 
     }catch (PDOException $e) {
@@ -74,7 +78,7 @@ function select_tools_query () {
         include('connection.php');
         if (isset($db))
         $tools = $db->prepare("SELECT item_code, item_name, retail_price, sale_price,
-                            qty, description FROM Tools");
+                            qty, description FROM Tools limit 1");
         $tools->execute();
 
 
@@ -108,10 +112,18 @@ function array_category($catalog, $category) {
 function get_item_html($id,$item) {
     $output = "<li><a href='details.php?id="
         . $id . "'><img src='"
-        . $item["img"] . "' alt='"
-        . $item["name"] . "' />"
+        . $item["image"] . "' alt='"
+        . $item["item"] . "' />"
         . "<p>View Details</p>"
         . "</a></li>";
+    return $output;
+}
+function test_data($item) {
+    $output = "<li>"
+        . "<p>ITEM: " . $item['name'] .  "</p>"
+        . "<p>Retail: "  . $item['retail'] . "</p>"
+        . "<p>Sales Price: "  .  $item['sales_price'] .  "</p>"
+        . "<p>Description: " . $item['description'] . "</p>";
     return $output;
 }
 
@@ -153,7 +165,6 @@ function get_catalog($item) {
 }
 // TEST FUNCTIONS DELETE ONCE DONE QA'ING ----------------------------------------------------------------------
 function get_single_item($item, $id)  {
-    include('dum_data.php');
    $output =
        "<img src=" .  $item['item'] . " alt='" .  $item['item'] . "'"
        .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
