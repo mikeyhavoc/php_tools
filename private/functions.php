@@ -33,7 +33,7 @@ function single_item_query($id) {
                                FROM Tools AS t
                                INNER JOIN Brands AS b ON t.b_id = b.b_id
                                INNER JOIN Categories AS c ON t.c_id = c.c_id
-                               INNER JOIN Images AS i ON t.t_id = i.t_id
+                               
                                LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id
                                WHERE t.t_id = ?");
         $tools->bindParam(1, $id, PDO::PARAM_INT); // by binding keeping safe from SQL/Injection & only int can be used.
@@ -45,17 +45,21 @@ function single_item_query($id) {
         exit();
     }
     $tool = $tools->fetch(PDO::FETCH_ASSOC);
+    $tools->closeCursor();
     return $tool;
+
 }
 
-function single_item_images_query($id) {
+
+function single_item_images_query() {
     try {
         include('connection.php');
         if (isset($db))
-            $tool = $db->prepare("SELECT t.t_id AS 't-id', i.image AS image
-                            FROM Tools AS t
-                            JOIN Images AS i ON t.t_id = i.t_id
-                            WHERE t.t_id = ?");
+            $tool = $db->prepare("SELECT t.t_id as id, as image
+                                  FROM Tools as t
+                                  JOIN Images as i
+                                  ON t.t_id = i.t_id
+                                  WHERE t.t_id =  ?");
         $tool->bindParam(1, $id, PDO::PARAM_INT);
         $tool->execute();
     } catch (PDOException $e) {
@@ -64,7 +68,9 @@ function single_item_images_query($id) {
         exit;
     }
     $tools = $tool->fetchAll(PDO::FETCH_ASSOC);
+    $tool->closeCursor();
     return $tools;
+
 }
 
 function multi_item_query() {
@@ -90,6 +96,7 @@ function multi_item_query() {
         exit();
     }
     $tool = $tools->fetchAll(PDO::FETCH_ASSOC); // fetching all from above sql statement.  USE SPARINGLY.
+
     return $tool;
 }
 
@@ -102,7 +109,9 @@ function query_group_by_param($param) {
                                     t.item_pieces as  pieces, t.qty as quantity,
                                     t.sold as sold, t.description as description,
                                     b.brand as brand, c.category as category,
-                                    tt.tool_type as sections, i.image as image
+                                    tt.tool_type as sections, 
+                                    (SELECT  i.image as images FROM Images limit 1)
+                                     as image
                                    FROM Tools as t
                                    INNER JOIN Brands as b on t.b_id = b.b_id
                                    INNER JOIN Categories as c ON t.c_id = c.c_id
@@ -118,6 +127,7 @@ function query_group_by_param($param) {
         exit();
     }
     $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
+    $tools->closeCursor();
     return $tool;
 }
 
@@ -127,8 +137,8 @@ function select_tools_query () {
         include('connection.php');
         if (isset($db))
         $tools = $db->prepare("SELECT item_code, item_name, retail_price, sale_price,
-                            qty, description FROM Tools limit 1");
-        $tools->execute();
+                            qty, description FROM Tools limit :num");
+        $tools->execute([':num' => 1]);
 
 
     }catch (Exception $e) {
@@ -137,6 +147,7 @@ function select_tools_query () {
         exit();
     }
     $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
+    $tools->closeCursor();
     return $tool;
 }
 
