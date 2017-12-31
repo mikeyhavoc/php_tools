@@ -25,16 +25,17 @@ function single_item_query($id) {
     try {
         include('connection.php');
         if(isset($db))
-        $tools = $db->prepare("SELECT t.t_id as id, t.item_code as code, t.item_name as name, t.retail_price as retail,
-                                t.sale_price as price, t.item_pieces as pieces, t.qty as quantity,
-                                 t.sold as sold, b.brand as brand, c.category as category, tt.tool_type as tool_type, 
-                                 i.image as image
-                                 FROM Tools AS t 
-                                 INNER JOIN Brands AS b ON t.b_id = b.b_id 
-                                 INNER JOIN Categories AS c ON t.c_id = c.c_id
-                                 INNER JOIN Images AS i ON t.t_id = i.t_id                                  
-                                 LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id
-                                 WHERE t.t_id = ?");
+        $tools = $db->prepare("SELECT t.t_id as id, t.item_code as code,
+                               t.item_name as name, t.retail_price as retail,
+                               t.sale_price as price, t.item_pieces as pieces, t.qty as quantity,
+                               t.sold as sold, b.brand as brand, c.category as category, tt.tool_type as tool_type,
+                               i.image as image, t.description as description
+                               FROM Tools AS t
+                               INNER JOIN Brands AS b ON t.b_id = b.b_id
+                               INNER JOIN Categories AS c ON t.c_id = c.c_id
+                               INNER JOIN Images AS i ON t.t_id = i.t_id
+                               LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id
+                               WHERE t.t_id = ?");
         $tools->bindParam(1, $id, PDO::PARAM_INT); // by binding keeping safe from SQL/Injection & only int can be used.
         $tools->execute();
 
@@ -45,6 +46,25 @@ function single_item_query($id) {
     }
     $tool = $tools->fetch(PDO::FETCH_ASSOC);
     return $tool;
+}
+
+function single_item_images_query($id) {
+    try {
+        include('connection.php');
+        if (isset($db))
+            $tool = $db->prepare("SELECT t.t_id AS 't-id', i.image AS image
+                            FROM Tools AS t
+                            JOIN Images AS i ON t.t_id = i.t_id
+                            WHERE t.t_id = ?");
+        $tool->bindParam(1, $id, PDO::PARAM_INT);
+        $tool->execute();
+    } catch (PDOException $e) {
+        echo 'unable to retrieve data';
+        echo $e->getMessage();
+        exit;
+    }
+    $tools = $tool->fetchAll(PDO::FETCH_ASSOC);
+    return $tools;
 }
 
 function multi_item_query() {
@@ -119,6 +139,12 @@ function select_tools_query () {
     $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
     return $tool;
 }
+
+
+
+
+
+
 ################################################## End DB Queries.!
 // array AS OF NOW!! sort categories.
 function array_category($catalog, $category) {
@@ -206,37 +232,34 @@ function get_catalog_item($id, $item) {
      return $output;
 }
 
-function get_catalog($item) {
+function detail_single_item($item) {
     $output =
-        "<img src=" .  $item['image'] . " alt='" .  $item['name'] . "'"
-        .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
-        .  "<p class='text-center'> "
-        .  "Item:" . $item['name'] . "<br>"
-        .  "Brand: <br>"
-        .  "Price:" . $item['price'] . "<br>"
-        .  "<button class='btn btn-default btn-lg' value='" . $item['name'] . "'>"
-        .      "<a href='details.php?id=" # "'></a><br>"
-        .  "</button>"
-        .  "</p>";
+        "<article class='card detail-top'>"
+        . "<h1>Name: " . $item['name'] .  "</h1>"
+        . "<h3>Brand: " . $item['brand'] . "</h3>"
+        . "<h4>Category: " . $item['category'] . "</h4>"
+        . "<h4>Pieces: " . $item['pieces'] . "</h4>"
+        . "<h4>Quantity: " . $item['quantity'] . "</h4>"
+        . "<h4>Retail Price $" . $item['retail'] . "</h4>"
+        . "<h4>Price: $" . $item['price'] . "</h4>"
+        . "<h4>Sold: " . $item['sold'] . "</h4>"
+        . "<p>Description: " . $item['description'] . "</p>"
+        . "</article>";
+        return $output;
+}
 
+function detail_images($item) {
+    $output =
+        "<article class='card detail-top'>"
+        . "<img src='".  IMAGES . $item['image'] . "' alt='" . $item['name'] . "' 
+        class='box-image-width box-image-height img-responsive img-thumbnail' >"
+        . "</article>";
     return $output;
 }
 
-function get_single_item($item, $id)  {
-   $output =
-       "<img src=" .  $item['item'] . " alt='" .  $item['item'] . "'"
-       .  "class='box-image-width box-image-height img-thumbnail img-responsive center-block'>"
-       .  "<p class='text-center'> "
-       .  "Item:" . $item['item'] . "<br>"
-       .  "Brand: <br>"
-       .  "Price:" . $item['price'] . "<br>"
-       .  "<button class='btn btn-default btn-lg' value='" . $item['item'] . "'>"
-       .      "<a href='details.php?id=" .  $id . "'></a><br>"
-       .  "</button>"
-       .  "</p>";
-   return $output;
 
-}
+
+
 
 
 
