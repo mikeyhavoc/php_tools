@@ -11,12 +11,13 @@
 if (isset($_GET['id'])) {
     $id_num = $_GET['id'];
     $id = filter_var($id_num, FILTER_SANITIZE_NUMBER_INT);
-    $item_result = single_item_query($id);
-    $image_results = single_item_images_query($item_result);
+    $image_results = single_item_images_query($id);
+    $image = filter_var($image_results, FILTER_SANITIZE_NUMBER_INT);
 
 
 
-    print_r($item_result);
+
+    var_dump($image);
 
 }
 
@@ -45,7 +46,7 @@ include (SHARED_PATH . '/nav.php');
             <?php  $pics = detail_images($item_result);
                  foreach($image_results as $pic) { ?>
             <div class="col-xs-12 col-sm-6">
-                <?php $image = detail_images($pics);
+                <?php $image = detail_images($pic);
                       echo $image; ?>
             </div>
                      <?php } ?>
