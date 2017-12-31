@@ -11,8 +11,15 @@
 if (isset($_GET['id'])) {
     $id_num = $_GET['id'];
     $id = filter_var($id_num, FILTER_SANITIZE_NUMBER_INT);
+    // pulls the id from the catalog page. with the $_GET global variable.
+    // and transfers it to $id_num to use in this page. filter_var for SQL/Injections
+    // workaround from other form. $id equals item number to pull item from group.
+    $item_result = single_item_query($id);
+
+
     $image_results = single_item_images_query($id);
     $image = filter_var($image_results, FILTER_SANITIZE_NUMBER_INT);
+    // single_item_images_query -> query all images, pulls all images into an array.
 
 
 
