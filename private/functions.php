@@ -25,15 +25,15 @@ function single_item_query($id) {
     try {
         include('connection.php');
         if(isset($db))
-        $tools = $db->prepare("SELECT t.t_id as id, t.item_code as code,
+        $tools = $db->prepare("SELECT t.item_code as code,
                                t.item_name as name, t.retail_price as retail,
                                t.sale_price as price, t.item_pieces as pieces, t.qty as quantity,
-                               t.sold as sold, b.brand as brand, c.category as category, tt.tool_type as tool_type,
-                               i.image as image, t.description as description
+                               t.sold as sold, b.brand as brand, c.category as category,
+                               tt.tool_type as tool_type,
+                               t.description as description
                                FROM Tools AS t
                                INNER JOIN Brands AS b ON t.b_id = b.b_id
-                               INNER JOIN Categories AS c ON t.c_id = c.c_id
-                               
+                               INNER JOIN Categories AS c ON t.c_id = c.c_id                               
                                LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id
                                WHERE t.t_id = ?");
         $tools->bindParam(1, $id, PDO::PARAM_INT); // by binding keeping safe from SQL/Injection & only int can be used.
@@ -51,7 +51,7 @@ function single_item_query($id) {
 }
 
 
-function single_item_images_query() {
+function single_item_images_query($id) {
     try {
         include('connection.php');
         if (isset($db))
@@ -109,9 +109,8 @@ function query_group_by_param($param) {
                                     t.item_pieces as  pieces, t.qty as quantity,
                                     t.sold as sold, t.description as description,
                                     b.brand as brand, c.category as category,
-                                    tt.tool_type as sections, 
-                                    (SELECT  i.image as images FROM Images limit 1)
-                                     as image
+                                    tt.tool_type as sections,
+                                    i.image as image
                                    FROM Tools as t
                                    INNER JOIN Brands as b on t.b_id = b.b_id
                                    INNER JOIN Categories as c ON t.c_id = c.c_id
