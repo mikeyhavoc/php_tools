@@ -32,7 +32,7 @@ define("SHARED_PATH", PRIVATE_PATH . '/shared'); # shared folder
 //ROOT of file.
 define("WWW_ROOT", '');
 
-define("IMAGES", WWW_ROOT . '/public/');
+define("IMAGES", WWW_ROOT . '/public');
 
 
 
