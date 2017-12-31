@@ -112,7 +112,6 @@
 
   }
 
-
 ?>
 
 <?php
@@ -143,20 +142,15 @@ require(SHARED_PATH . '/nav.php');
             ?>
                     <?php foreach ( $items as $tools) {
                          ?>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <article class="card">
                            <?php $tool = item_info_link($tools);
                            echo $tool;
+
                            ?>
-                        </article>
+
                     </div>
                         <?php } ?>
-
-
-
-
-
-
         </div>
 
     </section>
