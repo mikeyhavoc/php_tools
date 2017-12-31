@@ -1,4 +1,7 @@
+
+
 <?php require_once('private/initialize.php');
+
 /**
  * Created by PhpStorm.
  * User: mike
@@ -17,23 +20,10 @@ if (isset($_GET['id'])) {
     $item_result = single_item_query($id);
 
 
-    $image_results = single_item_images_query($id);
-    $image = filter_var($image_results, FILTER_SANITIZE_NUMBER_INT);
+    $image_num = single_item_images_query($id_num);
+    //$image_num_result = filter_var($image_num, FILTER_SANITIZE_NUMBER_INT);
     // single_item_images_query -> query all images, pulls all images into an array.
-
-
-
-
-    var_dump($image);
-
 }
-
-
-//if (empty($item)) {
-//    header("location:catalog.php");
-//    exit;
-//}
-
 $pageTitle = 'Details';
 
 include(SHARED_PATH . '/header.php');
@@ -50,39 +40,17 @@ include (SHARED_PATH . '/nav.php');
                 echo $item;
              ?>
             </div>
-            <?php  $pics = detail_images($item_result);
-                 foreach($image_results as $pic) { ?>
+            <?php
+                   foreach($image_num as $image) {
+                          $pics = detail_images($image); ?>
             <div class="col-xs-12 col-sm-6">
-                <?php $image = detail_images($pic);
-                      echo $image; ?>
+                <?php echo $pics; ?>
+
             </div>
-                     <?php } ?>
+                       <?php } ?>
         </div>
     </div>
 </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php //include (SHARED_PATH . '/footer.php');
+<?php
+require(SHARED_PATH . '/footer.php');
+?>
