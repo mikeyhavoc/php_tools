@@ -25,7 +25,7 @@ function single_item_query($id) {
     try {
         include('connection.php');
         if(isset($db))
-        $tools = $db->prepare("SELECT t.item_code as code, t.item_name as name, t.retail_price as retail,
+        $tools = $db->prepare("SELECT t.t_id as id, t.item_code as code, t.item_name as name, t.retail_price as retail,
                                 t.sale_price as price, t.item_pieces as pieces, t.qty as quantity,
                                  t.sold as sold, b.brand as brand, c.category as category, tt.tool_type as tool_type, 
                                  i.image as image
@@ -35,7 +35,7 @@ function single_item_query($id) {
                                  INNER JOIN Images AS i ON t.t_id = i.t_id                                  
                                  LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id
                                  WHERE t.t_id = ?");
-        $tools->bindParam(1, $id, PDO::PARAM_INT);
+        $tools->bindParam(1, $id, PDO::PARAM_INT); // by binding keeping safe from SQL/Injection & only int can be used.
         $tools->execute();
 
     }catch (PDOException $e) {
@@ -69,7 +69,7 @@ function multi_item_query() {
         echo $e->getMessage();
         exit();
     }
-    $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
+    $tool = $tools->fetchAll(PDO::FETCH_ASSOC); // fetching all from above sql statement.  USE SPARINGLY.
     return $tool;
 }
 
@@ -89,7 +89,7 @@ function query_group_by_param($param) {
                                    INNER JOIN Images AS i ON t.t_id = i.t_id
                                    LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
                                    WHERE tt.tool_type = ?");
-        $tools->bindParam(1, $param, PDO::PARAM_STR);
+        $tools->bindParam(1, $param, PDO::PARAM_STR); // blocks from SQL/Injection & only quries what we want.
         $tools->execute();
 
     }catch (PDOException $e) {
@@ -173,7 +173,7 @@ function item_info($item) {
 
 // going to replace item_info
 function item_info_link($item) {
-    $output = "<ul class='listing'>"
+    $output = "<ul class='listing text-center'>"
         . "<li>Item Code: " . $item['code'] .  "</li>"
         . "<li>Sales Price: "  .  $item['price'] .  "</li>"
         . "<a href='details.php?id=" . $item['id'] . "'>"
