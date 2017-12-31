@@ -103,9 +103,7 @@ require(SHARED_PATH . '/nav.php');
 
 
 
-    <section>
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" >Trial One</button>
-    </section>
+
 
 
 
