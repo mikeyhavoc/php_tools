@@ -55,11 +55,11 @@ function single_item_images_query($id) {
     try {
         include('connection.php');
         if (isset($db))
-            $tool = $db->prepare("SELECT t.t_id as id, as image
+            $tool = $db->prepare("SELECT t.t_id as id, i.image as image
                                   FROM Tools as t
                                   JOIN Images as i
                                   ON t.t_id = i.t_id
-                                  WHERE t.t_id =  ?");
+                                  WHERE t.t_id = ?");
         $tool->bindParam(1, $id, PDO::PARAM_INT);
         $tool->execute();
     } catch (PDOException $e) {
@@ -73,7 +73,7 @@ function single_item_images_query($id) {
 
 }
 
-function multi_item_query() {
+function multi_item_query() {// USE SPARINGLY
     try {
         include('connection.php');
         if(isset($db))
