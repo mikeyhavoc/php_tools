@@ -263,10 +263,14 @@ function detail_images($item) {
     $output =
         "<article class='card detail-top'>"
         . "<img src='".  IMAGES . $item['image'] . "' alt='" . $item['name'] . "' 
-        class='box-image-width box-image-height img-responsive img-thumbnail' >"
+        class='detail-images img-responsive img-thumbnail' >"
         . "</article>";
     return $output;
 }
+
+
+
+
 
 
 
