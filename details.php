@@ -8,12 +8,14 @@
 
 
 
-if (isset($_get['t.t_id'])) {
-    $id_num = $_GET['t.t_id'];
-    $id = filter_input(INPUT_GET, $id_num, FILTER_SANITIZE_NUMBER_INT);
+if (isset($_GET['id'])) {
+    $id_num = $_GET['id'];
+    $id = filter_var($id_num, FILTER_SANITIZE_NUMBER_INT);
     $item_result = single_item_query($id);
 
+
 }
+
 
 //if (empty($item)) {
 //    header("location:catalog.php");
@@ -32,8 +34,8 @@ include (SHARED_PATH . '/nav.php');
         <div class="row">
          <div class="col-xs-12 col-sm-6 col-md4">
              <?php
-                $tool = item_data($item_result);
-                echo $tool;
+                $item = detail_item($item_result);
+                echo $item;
              ?>
 
          </div>
