@@ -183,29 +183,6 @@ function get_item_html($id,$item) {
         . "</a></li>";
     return $output;
 }
-// pull by item.
-function item_data($item) {
-    $output = "<ul class='listing'>"
-        . "<li>ITEM: " . $item['name'] .  "</li>"
-        . "<li>Retail: "  . $item['retail'] . "</li>"
-        . "<li>Sales Price: "  .  $item['price'] .  "</li>"
-        . "<img src='".  IMAGES . $item['image'] . "' alt='" . $item['name'] . "' 
-        class='box-image-width box-image-height img-responsive img-thumbnail' >"
-        . "<li>Description: " . $item['description'] . "</li>"
-        . "</ul>";
-    return $output;
-}
-
-// same as item_data
-function item_info($item) {
-    $output = "<ul class='listing'>"
-        . "<li>Item Code: " . $item['code'] .  "</li>"
-        . "<li>Sales Price: "  .  $item['price'] .  "</li>"
-        . "<img src='".  IMAGES . $item['image'] . "' alt='" . $item['name'] . "' 
-        class='box-image-width box-image-height img-responsive img-thumbnail' >"
-        . "</ul>";
-    return $output;
-}
 
 // going to replace item_info
 function item_info_link($item) {
@@ -267,15 +244,4 @@ function detail_images($item) {
         . "</article>";
     return $output;
 }
-
-
-
-
-
-
-
-
-
-
-
 
