@@ -7,11 +7,11 @@
  */
 
 
-if (isset($_get['id'])) {
-    $id_num = $_GET['id'];
+
+if (isset($_get['t.t_id'])) {
+    $id_num = $_GET['t.t_id'];
     $id = filter_input(INPUT_GET, $id_num, FILTER_SANITIZE_NUMBER_INT);
     $item_result = single_item_query($id);
-
 
 }
 
@@ -32,7 +32,8 @@ include (SHARED_PATH . '/nav.php');
         <div class="row">
          <div class="col-xs-12 col-sm-6 col-md4">
              <?php
-             var_dump($item_result);
+                $tool = item_data($item_result);
+                echo $tool;
              ?>
 
          </div>
