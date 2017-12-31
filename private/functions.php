@@ -205,6 +205,7 @@ function item_info_link($item) {
         . "<a href='details.php?id=" . $item['id'] . "'>"
         . "<img src='".  IMAGES . $item['image'] . "' alt='" . $item['name'] . "' 
         class='box-image-width box-image-height img-responsive img-thumbnail' ></a>"
+        . "<li>Sold: " . $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold') . "</li>"
         . "</ul>";
     return $output;
 }
@@ -242,7 +243,7 @@ function detail_single_item($item) {
         . "<h4>Quantity: " . $item['quantity'] . "</h4>"
         . "<h4>Retail Price $" . $item['retail'] . "</h4>"
         . "<h4>Price: $" . $item['price'] . "</h4>"
-        . "<h4>Sold: " . $item['sold'] . "</h4>"
+        . "<h4>Sold: " . $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold') . "</h4>"
         . "<p>Description: " . $item['description'] . "</p>"
         . "</article>";
         return $output;
