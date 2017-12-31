@@ -79,3 +79,6 @@ img {
 .listing {
   list-style-type: none;
 }
+.detail-top {
+  margin-top: 2em;
+}
