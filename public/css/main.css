@@ -82,3 +82,7 @@ img {
 .detail-top {
   margin-top: 2em;
 }
+.detail-images {
+  min-image: 35%;
+  max-image: 50%;
+}
