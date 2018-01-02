@@ -229,7 +229,7 @@ function detail_single_item($item) {
         . "<h4>Pieces: " . $item['pieces'] . "</h4>"
         . "<h4>Quantity: " . $item['quantity'] . "</h4>"
         . "<h4>Retail Price $" . $item['retail'] . "</h4>"
-        . "<h4>Price: $" . $item['price'] . "</h4>"
+        . "<h4>Price: $" . $price = ($item['price'] == 0 ? 'Make offer' : $item['price']) . "</h4>"
         . "<h4>Sold: " . $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold') . "</h4>"
         . "<h4>Code: " . $item['code'] . "</h4>"
         . "<p>Description: " . $item['description'] . "</p>"
