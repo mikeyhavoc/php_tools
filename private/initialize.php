@@ -30,9 +30,11 @@ define("SHARED_PATH", PRIVATE_PATH . '/shared'); # shared folder
 //define("WWW_ROOT", $doc_root);
 
 //ROOT of file.
+define('FOLDER', WWW_ROOT . '/php_tools/');
 define("WWW_ROOT", '');
-
 define("IMAGES", WWW_ROOT . '/public');
+
+define('WINDOWS', WWW_ROOT . '/' . FOLDER . '/');
 
 
 
