@@ -10,17 +10,17 @@
  */
 
 // single item
-$query_single_item = "SELECT t.item_code AS code,
-                               t.item_name AS name, t.retail_price AS retail,
-                               t.sale_price AS price, t.item_pieces AS pieces, t.qty AS quantity,
-                               t.sold AS sold, b.brand AS brand, c.category AS category,
-                               tt.tool_type AS tool_type,
-                               t.description AS description
-                               FROM Tools AS t
-                               INNER JOIN Brands AS b ON t.b_id = b.b_id
-                               INNER JOIN Categories AS c ON t.c_id = c.c_id                               
-                               LEFT OUTER JOIN Types AS tt ON tt.tt_id = t.tt_id
-                               WHERE t.t_id = :id";
+$query_single_item = 'SELECT t.item_code AS code, '
+                     . 't.item_name AS name, t.retail_price AS retail, '
+                     . 't.sale_price AS price, t.item_pieces AS pieces, t.qty AS quantity, '
+                     . 't.sold AS sold, b.brand AS brand, c.category AS category, '
+                     . 'tt.tool_type AS tool_type, '
+                     . 't.description AS description '
+                     . 'FROM Tools AS t '
+                     . 'INNER JOIN Brands AS b ON t.b_id = b.b_id '
+                     . 'INNER JOIN Categories AS c ON t.c_id = c.c_id '
+                     . 'LEFT OUTER JOIN Types AS tt ON tt.tt_id = t.tt_id '
+                     . 'WHERE t.t_id = :id';
 
 
 
