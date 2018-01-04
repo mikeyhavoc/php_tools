@@ -24,21 +24,23 @@ function url_for($script_path) {
 function single_item_query($id) {
     try {
         include('connection.php');
-        if(isset($db))
-        $tools = $db->prepare("SELECT t.item_code as code,
-                               t.item_name as name, t.retail_price as retail,
-                               t.sale_price as price, t.item_pieces as pieces, t.qty as quantity,
-                               t.sold as sold, b.brand as brand, c.category as category,
-                               tt.tool_type as tool_type,
-                               t.description as description
+        if (isset($db)) {
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $tools = $db->prepare("SELECT t.item_code AS code,
+                               t.item_name AS name, t.retail_price AS retail,
+                               t.sale_price AS price, t.item_pieces AS pieces, t.qty AS quantity,
+                               t.sold AS sold, b.brand AS brand, c.category AS category,
+                               tt.tool_type AS tool_type,
+                               t.description AS description
                                FROM Tools AS t
                                INNER JOIN Brands AS b ON t.b_id = b.b_id
                                INNER JOIN Categories AS c ON t.c_id = c.c_id                               
-                               LEFT OUTER JOIN Types as tt ON tt.tt_id = t.tt_id
+                               LEFT OUTER JOIN Types AS tt ON tt.tt_id = t.tt_id
                                WHERE t.t_id = ?");
-        $tools->bindParam(1, $id, PDO::PARAM_INT); // by binding keeping safe from SQL/Injection & only int can be used.
-        $tools->execute();
 
+            $tools->bindValue(1, $id, PDO::PARAM_INT); // by binding keeping safe from SQL/Injection & only int can be used.
+            $tools->execute();
+        }
     }catch (PDOException $e) {
         echo 'unable to retrieve data';
         echo $e->getMessage();
@@ -54,13 +56,13 @@ function single_item_query($id) {
 function single_item_images_query($id) {
     try {
         include('connection.php');
-        if (isset($db))
+        if (!isset($db))
             $tool = $db->prepare("SELECT t.t_id as id, i.image as image
                                   FROM Tools as t
                                   JOIN Images as i
                                   ON t.t_id = i.t_id
                                   WHERE t.t_id = ?");
-        $tool->bindParam(1, $id, PDO::PARAM_INT);
+        $tool->bindValue(1, $id, PDO::PARAM_INT);
         $tool->execute();
     } catch (PDOException $e) {
         echo 'unable to retrieve data';
@@ -76,20 +78,20 @@ function single_item_images_query($id) {
 function multi_item_query() {// USE SPARINGLY
     try {
         include('connection.php');
-        if(isset($db))
-            $tools = $db->prepare("SELECT t.t_id as id, t.item_code as code, t.item_name as name,
-                                    t.retail_price as retail, t.sale_price as price,
-                                    t.item_pieces as  pieces, t.qty as quantity,
-                                    t.sold as sold, t.description as description,
-                                    b.brand as brand, c.category as category,
-                                    tt.tool_type as sections, i.image as image
-                                   FROM Tools as t
-                                   INNER JOIN Brands as b on t.b_id = b.b_id
-                                   INNER JOIN Categories as c ON t.c_id = c.c_id
+
+            $tools = $db->prepare("SELECT t.t_id AS id, t.item_code AS code, t.item_name AS name,
+                                    t.retail_price AS retail, t.sale_price AS price,
+                                    t.item_pieces AS  pieces, t.qty AS quantity,
+                                    t.sold AS sold, t.description AS description,
+                                    b.brand AS brand, c.category AS category,
+                                    tt.tool_type AS sections, i.image AS image
+                                   FROM Tools AS t
+                                   INNER JOIN Brands AS b ON t.b_id = b.b_id
+                                   INNER JOIN Categories AS c ON t.c_id = c.c_id
                                    INNER JOIN Images AS i ON t.t_id = i.t_id
                                    LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id");
-        $tools->execute();
-
+            $tools->execute();
+        }
     }catch (PDOException $e) {
         echo 'unable to retrieve data';
         echo $e->getMessage();
@@ -117,17 +119,20 @@ function query_group_by_param($param) {
                                    INNER JOIN Images AS i ON t.t_id = i.t_id
                                    LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
                                    WHERE tt.tool_type = ?");
-        $tools->bindParam(1, $param, PDO::PARAM_STR); // blocks from SQL/Injection & only quries what we want.
-        $tools->execute();
+        if(isset($tools)) {
+            $tools->bindValue(1, $param, PDO::PARAM_STR); // blocks from SQL/Injection & only quries what we want.
+            $tools->execute();
 
+        }
     }catch (PDOException $e) {
         echo 'unable to retrieve data';
         echo $e->getMessage();
         exit();
     }
-    $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
-    $tools->closeCursor();
-    return $tool;
+      $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
+      $tools->closeCursor();
+      return $tool;
+
 }
 
 // full catalog query function.
