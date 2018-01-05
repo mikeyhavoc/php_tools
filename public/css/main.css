@@ -33,25 +33,23 @@ img {
 
 .card {
   padding: 0.75em;
-  width: 100%;
+  max-width: 100%;
+  min-width: auto;
   background: lightgrey;
   border-radius: 5%;
   border: 1px solid red;
   margin-bottom: 4em;
+    max-height: 35.313em;
 }
 
-.box-image-width {
-  min-width: 10em;
-  max-width: 13.500em;
-}
+.catalog-images { min-width:  max-width: 13.344em; }
+
+
 
 .box-blade-width {
   width: 12.500em;
 }
 
-.box-image-height {
-  height: 9.375em;
-}
 
 .half {
   width: 50%;
@@ -85,4 +83,9 @@ img {
 .detail-images {
   min-image: 35%;
   max-image: 50%;
+}
+.right {
+    float: right;
+    image-rendering: crisp-edges;
+
 }
