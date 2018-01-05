@@ -20,5 +20,5 @@ hopefully in future releases will be part of them.
 - package.json
 - gulpfile.js
 - README.md
-- .travis.yml 
- 
+- .gitignore
+- .ideas 
