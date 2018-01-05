@@ -42,7 +42,7 @@ img {
     max-height: 35.313em;
 }
 
-.catalog-images { min-width:  max-width: 13.344em; }
+.catalog-images { max-width: 13.344em; }
 
 
 
