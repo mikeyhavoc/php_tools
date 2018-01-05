@@ -24,120 +24,12 @@ function url_for($script_path) {
  * @param $statements
  * @return mixed
  */
-function single_item_query($con, $query, $statements) {
-    $query_string = $con->prepare( $query );
-
-    foreach ( $statements as $statement ) {
-
-        $query_string->bindParm( $statement[ 'string ' ], $statement[ 'value' ], $statement[ 'type' ] );
-
-    }
-    $query_string->execute();
-
-    return $query_string->fetchAll();
-}
-
-
-
-function single_item_images_query($id) {
-    try {
-        include('connection.php');
-        if (isset($db))
-            $tool = $db->prepare("SELECT t.t_id as id,
-                                  t.item_name as name,
-                                  i.image as image
-                                  FROM Tools as t
-                                  JOIN Images as i
-                                  ON t.t_id = i.t_id
-                                  WHERE t.t_id = :id");
-        $tool->bindParam(':id', $id, PDO::PARAM_INT);
-        $tool->execute();
-    } catch (PDOException $e) {
-        echo 'unable to retrieve data';
-        echo $e->getMessage();
-        exit;
-    }
-    $tools = $tool->fetchAll(PDO::FETCH_ASSOC);
-    $tool->closeCursor();
-    return $tools;
+function execute_query($con, $query, $variables) {
+    $stmt = $con->prepare($query);
+    $stmt->execute($variables);
+    return $stmt;
 
 }
-
-function multi_item_query() {// USE SPARINGLY
-    try {
-        include('connection.php');
-        if(isset($db))
-            $tools = $db->prepare("SELECT t.t_id as id, t.item_code as code, t.item_name as name,
-                                    t.retail_price as retail, t.sale_price as price,
-                                    t.item_pieces as  pieces, t.qty as quantity,
-                                    t.sold as sold, t.description as description,
-                                    b.brand as brand, c.category as category,
-                                    tt.tool_type as sections, i.image as image
-                                   FROM Tools as t
-                                   INNER JOIN Brands as b on t.b_id = b.b_id
-                                   INNER JOIN Categories as c ON t.c_id = c.c_id
-                                   INNER JOIN Images AS i ON t.t_id = i.t_id
-                                   LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id");
-        $tools->execute();
-
-    }catch (PDOException $e) {
-        echo 'unable to retrieve data';
-        echo $e->getMessage();
-        exit();
-    }
-    $tool = $tools->fetchAll(PDO::FETCH_ASSOC); // fetching all from above sql statement.  USE SPARINGLY.
-
-    return $tool;
-}
-
-function query_group_by_param($param) {
-    try {
-        include('connection.php');
-        if(isset($db)) {
-            $tools = $db->prepare("SELECT t.t_id AS id, t.item_code AS code, t.item_name AS name,
-                                    t.retail_price AS retail, t.sale_price AS price,
-                                    t.item_pieces AS  pieces, t.qty AS quantity,
-                                    t.sold AS sold, t.description AS description,
-                                    b.brand AS brand, c.category AS category,
-                                    tt.tool_type AS sections,
-                                    i.image AS image
-                                   FROM Tools AS t
-                                   INNER JOIN Brands AS b ON t.b_id = b.b_id
-                                   INNER JOIN Categories AS c ON t.c_id = c.c_id
-                                   INNER JOIN Images AS i ON t.t_id = i.t_id
-                                   LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
-                                   WHERE tt.tool_type = :tool");
-            $tools->bindParam(':tool', $param, PDO::PARAM_STR, 15); // blocks from SQL/Injection & only quries what we want.
-            $tools->execute();
-        }
-    $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
-    $tools->closeCursor();
-    return $tool;
-}
-
-// full catalog query function.
-function select_tools_query () {
-    try {
-        include('connection.php');
-        if (isset($db))
-        $tools = $db->prepare("SELECT item_code, item_name, retail_price, sale_price,
-                            qty, description FROM Tools limit :num");
-        $tools->execute([':num' => 1]);
-
-
-    }catch (Exception $e) {
-        echo 'unable to retrieve results';
-        echo $e->getMessage();
-        exit();
-    }
-    $tool = $tools->fetchAll(PDO::FETCH_ASSOC);
-    $tools->closeCursor();
-    return $tool;
-}
-
-
-
-
 
 
 ################################################## End DB Queries.!
@@ -207,6 +99,7 @@ function get_catalog_item($id, $item) {
 
 function detail_single_item($item) {
     $output =
+
         "<article class='card detail-top'>"
         . "<h1>Name: " . $item['name'] .  "</h1>"
         . "<h3>Brand: " . $item['brand'] . "</h3>"
@@ -218,6 +111,7 @@ function detail_single_item($item) {
         . "<h4>Sold: " . $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold') . "</h4>"
         . "<h4>Code: " . $item['code'] . "</h4>"
         . "<p>Description: " . $item['description'] . "</p>"
+        . "<aside class='right'><img class='half' src='" . IMAGES . $item['image'] . "' alt='" . $tool['description'] . "'></aside>"
         . "</article>";
         return $output;
 }
