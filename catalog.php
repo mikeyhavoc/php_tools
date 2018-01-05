@@ -8,9 +8,18 @@
  * Time: 7:52 PM
  */
 
-
-
-
+$multi_item_query = "SELECT t.t_id as id, t.item_code as code, t.item_name as name,
+                                    t.retail_price as retail, t.sale_price as price,
+                                    t.item_pieces as  pieces, t.qty as quantity,
+                                    t.sold as sold, t.description as description,
+                                    b.brand as brand, c.category as category,
+                                    tt.tool_type as sections, i.image as image
+                                   FROM Tools as t
+                                   INNER JOIN Brands as b on t.b_id = b.b_id
+                                   INNER JOIN Categories as c ON t.c_id = c.c_id
+                                   INNER JOIN Images AS i ON t.t_id = i.t_id
+                                   LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
+                                   WHERE tt.tool_type = :tool";
 
 ?>
 <?php
@@ -112,6 +121,10 @@
 
   }
 
+$con = $db;
+$variables[':tool'] = $param;
+
+
 ?>
 
 <?php
@@ -134,23 +147,23 @@ require(SHARED_PATH . '/nav.php');
     <section class="container-fluid">
 
         <div class="row">
-
-            <?php  $items = query_group_by_param($param);
-            // query by param which is inside if statement ^ $param-> then
-            // queries group of items. thus not taking entire catalog at once.
-            // only section that you click for.
-            ?>
-                    <?php foreach ( $items as $tools) {
-                         ?>
+            <?php   $items = execute_query($con, $multi_item_query, $variables)->fetchAll(); ?>
+            <?php foreach ( $items as $item) { ?>
                     <div class="col-xs-12 col-sm-6 col-md-4">
-                        <article class="card">
-                           <?php $tool = item_info_link($tools);
-                           echo $tool;
+                        <article class='card detail-top'>
+                            <h1>Code:<?php echo $item['code']; ?></h1>
+                            <aside><img class='half right catalog-images' src='<?php echo IMAGES . $item['image']; ?>' alt='<?php echo $item['description']; ?>'></aside>
+                            <h3>Name:<?php echo $item['name']; ?></h3>
 
-                           ?>
-
+                            <h3>Brand:<?php echo $item['brand']; ?></h3>
+                            <h4>Category:<?php echo $item['category']; ?></h4>
+                            <h4>Quantity:<?php echo $item['quantity']; ?></h4>
+                            <h4>Price:<?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
+                            <h4>Sold:<?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
+                         </article>
                     </div>
-                        <?php } ?>
+            <?php } ?>
+
         </div>
 
     </section>
