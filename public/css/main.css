@@ -42,6 +42,8 @@ img {
     max-height: 35.313em;
 }
 
+aside img { margin-top: 5em; height: 13.625em; display: inline-block;}
+
 .catalog-images { max-width: 13.344em; }
 
 
@@ -81,11 +83,11 @@ img {
   margin-top: 2em;
 }
 .detail-images {
-  min-image: 35%;
-  max-image: 50%;
+
 }
 .right {
     float: right;
     image-rendering: crisp-edges;
 
 }
+.btn.btn-danger { margin-bottom: 0.25em; }
