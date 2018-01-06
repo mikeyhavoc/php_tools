@@ -34,7 +34,7 @@ define('FOLDER', WWW_ROOT . '/php_tools/');
 define("WWW_ROOT", '');
 define("IMAGES", WWW_ROOT . '/public');
 
-define('WINDOWS', WWW_ROOT . '/' . FOLDER . '/');
+
 
 
 
