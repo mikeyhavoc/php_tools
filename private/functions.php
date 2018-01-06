@@ -100,7 +100,7 @@ function get_catalog_item($id, $item) {
 function detail_single_item($item) {
     $output =
 
-        "<article class='card detail-top'>"
+        "<article class='card'>"
         . "<h1>Name: " . $item['name'] .  "</h1>"
         . "<h3>Brand: " . $item['brand'] . "</h3>"
         . "<h4>Category: " . $item['category'] . "</h4>"
