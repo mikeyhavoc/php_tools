@@ -150,16 +150,30 @@ require(SHARED_PATH . '/nav.php');
             <?php   $items = execute_query($con, $multi_item_query, $variables)->fetchAll(); ?>
             <?php foreach ( $items as $item) { ?>
                     <div class="col-xs-12 col-sm-6 col-md-4">
-                        <article class='card detail-top'>
-                            <h1>Code:<?php echo $item['code']; ?></h1>
-                            <aside><img class='half right catalog-images' src='<?php echo IMAGES . $item['image']; ?>' alt='<?php echo $item['description']; ?>'></aside>
-                            <h3>Name:<?php echo $item['name']; ?></h3>
+                        <article class='catalog-card card detail-top'>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <h1>Code:<?php echo $item['code']; ?></h1>
+                                        <h3>Name:<?php echo $item['name']; ?></h3>
+                                        <h3>Brand:<?php echo $item['brand']; ?></h3>
+                                        <h4>Category:<?php echo $item['category']; ?></h4>
+                                        <h4>Price:<?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
+                                        <h4>Sold:<?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <aside>
+                                            <img class="catalog-images" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
 
-                            <h3>Brand:<?php echo $item['brand']; ?></h3>
-                            <h4>Category:<?php echo $item['category']; ?></h4>
-                            <h4>Quantity:<?php echo $item['quantity']; ?></h4>
-                            <h4>Price:<?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
-                            <h4>Sold:<?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
+                                        </aside>
+                                        <a class="btn btn-lg btn-danger btn-width"  href='details.php?id=<?php echo $item['id']; ?>'>
+                                            <?php echo $item['code']; ?>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
                          </article>
                     </div>
             <?php } ?>
@@ -169,4 +183,4 @@ require(SHARED_PATH . '/nav.php');
     </section>
 </main>
 
-<?php require(SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/footer.php'); ?>
