@@ -111,7 +111,7 @@ function detail_single_item($item) {
         . "<h4>Sold: " . $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold') . "</h4>"
         . "<h4>Code: " . $item['code'] . "</h4>"
         . "<p>Description: " . $item['description'] . "</p>"
-        . "<aside class='right'><img class='half' src='" . IMAGES . $item['image'] . "' alt='" . $tool['description'] . "'></aside>"
+        . "<aside class='right'><img class='half' src='" . IMAGES . $item['image'] . "' alt='" . $item['description'] . "'></aside>"
         . "</article>";
         return $output;
 }
