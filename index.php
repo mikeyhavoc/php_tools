@@ -44,14 +44,14 @@ require(SHARED_PATH . '/nav.php');
                         <article class="card">
 
                             <h3 class="text-center">
-                                <a class="btn btn-lg btn-danger" href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=wrenches'); ?>" >
+                                <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>" >
                                     Wrenches
                                 </a>
                             </h3>
                             <p class="text-center">
                                 Tool Type: Mostly wrench sets some singles.<br>
                             </p>
-                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=wrenches'); ?>">
+                            <a href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>">
                                 <img class="third center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/img/wrench/a2-wrench.jpg'); ?>" >
                             </a>
                         </article>
@@ -63,14 +63,14 @@ require(SHARED_PATH . '/nav.php');
                         <article class="card">
 
                             <h2 class="text-center">
-                                <a class="btn btn-lg btn-danger" href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=sockets'); ?>" >
+                                <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>" >
                                     Sockets
                                 </a>
                             </h2>
                             <p class="text-center">
                                 Tool Type: Sockets.<br>
                             </p>
-                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=sockets'); ?>">
+                            <a href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>">
                                 <img class="center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/img/socket/i322-socket-1.jpg'); ?>" >
                             </a>
                         </article>
@@ -82,14 +82,14 @@ require(SHARED_PATH . '/nav.php');
                         <article class="card">
 
                             <h3 class="text-center">
-                                <a class="btn btn-lg btn-danger" href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=air_tools'); ?>" >
+                                <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=air_tools'); ?>" >
                                     Air Tools
                                 </a>
                             </h3>
                             <p class="text-center">
                                 Tool Type: Air drills, etc.<br>
                             </p>
-                            <a href="<?php echo url_for(WWW_ROOT . 'catalog.php?cat=air_tools'); ?>">
+                            <a href="<?php echo url_for( 'catalog.php?cat=air_tools'); ?>">
                                 <img class="center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/img/air/b48-air.jpg'); ?>" >
                             </a>
                         </article>
@@ -100,15 +100,6 @@ require(SHARED_PATH . '/nav.php');
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
 
 <?php
  require(SHARED_PATH . '/footer.php');
