@@ -91,3 +91,8 @@ aside img { margin-top: 5em; height: 13.625em; display: inline-block;}
 
 }
 .btn.btn-danger { margin-bottom: 0.25em; }
+
+.btn-width {
+   margin-top: 0.5em;
+   max-width: 13.625em;
+}
