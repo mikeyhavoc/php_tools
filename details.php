@@ -32,6 +32,11 @@ $single_images_item_query = "SELECT t.t_id as id,
                                   ON t.t_id = i.t_id
                                   WHERE t.t_id = :image";
 
+$single_item_breadcrumb_query = "SELECT t.item_code as code,  c.tool_type as category
+                           FROM Tools as t
+                           JOIN Types c ON t.tt_id = c.tt_id
+                           WHERE t.t_id = :breadcrumb LIMIT 1";
+
 $id_num = $_GET['id']; // grabbing Global Variable GET id
 $id = filter_var($id_num, FILTER_SANITIZE_NUMBER_INT); // filtering and sanitizing number going into array for value.
 
@@ -39,6 +44,7 @@ $con = $db;
 $variables[':id'] = $id;
 $var[':image'] = $id_num;
 
+$crumbs[':breadcrumb'] = $id_num;
 
 
 
@@ -48,6 +54,17 @@ include(SHARED_PATH . '/header.php');
 include (SHARED_PATH . '/nav.php');
 
 ?>
+<div class="col-xs-12">
+    <ol class="breadcrumb">
+        <li><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
+        <?php $breadcrumb = execute_query($con, $single_item_breadcrumb_query, $crumbs); ?>
+        <?php foreach ($breadcrumb as $crumb) { ?>
+            <li><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
+            <li><a href="details.php?id='<?php echo $crumb['code']; ?>'"><?php echo $crumb['code']; ?></a></li>
+        <?php } ?>
+
+    </ol>
+</div>
 
 <article>
     <div class="container">
