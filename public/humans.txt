@@ -3,13 +3,14 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Michael Willliams -- developer -- Havocworkshop
 
 # THANKS
 
-    <name>
+    TeamTreehouse, Stackoverflow, 'Your Common Sense', Dr. Murphy, Adrian Tillman, Twitter Bootstrap, Html5 creators,
+    css3 creators, Jquery team, javascript team,
 
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
-    jQuery, Modernizr
+    jQuery,
