@@ -13,13 +13,18 @@ $multi_item_query = "SELECT t.t_id as id, t.item_code as code, t.item_name as na
                                     t.item_pieces as  pieces, t.qty as quantity,
                                     t.sold as sold, t.description as description,
                                     b.brand as brand, c.category as category,
-                                    tt.tool_type as sections, i.image as image
+                                    tt.tool_type as section, i.image as image
                                    FROM Tools as t
                                    INNER JOIN Brands as b on t.b_id = b.b_id
                                    INNER JOIN Categories as c ON t.c_id = c.c_id
                                    INNER JOIN Images AS i ON t.t_id = i.t_id
                                    LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
                                    WHERE tt.tool_type = :tool";
+
+$breadcrumb_query = "SELECT c.tool_type as category
+                     FROM Tools as t
+                     JOIN Types c ON t.tt_id = c.tt_id
+                     WHERE c.tool_type = :breadcrumb LIMIT 1";
 
 ?>
 <?php
@@ -124,6 +129,9 @@ $multi_item_query = "SELECT t.t_id as id, t.item_code as code, t.item_name as na
 $con = $db;
 $variables[':tool'] = $param;
 
+$crumbs[':breadcrumb'] = $param;
+
+
 
 ?>
 
@@ -141,15 +149,23 @@ require(SHARED_PATH . '/nav.php');
                 <?php if (isset($page_name)) { echo $page_name;  } ?>
             </h1>
         </div>
+        <div class="col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
+                <?php $breadcrumb = execute_query($con, $breadcrumb_query, $crumbs); ?>
+                <?php foreach ($breadcrumb as $crumb) { ?>
+                <li><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
+                <?php } ?>
+            </ol>
+        </div>
     </div>
 </header>
 <main>
     <section class="container-fluid">
 
         <div class="row">
-            <?php   $items = execute_query($con, $multi_item_query, $variables)->fetchAll(); ?>
+           <?php $items = execute_query($con, $multi_item_query, $variables)->fetchAll(); ?>
             <?php foreach ( $items as $item) { ?>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
                         <article class='catalog-card card detail-top'>
                             <div class="container-fluid">
                                 <div class="row">
@@ -161,6 +177,7 @@ require(SHARED_PATH . '/nav.php');
                                         <h4>Price:<?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
                                         <h4>Sold:<?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
                                     </div>
+
                                     <div class="col-xs-12 col-sm-6">
                                         <aside>
                                             <img class="catalog-images" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
@@ -170,12 +187,12 @@ require(SHARED_PATH . '/nav.php');
                                             <?php echo $item['code']; ?>
                                         </a>
                                     </div>
+
                                 </div>
 
                             </div>
 
                          </article>
-                    </div>
             <?php } ?>
 
         </div>
