@@ -32,21 +32,25 @@ img {
 }
 
 .catalog-card {
-  max-height: 35.313em;
+ /*margin-right: 0.5%;*/
 }
 .card {
-  padding: 0.75em;
+  /*padding: 0.75em;*/
   max-width: 100%;
   min-width: auto;
   background: lightgrey;
   border-radius: 5%;
   border: 1px solid red;
   margin-bottom: 4em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-aside img { margin-top: 5em; height: 13.625em; display: inline-block;}
+.card-holder { display: flex; flex-wrap: wrap}
 
-.catalog-images { max-width: 13.344em; }
+aside img { /*margin-top: 5em;*/ width: 15.313em; display: inline-block;}
+/**/
+.catalog-images { max-width: 100%; }
 
 
 
@@ -61,7 +65,7 @@ aside img { margin-top: 5em; height: 13.625em; display: inline-block;}
 }
 
 .third {
-  width: 75%;
+  /*width: 75%;*/
   border-radius: 5%;
 }
 
