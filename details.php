@@ -62,7 +62,6 @@ include (SHARED_PATH . '/nav.php');
             <li><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
             <li><a href="details.php?id='<?php echo $crumb['code']; ?>'"><?php echo $crumb['code']; ?></a></li>
         <?php } ?>
-
     </ol>
 </div>
 
