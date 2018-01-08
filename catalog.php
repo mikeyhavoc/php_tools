@@ -161,15 +161,15 @@ require(SHARED_PATH . '/nav.php');
     </div>
 </header>
 <main>
-    <section class="container-fluid">
+    <section class="container">
 
         <div class="row">
            <?php $items = execute_query($con, $multi_item_query, $variables)->fetchAll(); ?>
             <?php foreach ( $items as $item) { ?>
-                        <article class='catalog-card card detail-top'>
+                        <article id="cards">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-xs-12 col-sm-6 card">
                                         <h1>Code:<?php echo $item['code']; ?></h1>
                                         <h3>Name:<?php echo $item['name']; ?></h3>
                                         <h3>Brand:<?php echo $item['brand']; ?></h3>
@@ -178,7 +178,7 @@ require(SHARED_PATH . '/nav.php');
                                         <h4>Sold:<?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-xs-12 col-sm-6 card">
                                         <aside>
                                             <img class="catalog-images" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
 
