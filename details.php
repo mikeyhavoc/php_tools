@@ -71,7 +71,7 @@ include (SHARED_PATH . '/nav.php');
                 <?php   $items = execute_query($con, $single_item_full_query, $variables)->fetchAll(); ?>
                 <?php foreach ( $items as $item) { ?>
                     <div class="col-xs-12 col-sm-6">
-                        <article class='card detail-top'>
+                        <article class='card'>
                             <h1>Code: <?php echo $item['code']; ?></h1>
                             <h3>Name: <?php echo $item['name']; ?></h3>
                             <h3>Brand:<?php echo $item['brand']; ?></h3>
