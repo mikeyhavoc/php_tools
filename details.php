@@ -60,7 +60,7 @@ include (SHARED_PATH . '/nav.php');
         <?php $breadcrumb = execute_query($con, $single_item_breadcrumb_query, $crumbs); ?>
         <?php foreach ($breadcrumb as $crumb) { ?>
             <li><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
-            <li><a href="details.php?id='<?php echo $crumb['code']; ?>'"><?php echo $crumb['code']; ?></a></li>
+            <li><?php echo $crumb['code']; ?></li>
         <?php } ?>
     </ol>
 </div>
@@ -95,8 +95,6 @@ include (SHARED_PATH . '/nav.php');
                         <img class='third card' src='<?php echo IMAGES . $image['image']; ?>' alt='<?php echo $image['description']; ?>'>
                     </div>
                 <?php  } ?>
-
-
 
     </div>
 </article>
