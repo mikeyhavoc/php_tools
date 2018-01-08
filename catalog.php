@@ -168,26 +168,25 @@ require(SHARED_PATH . '/nav.php');
             <?php foreach ( $items as $item) { ?>
                         <article id="cards">
                             <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6 card">
-                                        <h1>Code: <?php echo $item['code']; ?></h1>
-                                        <h3>Name: <?php echo $item['name']; ?></h3>
-                                        <h3>Brand: <?php echo $item['brand']; ?></h3>
-                                        <h4>Category: <?php echo $item['category']; ?></h4>
-                                        <h4>Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
-                                        <h4>Sold: <?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
-                                    </div>
+                                <div class="row card card-holder">
+                                        <div class="col-xs-12 col-sm-6 card">
+                                            <h1>Code: <?php echo $item['code']; ?></h1>
+                                            <h3>Name: <?php echo $item['name']; ?></h3>
+                                            <h3>Brand: <?php echo $item['brand']; ?></h3>
+                                            <h4>Category: <?php echo $item['category']; ?></h4>
+                                            <h4>Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
+                                            <h4>Sold: <?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
+                                        </div>
 
-                                    <div class="col-xs-12 col-sm-6 card">
-                                        <aside>
-                                            <img class="catalog-images center-block" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
+                                        <div class="col-xs-12 col-sm-6 card catalog-card">
+                                            <aside>
+                                                <img class="catalog-images center-block" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
 
-                                        </aside>
-                                        <a class="btn btn-lg btn-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
-                                            <?php echo $item['code']; ?>
-                                        </a>
-                                    </div>
-
+                                            </aside>
+                                            <a class="btn btn-lg btn-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
+                                                <?php echo $item['code']; ?>
+                                            </a>
+                                        </div>
                                 </div>
 
                             </div>
