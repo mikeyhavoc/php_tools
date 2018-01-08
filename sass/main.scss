@@ -26,7 +26,6 @@ $mini-image-size-blade: 200px;
 
 $card-bottom-margin: 5%;
 
-
 /**** end variables   ******/
 
 html {
@@ -78,3 +77,111 @@ img {
 .large { font-size: 3em; }
 
 .f-right {  float: right;  padding: 1em 2em 1em; }
+
+
+
+
+/******* variables *******/
+/**** end variables   ******/
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:before {
+  box-sizing: border-box;
+}
+
+*:after {
+  box-sizing: border-box;
+}
+
+.tools {
+  /* Gary's Tool List TITLE */
+  font-family: "Sirin Stencil", cursive;
+  font-size: 4.75em;
+  background: lightcoral;
+  border-radius: 39px 0px 72px 0px;
+  -moz-border-radius: 39px 0px 72px 0px;
+  -webkit-border-radius: 39px 0px 72px 0px;
+  border: 7px double #000000;
+}
+
+img {
+  border-radius: 5%;
+}
+
+.catalog-card {
+  /*margin-right: 0.5%;*/
+}
+.card {
+  /*padding: 0.75em;*/
+  max-width: 100%;
+  min-width: auto;
+  background: lightgrey;
+  border-radius: 5%;
+  border: 1px solid red;
+  margin-bottom: 4em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-holder { display: flex; flex-wrap: wrap}
+
+aside img { /*margin-top: 5em;*/ width: 15.313em; display: inline-block;}
+/**/
+.catalog-images { max-width: 100%; }
+
+
+
+.box-blade-width {
+  width: 12.500em;
+}
+
+
+.half {
+  width: 50%;
+  border-radius: 5%;
+}
+
+.third {
+  /*width: 75%;*/
+  border-radius: 5%;
+}
+
+.info, .tool-info {
+  font-size: 1.2em;
+  padding: 1em 0.75em;
+}
+
+.large {
+  font-size: 3em;
+}
+
+.f-right {
+  float: right;
+  padding: 1em 2em 1em;
+}
+.listing {
+  list-style-type: none;
+}
+.detail-top {
+  margin-top: 2em;
+}
+.detail-images {
+
+}
+.right {
+  float: right;
+  image-rendering: crisp-edges;
+
+}
+.btn.btn-danger { margin-bottom: 0.25em; }
+
+.btn-width {
+  margin-top: 0.5em;
+  max-width: 13.625em;
+}
