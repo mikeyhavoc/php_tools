@@ -1,104 +1,94 @@
 /******* variables *******/
 /**** end variables   ******/
 html {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 * {
-  box-sizing: border-box;
-}
-
-*:before {
-  box-sizing: border-box;
-}
-
-*:after {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
+  *:before {
+    box-sizing: border-box; }
+  *:after {
+    box-sizing: border-box; }
 
 .tools {
   /* Gary's Tool List TITLE */
   font-family: "Sirin Stencil", cursive;
   font-size: 4.75em;
   background: lightcoral;
-  border-radius: 39px 0px 72px 0px;
-  -moz-border-radius: 39px 0px 72px 0px;
-  -webkit-border-radius: 39px 0px 72px 0px;
-  border: 7px double #000000;
-}
+  border-radius: 39px 0 72px 0;
+  -moz-border-radius: 39px 0 72px 0;
+  -webkit-border-radius: 39px 0 72px 0;
+  border: 7px double #000000; }
 
 img {
-  border-radius: 5%;
-}
+  border-radius: 5%; }
 
-.catalog-card {
- /*margin-right: 0.5%;*/
-}
 .card {
-  /*padding: 0.75em;*/
-  max-width: 100%;
-  min-width: auto;
   background: lightgrey;
   border-radius: 5%;
   border: 1px solid red;
-  margin-bottom: 4em;
   margin-left: auto;
   margin-right: auto;
-}
+  margin-bottom: 5%;
+  max-width: 100%;
+  min-width: auto;
+  padding: 0.75em; }
 
-.card-holder { display: flex; flex-wrap: wrap}
-
-aside img { /*margin-top: 5em;*/ width: 15.313em; display: inline-block;}
-/**/
-.catalog-images { max-width: 100%; }
-
-
+.box-image-width {
+  width: 150px; }
 
 .box-blade-width {
-  width: 12.500em;
-}
+  width: 200px; }
 
+.box-image-height {
+  height: 150px; }
 
 .half {
   width: 50%;
-  border-radius: 5%;
-}
+  border-radius: 5%; }
 
 .third {
-  /*width: 75%;*/
-  border-radius: 5%;
-}
+  width: 75%;
+  border-radius: 5%; }
 
 .info, .tool-info {
   font-size: 1.2em;
-  padding: 1em 0.75em;
-}
+  padding: 1em 0.75em; }
 
 .large {
-  font-size: 3em;
-}
+  font-size: 3em; }
 
-.f-right {
-  float: right;
-  padding: 1em 2em 1em;
-}
+.card-holder {
+  display: flex;
+  flex-wrap: wrap; }
+
+aside img {
+  width: 15.313em;
+  display: inline-block; }
+
+.catalog-images {
+  max-width: 100%; }
+
+.box-blade-width {
+  width: 12.500em; }
+
+.half {
+  width: 50%;
+  border-radius: 5%; }
+
+.third {
+  border-radius: 5%; }
+
+.info, .tool-info {
+  font-size: 1.2em;
+  padding: 1em 0.75em; }
+
 .listing {
-  list-style-type: none;
-}
-.detail-top {
-  margin-top: 2em;
-}
-.detail-images {
+  list-style-type: none; }
 
-}
-.right {
-    float: right;
-    image-rendering: crisp-edges;
-
-}
-.btn.btn-danger { margin-bottom: 0.25em; }
+.btn.btn-danger {
+  margin-bottom: 0.25em; }
 
 .btn-width {
-   margin-top: 0.5em;
-   max-width: 13.625em;
-}
+  margin-top: 0.5em;
+  max-width: 13.625em; }
