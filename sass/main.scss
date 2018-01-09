@@ -11,7 +11,7 @@ $card-background: lightgrey;
 $tool-btn-background: lightcoral;
 $tool-btn-radius: 39px 0px 72px 0px;
 
-$border-radius: 5%;
+$global-5-percent: 5%;
 
 $font-stack-family: 'Sirin Stencil', cursive;
 
@@ -25,7 +25,7 @@ $mini-image-size-height:  150px;
 $mini-image-size-blade: 200px;
 
 $card-bottom-margin: 5%;
-
+$card-inside-padding: 0.75em;
 /**** end variables   ******/
 
 html {
@@ -54,14 +54,14 @@ html {
 img {
   border-radius: $border-radius;
 }
-.card {
-  padding: 0.75em;
-  width: $global-width;
-  background: $card-background;
-  border-radius: $border-radius;
-  border: 1px solid red;
-  margin-bottom: $card-bottom-margin;
 
+
+.card {
+  background: $card-background; border-radius: $border-radius;
+  border: 1px solid red; margin-left: auto;
+  margin-right: auto; margin-bottom: $card-bottom-margin;
+  max-width: $global-width; min-width: auto;
+  padding: $card-inside-padding; width: $global-width;
 }
 
 .box-image-width { width: $mini-image-size-height; }
@@ -76,109 +76,30 @@ img {
 
 .large { font-size: 3em; }
 
-.f-right {  float: right;  padding: 1em 2em 1em; }
-
-
-
-
-/******* variables *******/
-/**** end variables   ******/
-html {
-  box-sizing: border-box;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-*:before {
-  box-sizing: border-box;
-}
-
-*:after {
-  box-sizing: border-box;
-}
-
-.tools {
-  /* Gary's Tool List TITLE */
-  font-family: "Sirin Stencil", cursive;
-  font-size: 4.75em;
-  background: lightcoral;
-  border-radius: 39px 0px 72px 0px;
-  -moz-border-radius: 39px 0px 72px 0px;
-  -webkit-border-radius: 39px 0px 72px 0px;
-  border: 7px double #000000;
-}
-
-img {
-  border-radius: 5%;
-}
-
-.catalog-card {
-  /*margin-right: 0.5%;*/
-}
-.card {
-  /*padding: 0.75em;*/
-  max-width: 100%;
-  min-width: auto;
-  background: lightgrey;
-  border-radius: 5%;
-  border: 1px solid red;
-  margin-bottom: 4em;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .card-holder { display: flex; flex-wrap: wrap}
 
-aside img { /*margin-top: 5em;*/ width: 15.313em; display: inline-block;}
-/**/
-.catalog-images { max-width: 100%; }
+aside img {  width: 15.313em; display: inline-block;}
 
+.catalog-images { max-width: $global-width; }
 
+.box-blade-width { width: 12.500em; }
 
-.box-blade-width {
-  width: 12.500em;
-}
+.half { width: $global-half-width; border-radius: $global-5-percent; }
 
-
-.half {
-  width: 50%;
-  border-radius: 5%;
-}
-
-.third {
-  /*width: 75%;*/
-  border-radius: 5%;
-}
+.third { border-radius: $global-5-percent; }
 
 .info, .tool-info {
   font-size: 1.2em;
   padding: 1em 0.75em;
 }
 
-.large {
-  font-size: 3em;
-}
 
-.f-right {
-  float: right;
-  padding: 1em 2em 1em;
-}
+
 .listing {
   list-style-type: none;
 }
-.detail-top {
-  margin-top: 2em;
-}
-.detail-images {
 
-}
-.right {
-  float: right;
-  image-rendering: crisp-edges;
 
-}
 .btn.btn-danger { margin-bottom: 0.25em; }
 
 .btn-width {
