@@ -43,5 +43,7 @@
     "standard": "^9.0.2",
     "uglify": "^0.1.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "package": "^1.0.1"
+  }
 }
