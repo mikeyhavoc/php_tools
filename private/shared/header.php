@@ -18,6 +18,6 @@
     <header class='container-fluid'>
       <div class='row'>
         <h1 class="col-xs-12 col-md-6 tools">
-            <a href="<?php echo url_for(WWW_ROOT . 'index.php'); ?>">Garys Tool List</a>
+            <a href="<?php echo url_for( 'index.php'); ?>">Garys Tool List</a>
         </h1>
      </header>
