@@ -69,9 +69,11 @@ img {
   max-width: $global-width; min-width: auto;
   padding: $card-inside-padding;
 }
-.code { display: $code-display-method;
-         flex-wrap: wrap;
-          flex-direction: column; }
+.code { // section justifies a beautiful column in a
+        display: flex; flex-wrap: wrap; flex-direction: column;
+        align-content: center; align-items: center; }
+
+//.code-end { align-self: flex-end; }
 
 .box-image-width { width: $mini-image-size-height; }
 .box-blade-width { width: $mini-image-size-blade; }
@@ -122,3 +124,7 @@ aside img {  width: 15.313em; display: inline-block;}
 .center { align-self: center; }
 
 div .bottom-drop:first-child { margin-bottom: $code-margin-bottom; }
+
+@media screen and (min-width:27.000em)/* 432px or greater. */ {
+
+}
