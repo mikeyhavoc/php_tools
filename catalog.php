@@ -182,18 +182,20 @@ require(SHARED_PATH . '/nav.php');
                         <article id="cards">
                             <div class="container-fluid">
                                 <div class="row card card-holder">
-                                        <div class="col-xs-12 col-sm-6 card">
+                                        <div class="col-xs-12 col-sm-6 card code">
+                                            <h1 class="center">Code: <?php echo $item['code']; ?></h1>
                                             <a href="details.php?id=<?php echo $item['id']; ?>">
-                                                <img class="catalog-images center-block" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
+                                                <img class="thumbnail catalog-images" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
                                             </a>
 
                                             <a class="btn btn-lg btn-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
                                                 <?php echo $item['code']; ?>
                                             </a>
+
                                         </div>
 
                                         <div class="col-xs-12 col-sm-6 card catalog-card">
-                                            <h1>Code: <?php echo $item['code']; ?></h1>
+
                                             <h3>Name: <?php echo $item['name']; ?></h3>
 
                                             <h4>Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
