@@ -92,7 +92,7 @@ include (SHARED_PATH . '/nav.php');
                 <?php $images = execute_query($con, $single_images_item_query, $var)->fetchAll(); ?>
                 <?php  foreach ($images as $image) { ?>
                     <div class="col-xs-12 col-sm-6">
-                        <img class='third card' src='<?php echo IMAGES . $image['image']; ?>' alt='<?php echo $image['description']; ?>'>
+                        <img class='card' src='<?php echo IMAGES . $image['image']; ?>' alt='<?php echo $image['description']; ?>'>
                     </div>
                 <?php  } ?>
 
