@@ -9,7 +9,7 @@ $card-background: lightgrey;
 
 
 $tool-btn-background: lightcoral;
-$tool-btn-radius: 39px 0px 72px 0px;
+$tool-btn-radius: 39px 0 72px 0;
 
 $global-5-percent: 5%;
 
@@ -52,25 +52,25 @@ html {
 }
 
 img {
-  border-radius: $border-radius;
+  border-radius: $global-5-percent;
 }
 
 
 .card {
-  background: $card-background; border-radius: $border-radius;
+  background: $card-background; border-radius: $global-5-percent;
   border: 1px solid red; margin-left: auto;
   margin-right: auto; margin-bottom: $card-bottom-margin;
   max-width: $global-width; min-width: auto;
-  padding: $card-inside-padding; width: $global-width;
+  padding: $card-inside-padding;
 }
 
 .box-image-width { width: $mini-image-size-height; }
 .box-blade-width { width: $mini-image-size-blade; }
 .box-image-height { height: $mini-image-size-width; }
 
-.half { width: $global-half-width; border-radius: $border-radius; }
+.half { width: $global-half-width; border-radius: $global-5-percent; }
 
-.third { width: $global-third-width; border-radius: $border-radius; }
+.third { width: $global-third-width; border-radius: $global-5-percent; }
 
 .info, .tool-info { @include info; }
 
