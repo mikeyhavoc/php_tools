@@ -44,6 +44,6 @@ define("IMAGES", WWW_ROOT . '/public/');
 
 
 require_once('functions.php');
-require_once('connection.php');
+include('connection.php');
 
 
