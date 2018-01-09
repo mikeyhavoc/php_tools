@@ -33,10 +33,10 @@ define("SHARED_PATH", PRIVATE_PATH . '/shared'); # shared folder
 //ROOT of file.
 
 define('WINDOWS', '/tools-site'); // FOR WINDOWS TESTING
-define("WWW_ROOT", 'localhost' . '/' . WINDOWS);
+define("WWW_ROOT", '' . WINDOWS);
 // windows go from blank root to localhost/ for xampp
 
-define("IMAGES", WWW_ROOT . '/' . PROJECT_PATH . '/');
+define("IMAGES", WWW_ROOT . '/public/');
 // easily connects root->(tools-site)->public->|img|
 
 
