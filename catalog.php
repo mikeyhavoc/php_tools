@@ -1,30 +1,12 @@
 
 <?php require_once('private/initialize.php'); ?>
-<?php
+<?php include('private/connection.php');
 /**
  * Created by PhpStorm.
  * User: mike
  * Date: 10/30/17
  * Time: 7:52 PM
  */
-
-$multi_item_query = "SELECT t.t_id as id, t.item_code as code, t.item_name as name,
-                                    t.retail_price as retail, t.sale_price as price,
-                                    t.item_pieces as  pieces, t.qty as quantity,
-                                    t.sold as sold, t.description as description,
-                                    b.brand as brand, c.category as category,
-                                    tt.tool_type as section, i.image as image
-                                   FROM Tools as t
-                                   INNER JOIN Brands as b on t.b_id = b.b_id
-                                   INNER JOIN Categories as c ON t.c_id = c.c_id
-                                   INNER JOIN Images AS i ON t.t_id = i.t_id
-                                   LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
-                                   WHERE tt.tool_type = :tool";
-
-$breadcrumb_query = "SELECT c.tool_type as category
-                     FROM Tools as t
-                     JOIN Types c ON t.tt_id = c.tt_id
-                     WHERE c.tool_type = :breadcrumb LIMIT 1";
 
 ?>
 <?php
@@ -126,11 +108,39 @@ $breadcrumb_query = "SELECT c.tool_type as category
 
   }
 
-$con = $db;
-$variables[':tool'] = $param;
 
-$crumbs[':breadcrumb'] = $param;
 
+
+$con = $db; // grab db to con for connection into queries.
+try {
+    $multi_item_query = "SELECT t.t_id AS id, t.item_code AS code, t.item_name AS name,
+                                    t.retail_price AS retail, t.sale_price AS price,
+                                    t.item_pieces AS  pieces, t.qty AS quantity,
+                                    t.sold AS sold, t.description AS description,
+                                    b.brand AS brand, c.category AS category,
+                                    tt.tool_type AS section, i.image AS image
+                                   FROM Tools AS t
+                                   INNER JOIN Brands AS b ON t.b_id = b.b_id
+                                   INNER JOIN Categories AS c ON t.c_id = c.c_id
+                                   INNER JOIN Images AS i ON t.t_id = i.t_id
+                                   LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
+                                   WHERE tt.tool_type = :tool";
+    $variables[':tool'] = $param;
+    $items = execute_query($con, $multi_item_query, $variables)->fetchAll();
+}catch(PDOException $e) {
+    echo $e->getMessage();
+}
+try {
+    $breadcrumb_query = "SELECT c.tool_type AS category
+                     FROM Tools AS t
+                     JOIN Types c ON t.tt_id = c.tt_id
+                     WHERE c.tool_type = :breadcrumb LIMIT 1";
+    $crumbs[':breadcrumb'] = $param;
+    $breadcrumb = execute_query($con, $breadcrumb_query, $crumbs);
+}catch(PDOException $e){
+    header("Location: ../404.html");
+    exit;
+}
 
 
 ?>
@@ -152,11 +162,14 @@ require(SHARED_PATH . '/nav.php');
         <div class="col-xs-12">
             <ol class="breadcrumb">
                 <li><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
-                <?php $breadcrumb = execute_query($con, $breadcrumb_query, $crumbs); ?>
-                <?php foreach ($breadcrumb as $crumb) { ?>
-                <li><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
-                <?php } ?>
+                <?php  ?>
+                    <?php foreach ($breadcrumb as $crumb) { ?>
+                        <li>
+                            <a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a>
+                        </li>
+                    <?php } //end foreach?>
             </ol>
+
         </div>
     </div>
 </header>
@@ -164,7 +177,7 @@ require(SHARED_PATH . '/nav.php');
     <section class="container">
 
         <div class="row">
-           <?php $items = execute_query($con, $multi_item_query, $variables)->fetchAll(); ?>
+           <?php if (isset($items)) { ?>
             <?php foreach ( $items as $item) { ?>
                         <article id="cards">
                             <div class="container-fluid">
@@ -192,7 +205,8 @@ require(SHARED_PATH . '/nav.php');
                             </div>
 
                          </article>
-            <?php } ?>
+            <?php } //end foreach?>
+            <?php } //end isset items?>
 
         </div>
 
