@@ -21,7 +21,7 @@ function url_for($script_path) {
 /**
  * @param $con
  * @param $query
- * @param $statements
+ * @param $variables
  * @return mixed
  */
 function execute_query($con, $query, $variables) {
