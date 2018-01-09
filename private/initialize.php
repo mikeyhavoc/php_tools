@@ -33,7 +33,7 @@ define("SHARED_PATH", PRIVATE_PATH . '/shared'); # shared folder
 //ROOT of file.
 define("WWW_ROOT", '');
 define('FOLDER', WWW_ROOT . '/php_tools/');
-define("IMAGES", WWW_ROOT . '/public');
+define("IMAGES", www_ROOT . '/public');
 
 
 
