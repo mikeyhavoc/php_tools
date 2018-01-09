@@ -28,6 +28,7 @@ $card-bottom-margin: 5%;
 $card-inside-padding: 0.75em;
 
 $code-display-method: flex;
+$code-margin-bottom: -0.50em;
 
 $thumb-width: 9.375em;
 $thumb-height: 6.250em;
@@ -119,3 +120,5 @@ aside img {  width: 15.313em; display: inline-block;}
 
 .thumbnail { width: $thumb-width; height: $thumb-height; }
 .center { align-self: center; }
+
+div .bottom-drop:first-child { margin-bottom: $code-margin-bottom; }
