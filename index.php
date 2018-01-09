@@ -52,7 +52,7 @@ require(SHARED_PATH . '/nav.php');
                                 Tool Type: Mostly wrench sets some singles.<br>
                             </p>
                             <a href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>">
-                                <img class="third center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/img/wrench/a2-wrench.jpg'); ?>" >
+                                <img class="third center-block img-responsive img- img-rounded" src="<?php echo IMAGES . '/img/wrench/a2-wrench.jpg'; ?>" >
                             </a>
                         </article>
                     </div><!--/ item one -->
@@ -71,7 +71,7 @@ require(SHARED_PATH . '/nav.php');
                                 Tool Type: Sockets.<br>
                             </p>
                             <a href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>">
-                                <img class="center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/img/socket/i322-socket-1.jpg'); ?>" >
+                                <img class="center-block img-responsive img- img-rounded" src="<?php echo  IMAGES . '/img/socket/i322-socket-1.jpg'; ?>" >
                             </a>
                         </article>
                     </div><!--/ item one -->
@@ -90,7 +90,7 @@ require(SHARED_PATH . '/nav.php');
                                 Tool Type: Air drills, etc.<br>
                             </p>
                             <a href="<?php echo url_for( 'catalog.php?cat=air_tools'); ?>">
-                                <img class="center-block img-responsive img- img-rounded" src="<?php echo url_for(  IMAGES . '/img/air/b48-air.jpg'); ?>" >
+                                <img class="center-block img-responsive img- img-rounded" src="<?php echo  IMAGES . '/img/air/b48-air.jpg'; ?>" >
                             </a>
                         </article>
                     </div>
