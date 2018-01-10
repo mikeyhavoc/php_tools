@@ -1,6 +1,7 @@
 /******* variables *******/
 @mixin box-size { box-sizing: border-box; }
-@mixin info { font-size: 1.2em;  padding: 1em 0.75em;}
+@mixin font-pad { font-size: 1.2em;  padding: 0.5em 0.75em; margin-top: 0;}
+@mixin catalog-order($order-placement) { order: $order-placement; }
 
 $color-black: #000000;
 $logo-font: 4.75em;
@@ -20,9 +21,8 @@ $global-third-width: 75%;
 $global-half-width: 50%;
 
 
-$mini-image-size-width:   150px;
-$mini-image-size-height:  150px;
-$mini-image-size-blade: 200px;
+$mini-image-size: 9.375em;
+$mini-image-size-blade: 12.500em;
 
 $card-bottom-margin: 5%;
 $card-inside-padding: 0.75em;
@@ -69,21 +69,21 @@ img {
   max-width: $global-width; min-width: auto;
   padding: $card-inside-padding;
 }
-.code { // section justifies a beautiful column in a
+.code {// creates a beautiful column in a mobile device.
         display: flex; flex-wrap: wrap; flex-direction: column;
         align-content: center; align-items: center; }
 
-//.code-end { align-self: flex-end; }
 
-.box-image-width { width: $mini-image-size-height; }
+.box-image-width { width: $mini-image-size; }
 .box-blade-width { width: $mini-image-size-blade; }
-.box-image-height { height: $mini-image-size-width; }
+.box-image-height { height: $mini-image-size; }
 
 .half { width: $global-half-width; border-radius: $global-5-percent; }
 
 .third { width: $global-third-width; border-radius: $global-5-percent; }
 
-.info, .tool-info { @include info; }
+.info, .tool-info { @include font-pad; font-size: 1.2em; padding: 1em 0.75em;}
+
 
 .large { font-size: 3em; }
 
@@ -99,10 +99,7 @@ aside img {  width: 15.313em; display: inline-block;}
 
 .third { border-radius: $global-5-percent; }
 
-.info, .tool-info {
-  font-size: 1.2em;
-  padding: 1em 0.75em;
-}
+
 
 
 
@@ -126,5 +123,16 @@ aside img {  width: 15.313em; display: inline-block;}
 div .bottom-drop:first-child { margin-bottom: $code-margin-bottom; }
 
 @media screen and (min-width:27.000em)/* 432px or greater. */ {
+
+  .cat-order-name { @include catalog-order(6); }
+  .cat-order-code { @include catalog-order(3); }
+  cat-order-image { @include catalog-order(1); }
+  .cat-order-price { @include catalog-order(4); }
+  .cat-order-sold { @include catalog-order(5);}
+  .cat-order-btn { @include catalog-order(2); }
+
+
+
+
 
 }
