@@ -23,6 +23,7 @@ $global-half-width: 50%;
 
 $mini-image-size: 9.375em;
 $mini-image-size-blade: 12.500em;
+$max-image-size: 28.125em;
 
 $card-bottom-margin: 5%;
 $card-inside-padding: 0.75em;
@@ -57,8 +58,8 @@ html {
 
 }
 
-img {
-  border-radius: $global-5-percent;
+.image {
+  max-width: 28.125em; min-width: 12.500em; padding-top: 0;
 }
 
 
@@ -78,9 +79,7 @@ img {
 .box-blade-width { width: $mini-image-size-blade; }
 .box-image-height { height: $mini-image-size; }
 
-.half { width: $global-half-width; border-radius: $global-5-percent; }
 
-.third { width: $global-third-width; border-radius: $global-5-percent; }
 
 .info, .tool-info { @include font-pad; font-size: 1.2em; padding: 1em 0.75em;}
 
@@ -89,7 +88,6 @@ img {
 
 .card-holder { display: flex; flex-wrap: wrap}
 
-aside img {  width: 15.313em; display: inline-block;}
 
 .catalog-images { max-width: $global-width; }
 
@@ -97,7 +95,7 @@ aside img {  width: 15.313em; display: inline-block;}
 
 .half { width: $global-half-width; border-radius: $global-5-percent; }
 
-.third { border-radius: $global-5-percent; }
+
 
 
 
@@ -117,7 +115,7 @@ aside img {  width: 15.313em; display: inline-block;}
 
 .sale { text-decoration-line: underline; }
 
-.thumbnail { width: $thumb-width; height: $thumb-height; }
+
 .center { align-self: center; }
 
 div .bottom-drop:first-child { margin-bottom: $code-margin-bottom; }
