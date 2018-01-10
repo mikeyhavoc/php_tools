@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikeyhavoc/js_gary.git"
+    "url": "git+https://github.com/mikeyhavoc/php_tools.git"
   },
   "keywords": [
     "body",
@@ -21,14 +21,12 @@
   "author": "michael williams",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mikeyhavoc/js_gary/issues"
+    "url": "https://github.com/mikeyhavoc/php_tools/issues"
   },
-  "homepage": "https://github.com/mikeyhavoc/js_gary#readme",
+  "homepage": "https://github.com/mikeyhavoc/php_tools#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-ruby-sass": "^3.0.0"
   },
-  "dependencies": {
-    "package": "^1.0.1"
-  }
+  "dependencies": {}
 }
