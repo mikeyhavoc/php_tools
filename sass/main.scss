@@ -124,15 +124,20 @@ div .bottom-drop:first-child { margin-bottom: $code-margin-bottom; }
 
 @media screen and (min-width:27.000em)/* 432px or greater. */ {
 
-  .cat-order-name { @include catalog-order(6); }
+  .cat-order-name { @include catalog-order(6);  }
   .cat-order-code { @include catalog-order(3); }
-  cat-order-image { @include catalog-order(1); }
-  .cat-order-price { @include catalog-order(4); }
+  .cat-order-image { @include catalog-order(1); }
+  .cat-order-price { @include catalog-order(4); padding-top: 1.2em; }
   .cat-order-sold { @include catalog-order(5);}
   .cat-order-btn { @include catalog-order(2); }
+}
 
+@media screen and (min-width: 38.438em) /* 615 px to 768px  */ {
 
+  .mobile-s { display: flex; flex-direction: row;}
 
+  .info { width: $global-half-width; }
+  .tool-info { width: $global-width; }
 
 
 }
