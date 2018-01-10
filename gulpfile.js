@@ -16,7 +16,7 @@ gulp.task('style', function () {
     return gulp.src('sass/**/*.css')
         .pipe(sourcemaps.init())
         .pipe(postcss([autoprefixer()]))
-        .pipe(sourcemaps.write('sass/'))
+        .pipe(sourcemaps.write('public/css/'))
         .pipe(gulp.dest('public/css/'));
 
 });
