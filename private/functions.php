@@ -30,22 +30,3 @@ function execute_query($con, $query, $variables) {
     return $stmt;
 
 }
-
-
-################################################## End DB Queries.!
-// array AS OF NOW!! sort categories.
-function array_category($catalog, $category) {
-    $output = array();
-
-    foreach($catalog as $id => $item) {
-        if ( $category == null || strtolower($category) == strtolower($item['tool_type'])) {
-            $sort = $item['name'];
-            $sort = ltrim($sort, 'The ');
-            $sort = ltrim($sort, 'A ');
-            $sort = ltrim($sort, 'An ');
-            $tool[$id] = $sort;
-        }
-    }
-    asort($output);
-    return array_keys($output);
-}
