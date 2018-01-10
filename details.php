@@ -80,7 +80,7 @@ include (SHARED_PATH . '/nav.php');
                             <h4>Quantity: <?php echo $item['quantity']; ?></h4>
                             <h4>Retail Price $ <?php echo $retail = ($item['retail'] == 0 ? ' N/A' : $item['retail']); ?></h4>
                             <h4>Price: <?php echo $price = ($item['price'] == 0 ? 'Make offer' : '$' . $item['price']); ?></h4>
-                            <h4>Sold: <?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
+                            <h4 class="sale">Sold: <?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
                             <h4>Code: <?php echo $item['code']; ?></h4>
                             <p>Description: <?php echo $item['description']; ?></p>
 
