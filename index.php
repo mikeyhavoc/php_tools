@@ -15,14 +15,16 @@ require(SHARED_PATH . '/nav.php');
 
 ?>
     <div class="container-fluid">
+
         <div class="row">
-              <article class="info col-xs-12 col-sm-3 col-sm-offset-3">
+            <section class="mobile-s">
+              <article class="info col-xs-12 col-sm-6">
                 <h2 class="text-center">Info</h2>
-                <p>
+                <p class="text-left">
                   Greetings, I am a retired body and fender man. I am selling off my tools now. I am located in the Bradenton area. Sales are local only, no shipping tools.
                 </p>
               </article>
-              <article class="tool-info col-xs-12 col-sm-3">
+              <article class="tool-info col-xs-12 col-sm-6">
                   <h2 class="text-center">Tool Info</h2>
                   <p>Important to note:</p>
                     <ul>
@@ -31,11 +33,8 @@ require(SHARED_PATH . '/nav.php');
                       <li>listing will be updated asap after sales occur</li>
                     </ul>
               </article>
-            </section><!--article section -->
-        </div>
+            </section>
         <div class="container-fluid">
-
-
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <article class="card">
 
@@ -52,9 +51,8 @@ require(SHARED_PATH . '/nav.php');
                             </a>
                         </article>
                     </div><!--/ item one -->
-
-
-                        <section class="tools-display">
+        </div>
+                <section class="tools-display">
                         <div class="col-xs-12 col-sm-6 col-md-4">
                                 <article class="card">
 
@@ -91,7 +89,10 @@ require(SHARED_PATH . '/nav.php');
                                 </article>
                             </div>
                         </section>
+                </section>
         </div>
+
+    </div>
 
 <?php
  require(SHARED_PATH . '/footer.php');
