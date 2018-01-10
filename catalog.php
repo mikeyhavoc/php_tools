@@ -186,21 +186,21 @@ require(SHARED_PATH . '/nav.php');
                                             <section class="card code">
                                                 <h1 class="bottom-drop center">Code: <?php echo $item['code']; ?></h1>
 
-                                                <h3 class=" center">Name: <?php echo $item['name']; ?></h3>
+                                                <h3 class="center"><?php echo $item['name']; ?></h3>
 
                                                 <a href="details.php?id=<?php echo $item['id']; ?>">
                                                     <img class=" thumbnail catalog-images" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
                                                 </a>
 
+                                                <h4>Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
+
+                                                <h4 class="sale">Sold: <?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
+
                                                 <a class=" btn btn-lg btn-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
                                                     <?php echo $item['code']; ?>
                                                 </a>
                                             </section>
-                                            <aside class="">
-                                                <h4>Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
 
-                                                <h4 class="sale">Sold: <?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
-                                            </aside>
                                         </div>
 
                                 </div>
