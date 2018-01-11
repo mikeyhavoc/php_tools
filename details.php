@@ -54,16 +54,21 @@ include(SHARED_PATH . '/header.php');
 include (SHARED_PATH . '/nav.php');
 
 ?>
-<div class="col-xs-12">
-    <ol class="breadcrumb">
-        <li><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
-        <?php $breadcrumb = execute_query($con, $single_item_breadcrumb_query, $crumbs); ?>
-        <?php foreach ($breadcrumb as $crumb) { ?>
-            <li><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
-            <li><?php echo $crumb['code']; ?></li>
-        <?php } ?>
-    </ol>
-</div>
+<div class="row">
+    <div class="col-xs-12">
+        <section>
+            <ol class="breadcrumb">
+                <li><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
+                <?php $breadcrumb = execute_query($con, $single_item_breadcrumb_query, $crumbs); ?>
+                <?php foreach ($breadcrumb as $crumb) { ?>
+                    <li><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
+                    <li><?php echo $crumb['code']; ?></li>
+                <?php } ?>
+            </ol>
+        </section>
+    </div><!--/col-xs-12-->
+</div><!-- /.row -->
+
 
 <article>
     <div class="container">
