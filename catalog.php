@@ -146,13 +146,13 @@ try {
 ?>
 
 <?php
-
+$page_title = 'Tool Catalog';
 require(SHARED_PATH . '/header.php');
 require(SHARED_PATH . '/nav.php');
 ?>
 
 
-<header class="container-fluid">
+<section class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
             <h1 class="text-center">
@@ -172,7 +172,7 @@ require(SHARED_PATH . '/nav.php');
 
         </div>
     </div>
-</header>
+</section>
 <main>
     <section class="container">
 
@@ -184,19 +184,19 @@ require(SHARED_PATH . '/nav.php');
                                 <div class="row card-holder">
                                         <div class="col-xs-12 col-sm-6">
                                             <section class="card code">
-                                                <h1 class="bottom-drop center">Code: <?php echo $item['code']; ?></h1>
+                                                <h2 class="cat-order-code bottom-drop center">Code: <?php echo $item['code']; ?></h2>
 
-                                                <h3 class="center"><?php echo $item['name']; ?></h3>
+                                                <h3 class="cat-order-name center"><?php echo $item['name']; ?></h3>
 
                                                 <a href="details.php?id=<?php echo $item['id']; ?>">
-                                                    <img class=" thumbnail catalog-images" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
+                                                    <img class="cat-order-image thumbnail box-image-width" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
                                                 </a>
 
-                                                <h4>Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
+                                                <h4 class="cat-order-price">Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
 
-                                                <h4 class="sale">Sold: <?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
+                                                <h4 class="cat-order-sold sale"><?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
 
-                                                <a class=" btn btn-lg btn-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
+                                                <a class="cat-order-btn btn btn-lg btn-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
                                                     <?php echo $item['code']; ?>
                                                 </a>
                                             </section>
