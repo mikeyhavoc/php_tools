@@ -50,7 +50,7 @@
         <section class="visible-xs visible-sm">
             </div>
             <div class="dropdown">
-                <div class="dropdown col-xs-2">
+                <div class="dropdown col-xs-1">
                     <button class="btn btn-danger dropdown-toggle type=button" id="minimenu" data-toggle="dropdown"><span class="caret"></span></button>
                     <ul class="dropdown-menu" role="menu" aria-labeledby="minimenu">
                         <li>
