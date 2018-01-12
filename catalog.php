@@ -197,7 +197,7 @@ require(SHARED_PATH . '/nav.php');
                                                 <h4 class="cat-order-sold sale"><?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
 
                                                 <a class="cat-order-btn btn btn-lg btn-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
-                                                    <?php echo $item['code']; ?>
+                                                    More Info
                                                 </a>
                                             </section>
 
