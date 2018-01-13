@@ -11,8 +11,14 @@
 
 
 
+$id_num = $_GET['id']; // grabbing Global Variable GET id
+$id = filter_var($id_num, FILTER_SANITIZE_NUMBER_INT); // filtering and sanitizing number going into array for value.
+$con = $db; // the connection to the db.
+
+
 // single item SQL Query.
-$single_item_full_query = "SELECT t.item_code AS code, t.item_name AS name, 
+try {
+    $single_item_full_query = "SELECT t.item_code AS code, t.item_name AS name, 
                       t.retail_price AS retail, t.sale_price AS price, 
                       t.item_pieces AS pieces, t.qty AS quantity, t.sold AS sold,
                       b.brand AS brand, c.category AS category, tt.tool_type AS tool_type,
@@ -23,6 +29,13 @@ $single_item_full_query = "SELECT t.item_code AS code, t.item_name AS name,
                       INNER JOIN Images AS i ON i.t_id = t.t_id 
                       LEFT OUTER JOIN Types AS tt ON tt.tt_id = t.tt_id
                       WHERE t.t_id = :id LIMIT 1";
+$variables[':id'] = $id;
+
+    $items = execute_query($con, $single_item_full_query, $variables)->fetchAll();
+
+}catch(PDOException $e) {
+   echo $e->getMessage();
+}
 
 $single_images_item_query = "SELECT t.t_id as id,
                                   t.description as description,
@@ -37,11 +50,10 @@ $single_item_breadcrumb_query = "SELECT t.item_code as code,  c.tool_type as cat
                            JOIN Types c ON t.tt_id = c.tt_id
                            WHERE t.t_id = :breadcrumb LIMIT 1";
 
-$id_num = $_GET['id']; // grabbing Global Variable GET id
-$id = filter_var($id_num, FILTER_SANITIZE_NUMBER_INT); // filtering and sanitizing number going into array for value.
 
-$con = $db;
-$variables[':id'] = $id;
+
+
+
 $var[':image'] = $id_num;
 
 $crumbs[':breadcrumb'] = $id_num;
@@ -73,7 +85,7 @@ include (SHARED_PATH . '/nav.php');
 <article>
     <div class="container">
         <div class="row">
-                <?php   $items = execute_query($con, $single_item_full_query, $variables)->fetchAll(); ?>
+                <?php if(isset($items)) {   ?>
                 <?php foreach ( $items as $item) { ?>
                     <div class="col-xs-12 col-sm-6">
                         <article class='card'>
@@ -93,7 +105,7 @@ include (SHARED_PATH . '/nav.php');
                     </div>
 
                 <?php } ?>
-
+            <?php } /* isset for $items */?>
                 <?php $images = execute_query($con, $single_images_item_query, $var)->fetchAll(); ?>
                 <?php  foreach ($images as $image) { ?>
                     <div class="col-xs-12 col-sm-6">
