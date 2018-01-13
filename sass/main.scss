@@ -12,7 +12,7 @@ $card-background: lightgrey;
 $tool-btn-background: lightcoral;
 $tool-btn-radius: 39px 0 72px 0;
 
-$global-5-percent: 5%;
+$global-5-percent: 6%;
 
 $font-stack-family: 'Sirin Stencil', cursive;
 
@@ -47,6 +47,8 @@ html {
   &:after { @include box-size;  }
 }
 
+ol li { font-size: 1.5em; }
+
 .tools { /* Gary's Tool List TITLE */
   font-family: $font-stack-family;
   font-size: $logo-font;
@@ -78,8 +80,6 @@ html {
 
 
 
-
-
 .info, .tool-info { @include font-pad; font-size: 1.2em; padding: 1em 0.75em;}
 
 
@@ -98,7 +98,6 @@ html {
   list-style-type: none;
 }
 
-
 .btn.btn-danger { margin-bottom: 0.25em; }
 
 .btn-width {
@@ -107,7 +106,6 @@ html {
 }
 
 .sale { text-decoration-line: underline; }
-
 
 .center { align-self: center; }
 
@@ -130,5 +128,11 @@ div .bottom-drop:first-child { margin-bottom: $code-margin-bottom; }
   .info { width: $global-half-width; }
   .tool-info { width: $global-width; }
 
+
+}
+
+@media screen and (min-width: 649px) /* change to ems */ {
+ .card { width: 50%; }
+ 
 
 }
