@@ -36,27 +36,41 @@ $variables[':id'] = $id;
 }catch(PDOException $e) {
    echo $e->getMessage();
 }
-
-$single_images_item_query = "SELECT t.t_id as id,
+try {
+    $single_images_item_query = "SELECT t.t_id as id,
                                   t.description as description,
                                   i.image as image
                                   FROM Tools as t
                                   JOIN Images as i
                                   ON t.t_id = i.t_id
                                   WHERE t.t_id = :image";
+    $var[':image'] = $id_num;
+    $images = execute_query($con, $single_images_item_query, $var)->fetchAll();
 
-$single_item_breadcrumb_query = "SELECT t.item_code as code,  c.tool_type as category
+}catch(PDOException $e){
+    echo $e->getMessage();
+}
+
+try {
+    $single_item_breadcrumb_query = "SELECT t.item_code as code,  c.tool_type as category
                            FROM Tools as t
                            JOIN Types c ON t.tt_id = c.tt_id
                            WHERE t.t_id = :breadcrumb LIMIT 1";
+    $crumbs[':breadcrumb'] = $id_num;
+    $breadcrumb = execute_query($con, $single_item_breadcrumb_query, $crumbs);
+
+}catch(PDOException $e) {
+    echo $e->getMessage();
+}
 
 
 
 
 
-$var[':image'] = $id_num;
 
-$crumbs[':breadcrumb'] = $id_num;
+
+
+
 
 
 
@@ -71,11 +85,12 @@ include (SHARED_PATH . '/nav.php');
         <section>
             <ol class="breadcrumb">
                 <li><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
-                <?php $breadcrumb = execute_query($con, $single_item_breadcrumb_query, $crumbs); ?>
+                <?php if(isset($breadcrumb)) { ?>
                 <?php foreach ($breadcrumb as $crumb) { ?>
                     <li><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
                     <li><?php echo $crumb['code']; ?></li>
                 <?php } ?>
+                <?php } /* isset for breadcrumb*/?>
             </ol>
         </section>
     </div><!--/col-xs-12-->
@@ -106,12 +121,13 @@ include (SHARED_PATH . '/nav.php');
 
                 <?php } ?>
             <?php } /* isset for $items */?>
-                <?php $images = execute_query($con, $single_images_item_query, $var)->fetchAll(); ?>
+                <?php if(isset($images)) { ?>
                 <?php  foreach ($images as $image) { ?>
                     <div class="col-xs-12 col-sm-6">
                         <img class='card' src='<?php echo IMAGES . $image['image']; ?>' alt='<?php echo $image['description']; ?>'>
                     </div>
                 <?php  } ?>
+            <?php } /* images isset */?>
 
     </div>
 </article>
