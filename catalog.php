@@ -1,7 +1,6 @@
 
 <?php require_once('private/initialize.php'); ?>
-<?php include('private/connection.php');
-/**
+<?php /**
  * Created by PhpStorm.
  * User: mike
  * Date: 10/30/17
@@ -10,6 +9,8 @@
 
 ?>
 <?php
+
+
   if ( isset($_GET['cat']) ) {
       if ( $_GET['cat'] == 'wrenches') {
           $page_name = 'Wrenches';
@@ -103,16 +104,12 @@
       } else {
           $page_name = 'Full Catalog';
           $section = null;
-
       }
-
   }
 
-
-
-
 $con = $db; // grab db to con for connection into queries.
-try {
+
+
     $multi_item_query = "SELECT t.t_id AS id, t.item_code AS code, t.item_name AS name,
                                     t.retail_price AS retail, t.sale_price AS price,
                                     t.item_pieces AS  pieces, t.qty AS quantity,
@@ -125,21 +122,22 @@ try {
                                    INNER JOIN Images AS i ON t.t_id = i.t_id
                                    LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
                                    WHERE tt.tool_type = :tool";
+if (isset($param)) {
     $variables[':tool'] = $param;
     $items = execute_query($con, $multi_item_query, $variables)->fetchAll();
-}catch(PDOException $e) {
-    echo $e->getMessage();
 }
-try {
+
+
+
+
+
     $breadcrumb_query = "SELECT c.tool_type AS category
                      FROM Tools AS t
                      JOIN Types c ON t.tt_id = c.tt_id
                      WHERE c.tool_type = :breadcrumb LIMIT 1";
+if (isset($param)) {
     $crumbs[':breadcrumb'] = $param;
     $breadcrumb = execute_query($con, $breadcrumb_query, $crumbs);
-}catch(PDOException $e){
-    header("Location: ../404.html");
-    exit;
 }
 
 
@@ -162,12 +160,13 @@ require(SHARED_PATH . '/nav.php');
         <div class="col-xs-12">
             <ol class="breadcrumb">
                 <li><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
-                <?php  ?>
+                <?php if(isset($breadcrumb)) { ?>
                     <?php foreach ($breadcrumb as $crumb) { ?>
                         <li>
                             <a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a>
                         </li>
                     <?php } //end foreach?>
+                <?php } ?>
             </ol>
 
         </div>
@@ -179,7 +178,7 @@ require(SHARED_PATH . '/nav.php');
         <div class="row">
            <?php if (isset($items)) { ?>
             <?php foreach ( $items as $item) { ?>
-                        <article id="cards">
+                        <article class="cards">
                             <div class="container-fluid">
                                 <div class="row card-holder">
                                         <div class="col-xs-12 col-sm-6">
@@ -188,9 +187,8 @@ require(SHARED_PATH . '/nav.php');
 
                                                 <h3 class="cat-order-name center"><?php echo $item['name']; ?></h3>
 
-                                                <a href="details.php?id=<?php echo $item['id']; ?>">
-                                                    <img class="cat-order-image thumbnail box-image-width" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
-                                                </a>
+                                                <img class="cat-order-image thumbnail box-image-width" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
+
 
                                                 <h4 class="cat-order-price">Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
 
