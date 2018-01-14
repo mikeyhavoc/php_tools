@@ -10,7 +10,7 @@
 
 
 
-<script src="<?php echo url_for('public/js/vendor/jquery-1.11.2.min.js'); ?>"></script>
+<script src="<?php echo url_for('public/js/vendor/jquery-3.2.1.min.js'); ?>"></script>
 <script src="<?php echo url_for('public/js/bootstrap.js'); ?>"></script>
 <script src="<?php echo url_for( 'public/js/main.js'); ?>"></script>
 </body>
