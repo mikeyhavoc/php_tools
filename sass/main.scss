@@ -3,6 +3,10 @@
 @mixin font-pad { font-size: 1.2em;  padding: 0.5em 0.75em; margin-top: 0;}
 @mixin catalog-order($order-placement) { order: $order-placement; }
 
+%column {// creates a beautiful column in a mobile device.
+  display: flex; flex-wrap: wrap; flex-direction: column;
+  align-content: center; align-items: center; }
+
 $color-black: #000000;
 $logo-font: 4.75em;
 
@@ -12,9 +16,9 @@ $card-background: lightgrey;
 $tool-btn-background: lightcoral;
 $tool-btn-radius: 39px 0 72px 0;
 
-$global-5-percent: 6%;
+$global-border: 6%;
 
-$font-stack-family: 'Sirin Stencil', cursive;
+$font-stack-family: 'Sirin Stencil', Baskerville, Palatino;
 
 $global-width: 100%;
 $global-third-width: 75%;
@@ -67,15 +71,13 @@ ol li { font-size: 1.5em; }
 .thumbnail { padding: 0; }
 
 .card {
-  background: $card-background; border-radius: $global-5-percent;
+  background: $card-background; border-radius: $global-border;
   border: 1px solid red; margin-left: auto;
   margin-right: auto; margin-bottom: $card-bottom-margin;
   max-width: $global-width; min-width: auto;
   padding: $card-inside-padding;
 }
-.code {// creates a beautiful column in a mobile device.
-        display: flex; flex-wrap: wrap; flex-direction: column;
-        align-content: center; align-items: center; }
+.code { @extend %column; }
 
 
 
@@ -92,7 +94,7 @@ ol li { font-size: 1.5em; }
 
 .box-blade-width { width: 12.500em; }
 
-.half { width: $global-half-width; border-radius: $global-5-percent; }
+.half { width: $global-half-width; border-radius: $global-border; }
 
 .listing {
   list-style-type: none;
@@ -109,7 +111,9 @@ ol li { font-size: 1.5em; }
 
 .center { align-self: center; }
 
-div .bottom-drop:first-child { margin-bottom: $code-margin-bottom; }
+div  {
+  .bottom-drop:first-child {margin-bottom: $code-margin-bottom; }
+}
 
 @media screen and (min-width:27.000em)/* 432px or greater. */ {
 
@@ -132,7 +136,8 @@ div .bottom-drop:first-child { margin-bottom: $code-margin-bottom; }
 }
 
 @media screen and (min-width: 649px) /* change to ems */ {
- .card { width: 50%; }
+  @extend %column;
+  .card { width: 50%; }
  
 
 }
