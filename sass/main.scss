@@ -1,4 +1,5 @@
-/******* variables *******/
+//******* variables *******
+@import 'normalize';
 @mixin box-size { box-sizing: border-box; }
 @mixin font-pad { font-size: 1.2em;  padding: 0.5em 0.75em; margin-top: 0;}
 @mixin catalog-order($order-placement) { order: $order-placement; }
@@ -22,7 +23,7 @@ $font-stack-family: 'Sirin Stencil', Baskerville, Palatino;
 
 $global-width: 100%;
 $global-third-width: 75%;
-$global-half-width: 50%;
+
 
 
 $mini-image-size: 9.375em;
@@ -37,8 +38,9 @@ $code-margin-bottom: -0.50em;
 
 $thumb-width: 9.375em;
 $thumb-height: 6.250em;
-/**** end variables   ******/
 
+//**** end variables   ******
+root { font-size: 16px; }
 html {
   @include box-size;
 }
@@ -51,7 +53,9 @@ html {
   &:after { @include box-size;  }
 }
 
-ol li { font-size: 1.5em; }
+ol { /* bread crumb */
+  li { font-size: 1.5em; }
+}
 
 .tools { /* Gary's Tool List TITLE */
   font-family: $font-stack-family;
@@ -94,7 +98,7 @@ ol li { font-size: 1.5em; }
 
 .box-blade-width { width: 12.500em; }
 
-.half { width: $global-half-width; border-radius: $global-border; }
+.half { width: $global-width / 2; border-radius: $global-border; }
 
 .listing {
   list-style-type: none;
@@ -117,27 +121,26 @@ div  {
 
 @media screen and (min-width:27.000em)/* 432px or greater. */ {
 
-  .cat-order-name { @include catalog-order(6);  }
-  .cat-order-code { @include catalog-order(2); }
-  .cat-order-image { @include catalog-order(1); }
-  .cat-order-price { @include catalog-order(4);  }
-  .cat-order-sold { @include catalog-order(5);}
-  .cat-order-btn { @include catalog-order(3); margin-top: 1.2em;}
+  .cat-order-name { @include catalog-order(1);  }
+  .cat-order-code { @include catalog-order(2); /*padding-bottom: 0.25em;*/ }
+  .cat-order-image { @include catalog-order(3); padding-top: 1.2em;}
+  .cat-order-price { @include catalog-order(5);  }
+  .cat-order-sold { @include catalog-order(6);}
+  .cat-order-btn { @include catalog-order(4); }
 }
 
 @media screen and (min-width: 38.438em) /* 615 px to 768px  */ {
 
   .mobile-s { display: flex; flex-direction: row;}
 
-  .info { width: $global-half-width; }
+  .info { width: $global-width / 2; }
   .tool-info { width: $global-width; }
 
 
 }
 
 @media screen and (min-width: 649px) /* change to ems */ {
-  @extend %column;
-  .card { width: 50%; }
- 
+  .col-ssm-6 { justify-content: space-around; }
+
 
 }
