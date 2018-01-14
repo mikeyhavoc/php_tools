@@ -173,15 +173,22 @@ require(SHARED_PATH . '/nav.php');
     </div>
 </section>
 <main>
-    <section class="container">
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+
+
+
+
 
         <div class="row">
            <?php if (isset($items)) { ?>
             <?php foreach ( $items as $item) { ?>
                         <article class="cards">
                             <div class="container-fluid">
-                                <div class="row card-holder">
-                                        <div class="col-xs-12 col-sm-6">
+
+                                    <section class="card-holder">
+                                        <div class="col-xs-12">
                                             <section class="card code">
                                                 <h2 class="cat-order-code bottom-drop center">Code: <?php echo $item['code']; ?></h2>
 
@@ -200,8 +207,8 @@ require(SHARED_PATH . '/nav.php');
                                             </section>
 
                                         </div>
+                                    </section><!--/card-holder-->
 
-                                </div>
 
                             </div>
 
@@ -211,6 +218,10 @@ require(SHARED_PATH . '/nav.php');
 
         </div>
 
+            </div>
+            <!-- /.col-sm-6 -->
+        </div>
+        <!-- /.row -->
     </section>
 </main>
 
