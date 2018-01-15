@@ -18,13 +18,13 @@ require(SHARED_PATH . '/nav.php');
 
         <div class="row">
             <section class="mobile-s">
-              <article class="info col-xs-12 col-sm-6">
+              <article role="article" class="info col-12 col-sm-6 ">
                 <h2 class="text-center">Info</h2>
                 <p class="text-left">
                   Greetings, I am a retired body and fender man. I am selling off my tools now. I am located in the Bradenton area. Sales are local only, no shipping tools.
                 </p>
               </article>
-              <article class="tool-info col-xs-12 col-sm-6">
+              <article role="article" class="tool-info col-12 col-sm-6">
                   <h2 class="text-center">Tool Info</h2>
                   <p>Important to note:</p>
                     <ul>
@@ -34,9 +34,11 @@ require(SHARED_PATH . '/nav.php');
                     </ul>
               </article>
             </section>
+        </div>
         <div class="container-fluid">
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <article class="card">
+            <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <article role="article" class="card">
 
                             <h2 class="text-center">
                                 <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>" >
@@ -51,10 +53,8 @@ require(SHARED_PATH . '/nav.php');
                             </a>
                         </article>
                     </div><!--/ item one -->
-        </div>
-                <section class="tools-display">
-                        <div class="col-xs-12 col-sm-6 col-md-4">
-                                <article class="card">
+                        <div class="col-sm-6 col-md-4">
+                                <article role="article" class="card">
 
                                     <h3 class="text-center">
                                         <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>" >
@@ -70,10 +70,10 @@ require(SHARED_PATH . '/nav.php');
                                 </article>
                         </div><!--/ item one -->
 
-                        <section class="tools-display">
 
-                            <div class="col-xs-12 col-sm-6 col-md-4">
-                                <article class="card">
+
+                            <div class="col-sm-6 col-md-4">
+                                <article role="article" class="card">
 
                                 <h3 class="text-center">
                                     <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=air_tools'); ?>" >
@@ -88,10 +88,7 @@ require(SHARED_PATH . '/nav.php');
                                     </a>
                                 </article>
                             </div>
-                        </section>
-                </section>
         </div>
-
     </div>
 
 <?php
