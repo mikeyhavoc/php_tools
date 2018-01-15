@@ -33,7 +33,7 @@
 
             <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=discs'); ?>">Discs</a>
 
-            <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=cch'); ?>">Clamps/Chains/Hooks</a></button>
+            <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=cch'); ?>">Clamps/Chains/Hooks</a>
 
             <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=chisels'); ?>">chisels</a>
 
@@ -48,7 +48,7 @@
         </nav>
 
         <section class="d-block d-sm-block d-md-none">
-            </div>
+
             <div class="dropdown">
                 <div class="dropdown col-xs-1">
                     <button class="btn btn-danger dropdown-toggle type=button" id="minimenu" data-toggle="dropdown"><span class="caret"></span></button>
