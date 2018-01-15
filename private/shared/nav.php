@@ -1,5 +1,5 @@
 
-        <nav class=" hidden-sm hidden-xs col-xs-12 col-sm-10">
+        <nav class="d-none d-sm-none d-md-block col-sm-10">
 
             <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>">Wrenches</a>
 
@@ -47,7 +47,7 @@
 
         </nav>
 
-        <section class="visible-xs visible-sm">
+        <section class="d-block d-sm-block d-md-none">
             </div>
             <div class="dropdown">
                 <div class="dropdown col-xs-1">
