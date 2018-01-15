@@ -83,7 +83,7 @@ ol { /* bread crumb */
 }
 .code { @extend %column; }
 
-
+.cards { width: 100%; }
 
 
 .info, .tool-info { @include font-pad; font-size: 1.2em; padding: 1em 0.75em;}
@@ -118,7 +118,7 @@ ol { /* bread crumb */
 div  {
   .bottom-drop:first-child {margin-bottom: $code-margin-bottom; }
 }
-
+.cat-order-name { padding-top: 0.75em; }
 @media screen and (min-width:27.000em)/* 432px or greater. */ {
 
   .cat-order-name { @include catalog-order(1);  }
