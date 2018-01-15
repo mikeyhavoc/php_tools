@@ -1,5 +1,5 @@
 
-        <nav class="d-none d-sm-none d-md-block col-sm-10">
+        <nav role="navigation" class="d-none d-sm-none d-md-block col-sm-10">
 
             <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>">Wrenches</a>
 
