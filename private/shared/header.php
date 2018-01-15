@@ -15,7 +15,7 @@
     <title><?php $page_title; ?></title>
 </head>
 <body>
-    <header class='container-fluid'>
+    <header role="banner" class='container-fluid'>
       <div class='row'>
         <h1 class="col-xs-12 col-md-6 tools">
             <a href="<?php echo url_for( 'index.php'); ?>">Garys Tool List</a>
