@@ -81,29 +81,29 @@ include (SHARED_PATH . '/nav.php');
 
 ?>
 <div class="row">
-    <div class="col-xs-12">
-        <section>
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
                 <?php if(isset($breadcrumb)) { ?>
                 <?php foreach ($breadcrumb as $crumb) { ?>
-                    <li><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
-                    <li><?php echo $crumb['code']; ?></li>
+                    <li class="breadcrumb-item"><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
+                    <li class="breadcrumb-item active"><?php echo $crumb['code']; ?></li>
                 <?php } ?>
                 <?php } /* isset for breadcrumb*/?>
             </ol>
-        </section>
-    </div><!--/col-xs-12-->
+        </nav>
+    </div><!--/col-12-->
 </div><!-- /.row -->
 
 
-<article>
+<section>
     <div class="container">
         <div class="row">
                 <?php if(isset($items)) {   ?>
                 <?php foreach ( $items as $item) { ?>
-                    <div class="col-xs-12 col-sm-6">
-                        <article class='card'>
+                    <div class="col-12 col-sm-6">
+                        <article role="article" class='card'>
                             <h1>Code: <?php echo $item['code']; ?></h1>
                             <h3>Name: <?php echo $item['name']; ?></h3>
                             <h3>Brand:<?php echo $item['brand']; ?></h3>
@@ -123,14 +123,14 @@ include (SHARED_PATH . '/nav.php');
             <?php } /* isset for $items */?>
                 <?php if(isset($images)) { ?>
                 <?php  foreach ($images as $image) { ?>
-                    <div class="col-xs-12 col-sm-6">
+                    <div class="col-12 col-sm-6">
                         <img class='card' src='<?php echo IMAGES . $image['image']; ?>' alt='<?php echo $image['description']; ?>'>
                     </div>
                 <?php  } ?>
             <?php } /* images isset */?>
 
     </div>
-</article>
+<section/>
 <?php
 require(SHARED_PATH . '/footer.php');
 ?>
