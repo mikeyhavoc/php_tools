@@ -157,9 +157,9 @@ require(SHARED_PATH . '/nav.php');
                 <?php if (isset($page_name)) { echo $page_name;  } ?>
             </h1>
         </div>
-        <div class="col-xs-12">
+        <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
+                <li><a class="bread-crumb-item active" aria-current="page" href="<?php echo url_for('index.php'); ?>">Home</a></li>
                 <?php if(isset($breadcrumb)) { ?>
                     <?php foreach ($breadcrumb as $crumb) { ?>
                         <li>
@@ -169,7 +169,7 @@ require(SHARED_PATH . '/nav.php');
                 <?php } ?>
             </ol>
 
-        </div>
+        </nav>
     </div>
 </section>
 <main>
