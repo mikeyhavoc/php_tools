@@ -64,8 +64,7 @@ figure {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -103,8 +102,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -279,8 +277,7 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -315,8 +312,7 @@ textarea {
  */
 [type="checkbox"],
 [type="radio"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */ }
@@ -394,37 +390,24 @@ template {
   display: none; }
 
 .code {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  align-items: center; }
 
 root {
   font-size: 16px; }
 
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+  box-sizing: border-box; }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+  box-sizing: border-box; }
   *:before {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
+    box-sizing: border-box; }
   *:after {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
+    box-sizing: border-box; }
 
 ol {
   /* bread crumb */ }
@@ -465,12 +448,9 @@ ol {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5%;
-  width: 100%;
+  max-width: 100%;
+  min-width: auto;
   padding: 0.75em; }
-
-.cards {
-  width: 100%;
-  margin-bottom: 1em; }
 
 .info, .tool-info {
   font-size: 1.2em;
@@ -483,11 +463,8 @@ ol {
   font-size: 3em; }
 
 .card-holder {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+  flex-wrap: wrap; }
 
 .catalog-images {
   max-width: 100%; }
@@ -510,60 +487,38 @@ ol {
   max-width: 13.625em; }
 
 .sale {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline; }
+  text-decoration-line: underline; }
 
 .center {
-  -ms-flex-item-align: center;
-      align-self: center; }
+  align-self: center; }
 
 div .bottom-drop:first-child {
   margin-bottom: -0.5em; }
 
-.cat-order-name {
-  padding-top: 0.75em; }
-
 @media screen and (min-width: 27em) {
   .cat-order-name {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1; }
+    order: 1; }
 
   .cat-order-code {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    order: 2;
     /*padding-bottom: 0.25em;*/ }
 
   .cat-order-image {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
+    order: 3;
     padding-top: 1.2em; }
 
   .cat-order-price {
-    -webkit-box-ordinal-group: 6;
-        -ms-flex-order: 5;
-            order: 5; }
+    order: 5; }
 
   .cat-order-sold {
-    -webkit-box-ordinal-group: 7;
-        -ms-flex-order: 6;
-            order: 6; }
+    order: 6; }
 
   .cat-order-btn {
-    -webkit-box-ordinal-group: 5;
-        -ms-flex-order: 4;
-            order: 4; } }
+    order: 4; } }
 @media screen and (min-width: 38.438em) {
   .mobile-s {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row; }
+    flex-direction: row; }
 
   .info {
     width: 50%; }
@@ -572,7 +527,4 @@ div .bottom-drop:first-child {
     width: 100%; } }
 @media screen and (min-width: 649px) {
   .col-ssm-6 {
-    -ms-flex-pack: distribute;
-        justify-content: space-around; } }
-
-/*# sourceMappingURL=maps/main.css.map */
+    justify-content: space-around; } }

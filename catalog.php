@@ -1,30 +1,11 @@
 
 <?php require_once('private/initialize.php'); ?>
-<?php
-/**
+<?php /**
  * Created by PhpStorm.
  * User: mike
  * Date: 10/30/17
  * Time: 7:52 PM
  */
-
-$multi_item_query = "SELECT t.t_id as id, t.item_code as code, t.item_name as name,
-                                    t.retail_price as retail, t.sale_price as price,
-                                    t.item_pieces as  pieces, t.qty as quantity,
-                                    t.sold as sold, t.description as description,
-                                    b.brand as brand, c.category as category,
-                                    tt.tool_type as section, i.image as image
-                                   FROM Tools as t
-                                   INNER JOIN Brands as b on t.b_id = b.b_id
-                                   INNER JOIN Categories as c ON t.c_id = c.c_id
-                                   INNER JOIN Images AS i ON t.t_id = i.t_id
-                                   LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
-                                   WHERE tt.tool_type = :tool";
-
-$breadcrumb_query = "SELECT c.tool_type as category
-                     FROM Tools as t
-                     JOIN Types c ON t.tt_id = c.tt_id
-                     WHERE c.tool_type = :breadcrumb LIMIT 1";
 
 ?>
 <?php
@@ -121,82 +102,100 @@ $breadcrumb_query = "SELECT c.tool_type as category
       } else {
           $page_name = 'Full Catalog';
           $section = null;
-
       }
-
   }
-
-$con = $db;
-$variables[':tool'] = $param;
-
-$crumbs[':breadcrumb'] = $param;
-
-
-
+$con = $db; // grab db to con for connection into queries.
+    $multi_item_query = "SELECT t.t_id AS id, t.item_code AS code, t.item_name AS name,
+                                    t.retail_price AS retail, t.sale_price AS price,
+                                    t.item_pieces AS  pieces, t.qty AS quantity,
+                                    t.sold AS sold, t.description AS description,
+                                    b.brand AS brand, c.category AS category,
+                                    tt.tool_type AS section, i.image AS image
+                                   FROM Tools AS t
+                                   INNER JOIN Brands AS b ON t.b_id = b.b_id
+                                   INNER JOIN Categories AS c ON t.c_id = c.c_id
+                                   INNER JOIN Images AS i ON t.t_id = i.t_id
+                                   LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
+                                   WHERE tt.tool_type = :tool";
+if (isset($param)) {
+    $variables[':tool'] = $param;
+    $items = execute_query($con, $multi_item_query, $variables)->fetchAll();
+}
+    $breadcrumb_query = "SELECT c.tool_type AS category
+                     FROM Tools AS t
+                     JOIN Types c ON t.tt_id = c.tt_id
+                     WHERE c.tool_type = :breadcrumb LIMIT 1";
+if (isset($param)) {
+    $crumbs[':breadcrumb'] = $param;
+    $breadcrumb = execute_query($con, $breadcrumb_query, $crumbs);
+}
 ?>
-
 <?php
-
+$page_title = 'Tool Catalog';
 require(SHARED_PATH . '/header.php');
 require(SHARED_PATH . '/nav.php');
 ?>
-
-
-<header class="container-fluid">
+<section class="container-fluid">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12">
             <h1 class="text-center">
                 <?php if (isset($page_name)) { echo $page_name;  } ?>
             </h1>
         </div>
-        <div class="col-xs-12">
+        <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
-                <?php $breadcrumb = execute_query($con, $breadcrumb_query, $crumbs); ?>
-                <?php foreach ($breadcrumb as $crumb) { ?>
-                <li><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
+                <li class="breadcrumb-item"><a class="" aria-current="page" href="<?php echo url_for('index.php'); ?>">Home</a></li>
+                <?php if(isset($breadcrumb)) { ?>
+                    <?php foreach ($breadcrumb as $crumb) { ?>
+                        <li class="breadcrumb-item active">
+                            <a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a>
+                        </li>
+                    <?php } //end foreach?>
                 <?php } ?>
             </ol>
-        </div>
+
+        </nav>
     </div>
-</header>
+</section>
 <main>
-    <section class="container">
-
+    <section class="container-fluid">
         <div class="row">
-           <?php $items = execute_query($con, $multi_item_query, $variables)->fetchAll(); ?>
+           <?php if (isset($items)) { ?>
             <?php foreach ( $items as $item) { ?>
-                        <article id="cards">
-                            <div class="container-fluid">
-                                <div class="row card card-holder">
-                                        <div class="col-xs-12 col-sm-6 card">
-                                            <h1>Code: <?php echo $item['code']; ?></h1>
-                                            <h3>Name: <?php echo $item['name']; ?></h3>
-                                            <h3>Brand: <?php echo $item['brand']; ?></h3>
-                                            <h4>Category: <?php echo $item['category']; ?></h4>
-                                            <h4>Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
-                                            <h4>Sold: <?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
-                                        </div>
+            <div class="col-12 col-sm-6">
+                <div class="container-fluid">
+                        <article class="cards">
+                                  <div class="col-12">
 
-                                        <div class="col-xs-12 col-sm-6 card catalog-card">
-                                            <aside>
-                                                <img class="catalog-images center-block" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
+                                       <section class="card-holder">
 
-                                            </aside>
-                                            <a class="btn btn-lg btn-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
-                                                <?php echo $item['code']; ?>
-                                            </a>
-                                        </div>
-                                </div>
+                                            <section class="card code">
+                                                <h2 class="cat-order-code bottom-drop center">Code: <?php echo $item['code']; ?></h2>
 
-                            </div>
+                                                <h3 class="cat-order-name center"><?php echo $item['name']; ?></h3>
 
-                         </article>
-            <?php } ?>
+                                                <img class="cat-order-image thumbnail box-image-width" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
 
+
+                                                <h4 class="cat-order-price">Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
+
+                                                <h4 class="cat-order-sold sale"><?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
+
+                                                <a class="cat-order-btn btn btn-lg btn-outline-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
+                                                    More Info
+                                                </a>
+                                            </section>
+                                       </section><!--/card-holder-->
+                                  </div>
+                                    <!-- /.row -->
+                        </article>
+                </div>
+            </div>
+                   <!-- /.col-sm-6 -->
+            <?php } //end foreach?>
+            <?php } //end isset items?>
         </div>
-
+        <!-- /.row -->
     </section>
 </main>
-
 <?php include(SHARED_PATH . '/footer.php'); ?>

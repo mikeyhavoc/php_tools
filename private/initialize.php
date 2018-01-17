@@ -31,15 +31,19 @@ define("SHARED_PATH", PRIVATE_PATH . '/shared'); # shared folder
 //define("WWW_ROOT", $doc_root);
 
 //ROOT of file.
-define("WWW_ROOT", '');
-define('FOLDER', WWW_ROOT . '/php_tools/');
-define("IMAGES", WWW_ROOT . '/public');
+define('WWW_ROOT', '');
+//define('WINDOWS', '/tools-site'); // FOR WINDOWS TESTING
+//define("WWW_ROOT", '' . WINDOWS);
+// windows go from blank root to localhost/ for xampp
+
+define("IMAGES", WWW_ROOT . '/public/');
+// easily connects root->(tools-site)->public->|img|
 
 
 
 
 
 require_once('functions.php');
-require_once('connection.php');
+include('connection.php');
 
 
