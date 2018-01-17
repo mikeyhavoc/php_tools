@@ -31,7 +31,7 @@
 
             <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=misc'); ?>">Misc Tools</a>
 
-            <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=discs'); ?>">Discs</a>
+            <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=discs'); ?>">Discs/Wheels</a>
 
             <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=cch'); ?>">Clamps/Chains/Hooks</a>
 
@@ -116,7 +116,7 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo url_for( 'catalog.php?cat=discs'); ?>">Discs</a>
+                            <a href="<?php echo url_for( 'catalog.php?cat=discs'); ?>">Discs/wheels</a>
                         </li>
 
                         <li>
