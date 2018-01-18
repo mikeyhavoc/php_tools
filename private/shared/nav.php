@@ -9,7 +9,7 @@
 
             <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=bits'); ?>">Bits</a>
 
-            <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=air_tools'); ?>">Air Tools</a>
+            <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>">Air Tools</a>
 
             <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=ratchets'); ?>">Ratchets</a>
 
@@ -70,7 +70,7 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo url_for( 'catalog.php?cat=air_tools'); ?>">Air Tools</a>
+                            <a href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>">Air Tools</a>
                         </li>
 
                         <li>
