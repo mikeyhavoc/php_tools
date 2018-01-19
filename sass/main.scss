@@ -36,7 +36,7 @@ $code-margin-bottom: -0.50em;
 
 $thumb-width: 9.375em;
 $thumb-height: 6.250em;
-
+$submit-width: 25%;
 //**** end variables   ******
 root { font-size: 16px; }
 html {
@@ -62,7 +62,7 @@ ol { /* bread crumb */
   margin-top: 0;
   margin-bottom: 0;
 }
-
+.submit-width { width: $submit-width ;}
 
 
 .image { max-width: 28.125em; min-width: 12.500em; padding-top: 0; }
@@ -125,6 +125,7 @@ div  {
   .cat-order-sold { @include catalog-order(6);}
   .cat-order-btn { @include catalog-order(4); }
 }
+.form-inline .form-control { width: 66%;  }
 
 @media screen and (min-width: 38.438em) /* 615 px to 768px  */ {
 
@@ -132,7 +133,6 @@ div  {
 
   .info { width: $global-width / 2; }
   .tool-info { width: $global-width; }
-  .form-inline .form-control { width: 66%;  }
 
 }
 
