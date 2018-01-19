@@ -17,7 +17,7 @@
 <body>
     <header role="banner" class='container-fluid'>
       <div class='row'>
-        <h1 class="col-12 col-md-6 tools">
+        <h1 class="col-12 col-md-3 tools">
             <a href="<?php echo url_for( 'index.php'); ?>">Garys Tools</a>
         </h1>
       </div>
