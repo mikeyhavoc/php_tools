@@ -26,7 +26,7 @@
           $page_name = 'Bits';
           $section = 'bits';
           $param = 'bits';
-      } elseif ( $_GET['cat'] == 'air_tools') {
+      } elseif ( $_GET['cat'] == 'air-tools') {
           $page_name = 'Air Tools';
           $section = 'air-tools';
           $param = 'air-tools';
@@ -100,11 +100,13 @@
           $section = 'blades';
           $param = 'blades';
       } else {
-          $page_name = 'Full Catalog';
+          $page_name = 'home';
           $section = null;
       }
   }
 $con = $db; // grab db to con for connection into queries.
+
+if (isset($param)) {
     $multi_item_query = "SELECT t.t_id AS id, t.item_code AS code, t.item_name AS name,
                                     t.retail_price AS retail, t.sale_price AS price,
                                     t.item_pieces AS  pieces, t.qty AS quantity,
@@ -117,15 +119,14 @@ $con = $db; // grab db to con for connection into queries.
                                    INNER JOIN Images AS i ON t.t_id = i.t_id
                                    LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
                                    WHERE tt.tool_type = :tool";
-if (isset($param)) {
     $variables[':tool'] = $param;
     $items = execute_query($con, $multi_item_query, $variables)->fetchAll();
 }
+if (isset($param)) {
     $breadcrumb_query = "SELECT c.tool_type AS category
                      FROM Tools AS t
                      JOIN Types c ON t.tt_id = c.tt_id
                      WHERE c.tool_type = :breadcrumb LIMIT 1";
-if (isset($param)) {
     $crumbs[':breadcrumb'] = $param;
     $breadcrumb = execute_query($con, $breadcrumb_query, $crumbs);
 }
@@ -179,7 +180,7 @@ require(SHARED_PATH . '/nav.php');
 
                                                 <h4 class="cat-order-price">Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
 
-                                                <h4 class="cat-order-sold sale"><?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
+                                                <h4 class="cat-order-sold sale" data-value="<?php echo $item['sold']; ?>"><?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
 
                                                 <a class="cat-order-btn btn btn-lg btn-outline-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
                                                     More Info
