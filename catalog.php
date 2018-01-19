@@ -163,7 +163,7 @@ require(SHARED_PATH . '/nav.php');
         <div class="row">
            <?php if (isset($items)) { ?>
             <?php foreach ( $items as $item) { ?>
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-6 col-md-4">
                 <div class="container-fluid">
                         <article class="cards">
                                   <div class="col-12">
