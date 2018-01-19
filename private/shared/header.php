@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/helpers.css">-->
     <link rel="stylesheet" href="<?php echo url_for('public/css/main.css'); ?>">
 
-    <title><?php $page_title; ?></title>
+    <title><?php echo $page_title; ?></title>
 </head>
 <body>
     <header role="banner" class='container-fluid'>
