@@ -15,3 +15,48 @@ require(SHARED_PATH . '/nav.php');
 
 ?>
 <div class="container-fluid">
+    <form action="process.php" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center m-3">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name" placeholder="First name" required>
+                </div>
+                <div class="col-12 text-center m-3">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" placeholder="Last Name">
+                </div>
+                <div class="col-12 text-center m-3">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email">
+               </div>
+                <div class="col-12 text-center m-3">
+                    <label for="area-near">Area Near or Located</label>
+                    <select name="area-near" id="area-near" required>
+                        <option value="">select</option>
+                        <option value="bradenton">Bradenton</option>
+                        <option value="sarasota">Sarasota</option>
+                        <option value="lakewood-ranch">Lakewood Ranch</option>
+                        <option value="palmetto">Palmetto</option>
+                    </select>
+                </div>
+                <div class="col-12 text-center m-3">
+                    <label for="contact-number">Contact Number</label>
+                    <input type="tel" id="contact-number" name="contact-number" placeholder="941-000-0000">
+                </div>
+                <div class="col-12 text-center m-3">
+                    <label for="inquiry-questions">Questions Inquiries</label><br>
+                    <textarea name="inquiry-questions" id="inquiry-questions" cols="30" rows="10" placeholder="Questions about an item or an offer on an item.."></textarea>
+                </div>
+                    <div class="col-12 text-center m-3 ">
+                        <input class="btn btn-lg btn-outline-success submit-width"  type="submit" value="submit">
+                    </div>
+                    <div class="col-12 text-center m-3 ">
+                        <input class="btn btn-lg btn-outline-danger submit-width" type="reset" value="reset">
+                    </div>
+
+            </div>
+        </div>
+
+    </form>
+</div>
