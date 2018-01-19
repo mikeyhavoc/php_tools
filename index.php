@@ -41,7 +41,7 @@ require(SHARED_PATH . '/nav.php');
                         <article role="article" class="card">
 
                             <h2 class="text-center">
-                                <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>" >
+                                <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>" >
                                     Sockets
                                 </a>
                             </h2>
@@ -57,7 +57,7 @@ require(SHARED_PATH . '/nav.php');
                                 <article role="article" class="card">
 
                                     <h3 class="text-center">
-                                        <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>" >
+                                        <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>" >
                                             Wrenches
                                         </a>
                                     </h3>
@@ -76,7 +76,7 @@ require(SHARED_PATH . '/nav.php');
                                 <article role="article" class="card">
 
                                 <h3 class="text-center">
-                                    <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>" >
+                                    <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>" >
                                         Air Tools
                                     </a>
                                 </h3>
