@@ -178,9 +178,9 @@ require(SHARED_PATH . '/nav.php');
                                                 <img class="cat-order-image thumbnail box-image-width" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
 
 
-                                                <h4 class="cat-order-price">Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
+                                                <h4 class="cat-order-price" data-value="<?php echo $item['price']; ?>">Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
 
-                                                <h4 class="cat-order-sold sale" data-value="<?php echo $item['sold']; ?>"><?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
+                                                <h4 class="cat-order-sold sale"></h4><?php echo  $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
 
                                                 <a class="cat-order-btn btn btn-lg btn-outline-danger btn-width center-block"  href='details.php?id=<?php echo $item['id']; ?>'>
                                                     More Info
