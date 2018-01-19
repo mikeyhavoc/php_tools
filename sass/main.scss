@@ -1,5 +1,5 @@
 //******* variables *******
-@import 'normalize';
+
 @mixin box-size { box-sizing: border-box; }
 @mixin font-pad { font-size: 1.2em;  padding: 0.5em 0.75em; margin-top: 0;}
 @mixin catalog-order($order-placement) { order: $order-placement; }
@@ -10,16 +10,14 @@
 
 $color-black: #000000;
 $logo-font: 4.75em;
-
+$font-stack-family: 'Supermercado One', Baskerville, Palatino;
 $card-background: lightgrey;
-
-
-$tool-btn-background: lightcoral;
-$tool-btn-radius: 39px 0 72px 0;
-
+$tool-color: darken(coral, 15%);
+$tool-border-radius: 15px;
+$tool-border: 2px $tool-color solid;
 $global-border: 6%;
 
-$font-stack-family: 'Sirin Stencil', Baskerville, Palatino;
+
 
 $global-width: 100%;
 $global-third-width: 75%;
@@ -60,13 +58,12 @@ ol { /* bread crumb */
 .tools { /* Gary's Tool List TITLE */
   font-family: $font-stack-family;
   font-size: $logo-font;
-  background : $tool-btn-background;
-  border-radius: $tool-btn-radius;
-  -moz-border-radius: $tool-btn-radius;
-  -webkit-border-radius: $tool-btn-radius;
-  border: 7px double $color-black;
 
+  margin-top: 0;
+  margin-bottom: 0;
 }
+
+
 
 .image { max-width: 28.125em; min-width: 12.500em; padding-top: 0; }
 .box-image-width { width: $mini-image-size;  }
@@ -135,11 +132,11 @@ div  {
 
   .info { width: $global-width / 2; }
   .tool-info { width: $global-width; }
-
+  .form-inline .form-control { width: 66%;  }
 
 }
 
-@media screen and (min-width: 649px) /* change to ems */ {
+@media screen and (min-width: 40.563em) /* change to ems */ {
   .col-ssm-6 { justify-content: space-around; }
 
 
