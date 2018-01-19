@@ -30,6 +30,9 @@ ol {
   margin-top: 0;
   margin-bottom: 0; }
 
+.submit-width {
+  width: 25%; }
+
 .image {
   max-width: 28.125em;
   min-width: 12.500em;
@@ -128,6 +131,9 @@ div .bottom-drop:first-child {
 
   .cat-order-btn {
     order: 4; } }
+.form-inline .form-control {
+  width: 66%; }
+
 @media screen and (min-width: 38.438em) {
   .mobile-s {
     display: flex;
@@ -137,10 +143,7 @@ div .bottom-drop:first-child {
     width: 50%; }
 
   .tool-info {
-    width: 100%; }
-
-  .form-inline .form-control {
-    width: 66%; } }
+    width: 100%; } }
 @media screen and (min-width: 40.563em) {
   .col-ssm-6 {
     justify-content: space-around; } }
