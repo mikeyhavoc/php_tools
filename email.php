@@ -1,8 +1,38 @@
-<?php
+<?php require_once ('private/initialize.php');
 /**
  * Copyright (c) 2018. Michael Williams Manic Designer Developments.
  */
-require_once ('private/initialize.php');
+/**
+ * Created by PhpStorm.
+ * User: mike
+ * Date: 1/19/18
+ * Time: 2:26 PM
+ */
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $first_name = $_POST['first-name'];
+    $last_name = $_POST['last-name'];
+    $email = $_POST['email'];
+    $phone_number = $_POST['contact-number'];
+    $inquiry_questions = $_POST['inquiry-questions'];
+
+    $email_body = "";
+
+    $email_body .= 'First Name ' . $first_name . "<br>";
+    $email_body .= 'last name ' . $last_name . "<br>";
+    $email_body .= 'email ' . $email . "<br>";
+    $email_body .= 'phone number ' . $phone_number . "<br>";
+    $email_body .= 'questions ' . $inquiry_questions . "<br>";
+
+    echo $email_body;
+
+    // TO DO  SEND EMAIL  :: THANK YOU PAGE.
+    header("location:email.php?status=thanks");
+}
+
+/**
+ * Copyright (c) 2018. Michael Williams Manic Designer Developments.
+ */
+
 /**
  * Created by PhpStorm.
  * User: mike
@@ -15,7 +45,16 @@ require(SHARED_PATH . '/nav.php');
 
 ?>
 <div class="container-fluid">
-    <form action="process.php" method="post">
+    <?php if (isset($_GET['status']) && $_GET['status'] == 'thanks') { ?>
+         <div class="container-fluid">
+        <div class="col-12 text-center">
+            <h1>Thank you for inquiry or question.</h1>
+            <p>We will try to reach you as soon as possible to complete the deal.</p>
+        </div>
+    </div>
+   <?php } else { ?>
+
+    <form action="process.php" method="email.php">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center m-3">
@@ -59,4 +98,6 @@ require(SHARED_PATH . '/nav.php');
         </div>
 
     </form>
+    <?php } ?>
 </div>
+<?php include (SHARED_PATH . '/footer.php'); ?>
