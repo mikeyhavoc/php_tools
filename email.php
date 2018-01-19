@@ -18,6 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($first_name == '' || $last_name == '' || $email == '' || $phone_number == '' || $inquiry_questions == '') { echo 'Please enter first name';
         exit;
     }
+    if ($_POST['address'] != '') {
+        echo 'Bad form input';
+        exit;
+    }
 
     if ($last_name == '') { echo "Please enter Last Name"; }
 
@@ -88,6 +92,11 @@ require(SHARED_PATH . '/nav.php');
                 <div class="col-12 text-center m-3">
                     <label for="contact-number">Contact Number</label>
                     <input type="tel" id="contact-number" name="contact-number" placeholder="941-000-0000">
+                    <div style="display:none;">
+                        <label for="address">address</label>
+                        <input type="text" id="address" name="address">
+                        <p>please leave this field blank</p>
+                    </div>
                 </div>
                 <div class="col-12 text-center m-3">
                     <label for="inquiry-questions">Questions Inquiries</label><br>
