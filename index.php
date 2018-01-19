@@ -83,7 +83,7 @@ require(SHARED_PATH . '/nav.php');
                                 <p class="text-center">
                                         Tool Type: Air drills, etc.<br>
                                 </p>
-                                    <a href="<?php echo url_for( 'catalog.php?cat=air_tools'); ?>">
+                                    <a href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>">
                                         <img class="catalog-images center-block img-rounded" src="<?php echo  IMAGES . '/img/air/b48-air.jpg'; ?>" >
                                     </a>
                                 </article>
