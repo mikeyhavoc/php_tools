@@ -9,11 +9,11 @@
  * Time: 2:26 PM
  */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $first_name = trim(filter_input,'first-name', FILTER_SANITIZE_STRING);
-    $last_name = trim(filter_input, 'last-name', FILTER_SANITIZE_STRING);
-    $email = trim(filter_input,'email', FILTER_SANITIZE_STRING);
-    $phone_number = trim(filter_input,'contact-number', FILTER_SANITIZE_STRING);
-    $inquiry_questions = trim(filter_input,'inquiry-questions',FILTER_SANITIZE_STRING);
+    $first_name = trim(filter_input(INPUT_POST,'first-name', FILTER_SANITIZE_STRING));
+    $last_name = trim(filter_input(INPUT_POST, 'last-name', FILTER_SANITIZE_STRING));
+    $email = trim(filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL));
+    $phone_number = trim(filter_input(INPUT_POST,'contact-number', FILTER_SANITIZE_STRING));
+    $inquiry_questions = trim(filter_input(INPUT_POST,'inquiry-questions',FILTER_SANITIZE_SPECIAL_CHARS));
 
     if ($first_name == '' || $last_name == '' || $email == '' || $phone_number == '' || $inquiry_questions == '') { echo 'Please enter first name';
         exit;
