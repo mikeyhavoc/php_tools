@@ -121,7 +121,7 @@ div  {
   .cat-order-name { @include catalog-order(1);  }
   .cat-order-code { @include catalog-order(2); /*padding-bottom: 0.25em;*/ }
   .cat-order-image { @include catalog-order(3); padding-top: 1.2em;}
-  .cat-order-price { @include catalog-order(5);  }
+  .cat-order-price { @include catalog-order(5);  padding-top: 0.5em; }
   .cat-order-sold { @include catalog-order(6);}
   .cat-order-btn { @include catalog-order(4); }
 }
