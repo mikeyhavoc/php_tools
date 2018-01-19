@@ -9,11 +9,17 @@
  * Time: 2:26 PM
  */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $first_name = $_POST['first-name'];
-    $last_name = $_POST['last-name'];
-    $email = $_POST['email'];
-    $phone_number = $_POST['contact-number'];
-    $inquiry_questions = $_POST['inquiry-questions'];
+    $first_name = trim(filter_input,'first-name', FILTER_SANITIZE_STRING);
+    $last_name = trim(filter_input, 'last-name', FILTER_SANITIZE_STRING);
+    $email = trim(filter_input,'email', FILTER_SANITIZE_STRING);
+    $phone_number = trim(filter_input,'contact-number', FILTER_SANITIZE_STRING);
+    $inquiry_questions = trim(filter_input,'inquiry-questions',FILTER_SANITIZE_STRING);
+
+    if ($first_name == '' || $last_name == '' || $email == '' || $phone_number == '' || $inquiry_questions == '') { echo 'Please enter first name';
+        exit;
+    }
+
+    if ($last_name == '') { echo "Please enter Last Name"; }
 
     $email_body = "";
 
@@ -45,7 +51,7 @@ require(SHARED_PATH . '/nav.php');
 
 ?>
 <div class="container-fluid">
-    <?php if (isset($_GET['status']) && $_GET['status'] == 'thanks') { ?>
+    <?php if (isset($_POST['status']) && $_POST['status'] == 'thanks') { ?>
          <div class="container-fluid">
         <div class="col-12 text-center">
             <h1>Thank you for inquiry or question.</h1>
@@ -54,7 +60,7 @@ require(SHARED_PATH . '/nav.php');
     </div>
    <?php } else { ?>
 
-    <form action="process.php" method="email.php">
+    <form action="email.php" method="POST">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center m-3">
