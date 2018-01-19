@@ -79,6 +79,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo url_for( 'catalog.php?cat=cch'); ?>">Clamps/hooks/chains</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?php echo url_for('/email.php'); ?>" class="nav-link">Tools Inquiry</a>
+                    </li>
 
 
                 </ul>
