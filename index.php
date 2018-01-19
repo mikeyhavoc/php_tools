@@ -76,7 +76,7 @@ require(SHARED_PATH . '/nav.php');
                                 <article role="article" class="card">
 
                                 <h3 class="text-center">
-                                    <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=air_tools'); ?>" >
+                                    <a class="btn btn-lg btn-danger" href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>" >
                                         Air Tools
                                     </a>
                                 </h3>
