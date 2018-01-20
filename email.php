@@ -1,5 +1,5 @@
-<?php use PHPMailer\PHPMailer\PHPMailer;
-      use PHPMailer\PHPMailer\Exception;
+<?php use phpmailer\phpmailer\phpmailer;
+      use phpmailer\phpmailer\Exception;
 require_once ('private/initialize.php');
 require 'vendor/phpmailer/src/Exception.php';
 require 'vendor/phpmailer/src/PHPMailer.php';
