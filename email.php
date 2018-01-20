@@ -1,4 +1,9 @@
-<?php require_once ('private/initialize.php');
+<?php use PHPMailer\PHPMailer\PHPMailer;
+      use PHPMailer\PHPMailer\Exception;
+require_once ('private/initialize.php');
+require 'vendor/PHPMailer/src/Exception.php';
+require 'vendor/to/PHPMailer/src/PHPMailer.php';
+//require 'vendor/to/PHPMailer/src/SMTP.php';
 /**
  * Copyright (c) 2018. Michael Williams Manic Designer Developments.
  */
