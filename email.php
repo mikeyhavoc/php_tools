@@ -1,9 +1,8 @@
-<?php use phpmailer\phpmailer\phpmailer;
-      use phpmailer\phpmailer\Exception;
+<?php use PHPMailer\PHPMailer\PHPMailer;
+      //use PHPMailer\PHPMailer\Exception;
 require_once ('private/initialize.php');
-require 'vendor/phpmailer/src/Exception.php';
-require 'vendor/phpmailer/src/PHPMailer.php';
-//require 'vendor/to/PHPMailer/src/SMTP.php';
+require './vendor/autoload.php';
+
 /**
  * Copyright (c) 2018. Michael Williams Manic Designer Developments.
  */
@@ -14,35 +13,62 @@ require 'vendor/phpmailer/src/PHPMailer.php';
  * Time: 2:26 PM
  */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $first_name = trim(filter_input(INPUT_POST,'first-name', FILTER_SANITIZE_STRING));
+    $first_name = trim(filter_input(INPUT_POST, 'first-name', FILTER_SANITIZE_STRING));
     $last_name = trim(filter_input(INPUT_POST, 'last-name', FILTER_SANITIZE_STRING));
-    $email = trim(filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL));
-    $phone_number = trim(filter_input(INPUT_POST,'contact-number', FILTER_SANITIZE_STRING));
-    $inquiry_questions = trim(filter_input(INPUT_POST,'inquiry-questions',FILTER_SANITIZE_SPECIAL_CHARS));
-
-    if ($first_name == '' || $last_name == '' || $email == '' || $phone_number == '' || $inquiry_questions == '') { echo 'Please enter first name';
-        exit;
-    }
+    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
+    $phone_number = trim(filter_input(INPUT_POST, 'contact-number', FILTER_SANITIZE_STRING));
+    $subject = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING));
+    $inquiry_questions = trim(filter_input(INPUT_POST, 'inquiry-questions', FILTER_SANITIZE_SPECIAL_CHARS));
+    $full_name = $first_name . ' ' . $last_name;
+//    if ($first_name == '' || $last_name == '' || $email == '' || $phone_number == '' || $inquiry_questions == '') { echo 'Please enter first name';
+//        exit;
+//    }
     if ($_POST['address'] != '') {
         echo 'Bad form input';
         exit;
     }
+//    if (!PHPMailer::validateAddress($email)) {
+//        echo "Invalid Email Address";
+//        exit;
+//    }
 
-    if ($last_name == '') { echo "Please enter Last Name"; }
+//    if ($last_name == '') { echo "Please enter Last Name"; }
 
-    $email_body = "";
+//    $email_body = "";
+//
+//    $email_body .= 'First Name ' . $first_name . "<br>";
+//    $email_body .= 'last name ' . $last_name . "<br>";
+//    $email_body .= 'email ' . $email . "<br>";
+//    $email_body .= 'phone number ' . $phone_number . "<br>";
+//    $email_body .= 'questions ' . $inquiry_questions . "<br>";
+//
+//    echo $email_body;
+    $to = 'garyws.items@gmail.com';
 
-    $email_body .= 'First Name ' . $first_name . "<br>";
-    $email_body .= 'last name ' . $last_name . "<br>";
-    $email_body .= 'email ' . $email . "<br>";
-    $email_body .= 'phone number ' . $phone_number . "<br>";
-    $email_body .= 'questions ' . $inquiry_questions . "<br>";
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->SMTPDebug = 2;
 
-    echo $email_body;
+    $mail->Port = 587;
+    $mail->SMTPSecure = 'tls';
+    $mail->SMTPAuth = 'true';
 
-    // TO DO  SEND EMAIL  :: THANK YOU PAGE.
-    header("location:email.php?status=thanks");
+    $mail->Password = $pass;
+    $mail->setFom('from@example.com', 'test person');
+    $mail->addReplyTo($email, $full_name);
+
+    // test subject change in future if works.
+    $mail->Subject = $subject;
+    $mail->Body = $email_body;
+    if (!$mail->send()) {
+        $msg .= 'Mailer error ' . $mail->ErrorInfo();
+    }
+    header('location:email.php?status=thanks');
 }
+
+
+
+
 
 /**
  * Copyright (c) 2018. Michael Williams Manic Designer Developments.
@@ -103,6 +129,10 @@ require(SHARED_PATH . '/nav.php');
                         <p>please leave this field blank</p>
                     </div>
                 </div>
+                <div class="col-12 text-center m3">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
                 <div class="col-12 text-center m-3">
                     <label for="inquiry-questions">Questions Inquiries</label><br>
                     <textarea name="inquiry-questions" id="inquiry-questions" cols="30" rows="10" placeholder="Questions about an item or an offer on an item.."></textarea>
@@ -116,7 +146,6 @@ require(SHARED_PATH . '/nav.php');
 
             </div>
         </div>
-
     </form>
     <?php } ?>
 </div>
