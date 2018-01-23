@@ -25,11 +25,16 @@
   },
   "homepage": "https://github.com/mikeyhavoc/php_tools#readme",
   "devDependencies": {
+    "@cedx/gulp-php-minify": "^7.1.1",
     "autoprefixer": "^7.2.4",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-imagemin": "^4.1.0",
     "gulp-postcss": "^7.0.1",
     "gulp-ruby-sass": "^3.0.0",
-    "gulp-sourcemaps": "^2.6.3"
+    "gulp-sourcemaps": "^2.6.3",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^2.0.1"
   },
   "dependencies": {},
   "browserslist": [
