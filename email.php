@@ -82,7 +82,7 @@ $section = null;
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label ml-2" for="area-near">Area Near or Located</label>
-                <select class="form-control bar-width" name="area-near" id="area-near" required>
+                <select class="form-control select-width" name="area-near" id="area-near" required>
                     <option value="">select</option>
                     <option value="bradenton">Bradenton</option>
                     <option value="sarasota">Sarasota</option>
@@ -104,24 +104,42 @@ $section = null;
                 </div>
             </div>
         </fieldset>
-        <fieldset>
+        <fieldset id="inquiry-info">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label ml-2" for="subject">Subject:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control bar-width" id="subject" name="subject">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label ml-2" for="inquiry-questions">Questions Inquiries</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control bar-width" name="inquiry-questions" id="inquiry-questions" cols="30" rows="10" placeholder="Questions about an item or an offer on an item.."></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="bar-width col-sm-6">
+                        <button  class="btn btn-lg btn-outline-success btn-block"  type="submit">Submit</button>
+                    </div>
+                    <div class="bar-width col-sm-6">
+                        <button class="btn btn-lg btn-outline-danger btn-block" type="reset">Reset</button>
+                    </div>
+                </div>
+
+
 
         </fieldset>
 
 
-                    <div class="col-12 my-2 my-sm-3">
-                        <label for="subject">Subject:</label>
-                        <input type="text" id="subject" name="subject">
-                    </div>
-                    <div class="col-12 my-2 my-sm-3">
-                        <label for="inquiry-questions">Questions Inquiries</label><br>
-                        <textarea name="inquiry-questions" id="inquiry-questions" cols="30" rows="10" placeholder="Questions about an item or an offer on an item.."></textarea>
-                    </div>
+
+
+
+
                         <div class="col-12 my-2 my-sm-3 ">
-                            <input class="btn btn-lg btn-outline-success submit-width"  type="submit" value="submit">
+
                         </div>
                         <div class="col-12 my-2  my-sm-3 ">
-                            <input class="btn btn-lg btn-outline-danger submit-width" type="reset" value="reset">
+
                         </div>
             </div>
         </div>
