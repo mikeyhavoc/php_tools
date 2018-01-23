@@ -171,7 +171,7 @@ require(SHARED_PATH . '/nav.php');
                                        <section class="card-holder">
 
                                             <section class="card code">
-                                                <h2 class="cat-order-code bottom-drop center">Code: <?php echo $item['code']; ?></h2>
+                                                <h2 class="cat-order-code bottom-drop center" data-code="<?php echo $item['code']; ?>">Code: <?php echo $item['code']; ?></h2>
 
                                                 <h3 class="cat-order-name center"><?php echo $item['name']; ?></h3>
 
