@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $first_name = trim(filter_input(INPUT_POST, 'first-name', FILTER_SANITIZE_STRING));
     $last_name = trim(filter_input(INPUT_POST, 'last-name', FILTER_SANITIZE_STRING));
     $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-    $phone_number = trim(filter_input(INPUT_POST, 'contact-number', FILTER_SANITIZE_STRING));
+    $phone_number = trim(filter_input(INPUT_POST, 'phone-number', FILTER_SANITIZE_STRING));
     $subject = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING));
     $inquiry_questions = trim(filter_input(INPUT_POST, 'inquiry-questions', FILTER_SANITIZE_SPECIAL_CHARS));
     $full_name = $first_name . ' ' . $last_name;
