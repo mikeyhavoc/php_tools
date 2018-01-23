@@ -126,27 +126,10 @@ $section = null;
                         <button class="btn btn-lg btn-outline-danger btn-block b-width b-left" type="reset">Reset</button>
                     </div>
                 </div>
-
-
-
         </fieldset>
-
-
-
-
-
-
-                        <div class="col-12 my-2 my-sm-3 ">
-
-                        </div>
-                        <div class="col-12 my-2  my-sm-3 ">
-
-                        </div>
             </div>
         </div>
-
     </form>
-
      <?php } ?>
    </section>
 <?php include (SHARED_PATH . '/footer.php'); ?>
