@@ -56,59 +56,78 @@ $section = null;
         </div>
     </div>
     <?php } else { ?>
-    <div>
-    <form action="email.php" method="POST">
-        <div class="container-fluid text-center">
-            <div class="row">
-                <div class="col-12 my-2  my-sm-3">
-                    <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" name="first-name" placeholder="First name" required>
-                </div>
-                <div class="col-12 my-2 my-sm-3">
-                    <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name" name="last-name" placeholder="Last Name">
-                </div>
-                <div class="col-12 my-2 my-sm-3">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Email">
-               </div>
-                <div class="col-12 my-2 my-sm-3">
-                    <label for="area-near">Area Near or Located</label>
-                    <select name="area-near" id="area-near" required>
-                        <option value="">select</option>
-                        <option value="bradenton">Bradenton</option>
-                        <option value="sarasota">Sarasota</option>
-                        <option value="lakewood-ranch">Lakewood Ranch</option>
-                        <option value="palmetto">Palmetto</option>
-                    </select>
-                </div>
-                <div class="col-12 my-2 my-sm-3">
-                    <label for="contact-number">Contact Number</label>
-                    <input type="tel" id="phone-number" name="contact-number" placeholder="941-000-0000">
-                    <div style="display:none;">
-                        <label for="address">address</label>
-                        <input type="text" id="address" name="address">
-                        <p>please leave this field blank</p>
-                    </div>
-                </div>
-                <div class="col-12 my-2 my-sm-3">
-                    <label for="subject">Subject:</label>
-                    <input type="text" id="subject" name="subject">
-                </div>
-                <div class="col-12 my-2 my-sm-3">
-                    <label for="inquiry-questions">Questions Inquiries</label><br>
-                    <textarea name="inquiry-questions" id="inquiry-questions" cols="30" rows="10" placeholder="Questions about an item or an offer on an item.."></textarea>
-                </div>
-                    <div class="col-12 my-2 my-sm-3 ">
-                        <input class="btn btn-lg btn-outline-success submit-width"  type="submit" value="submit">
-                    </div>
-                    <div class="col-12 my-2  my-sm-3 ">
-                        <input class="btn btn-lg btn-outline-danger submit-width" type="reset" value="reset">
-                    </div>
+    <section>
+    <form action="email.php" method="POST" class="mt-3">
+        <legend Class="text-center">Contact Form</legend>
+        <fieldset id="personal-info">
+            <legend class="text-center">Personal Info:</legend>
 
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label ml-2" for="first-name">First Name</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control bar-width"  id="first-name" name="first-name" placeholder="John">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label ml-2" for="last-name">Last Name</label>
+               <div class="col-sm-8">
+                   <input type="text" class="form-control bar-width" id="last-name" name="last-name" placeholder="Smith">
+               </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label ml-2" for="email">Email</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control bar-width" id="email" name="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label ml-2" for="area-near">Area Near or Located</label>
+                <select class="form-control bar-width" name="area-near" id="area-near" required>
+                    <option value="">select</option>
+                    <option value="bradenton">Bradenton</option>
+                    <option value="sarasota">Sarasota</option>
+                    <option value="lakewood-ranch">Lakewood Ranch</option>
+                    <option value="palmetto">Palmetto</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label ml-2" for="contact-number">Contact Number</label>
+                <div class="col-sm-8">
+                    <input type="tel" class="form-control bar-width" id="phone-number" name="contact-number" placeholder="941-000-0000">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div style="display:none;">
+                    <label for="address">address</label>
+                    <input type="text" id="address" name="address">
+                    <p>please leave this field blank</p>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+
+        </fieldset>
+
+
+                    <div class="col-12 my-2 my-sm-3">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+                    <div class="col-12 my-2 my-sm-3">
+                        <label for="inquiry-questions">Questions Inquiries</label><br>
+                        <textarea name="inquiry-questions" id="inquiry-questions" cols="30" rows="10" placeholder="Questions about an item or an offer on an item.."></textarea>
+                    </div>
+                        <div class="col-12 my-2 my-sm-3 ">
+                            <input class="btn btn-lg btn-outline-success submit-width"  type="submit" value="submit">
+                        </div>
+                        <div class="col-12 my-2  my-sm-3 ">
+                            <input class="btn btn-lg btn-outline-danger submit-width" type="reset" value="reset">
+                        </div>
             </div>
         </div>
+
     </form>
-   <?php } ?>
-</div>
+
+     <?php } ?>
+   </section>
 <?php include (SHARED_PATH . '/footer.php'); ?>
