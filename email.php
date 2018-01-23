@@ -104,6 +104,7 @@ $section = null;
                 </div>
             </div>
         </fieldset>
+        <legend class="text-center">Tool Inquiry</legend>
         <fieldset id="inquiry-info">
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label ml-2" for="subject">Subject:</label>
@@ -119,10 +120,10 @@ $section = null;
                 </div>
                 <div class="form-group row">
                     <div class="bar-width col-sm-6">
-                        <button  class="btn btn-lg btn-outline-success btn-block"  type="submit">Submit</button>
+                        <button  class="btn btn-lg btn-outline-success btn-block b-width b-right"  type="submit">Submit</button>
                     </div>
                     <div class="bar-width col-sm-6">
-                        <button class="btn btn-lg btn-outline-danger btn-block" type="reset">Reset</button>
+                        <button class="btn btn-lg btn-outline-danger btn-block b-width b-left" type="reset">Reset</button>
                     </div>
                 </div>
 
