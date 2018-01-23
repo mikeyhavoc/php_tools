@@ -91,9 +91,9 @@ $section = null;
                 </select>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label ml-2" for="contact-number">Contact Number</label>
+                <label class="col-sm-2 col-form-label ml-2" for="phone-number">Contact Number</label>
                 <div class="col-sm-8">
-                    <input type="tel" class="form-control bar-width" id="phone-number" name="contact-number" placeholder="941-000-0000">
+                    <input type="tel" class="form-control bar-width" id="phone-number" name="phone-number" placeholder="941-000-0000">
                 </div>
             </div>
             <div class="form-group row">
