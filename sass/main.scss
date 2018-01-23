@@ -122,7 +122,9 @@ div  {
 @media screen and (min-width:27.000em)/* 432px or greater. */ {
   .bar-width { width: $global-width; margin-right: 0; margin-left: 0; }
   .select-width { width: $global-width - 37%; margin-left: 1em; margin-right: 0; }
-
+  .b-width { width: $global-width - 10%; }
+  .b-right { margin-left: 1.5em; }
+  .b-left { margin-right: 1.5em; }
   .cat-order-name { @include catalog-order(1);  }
   .cat-order-code { @include catalog-order(2); /*padding-bottom: 0.25em;*/ }
   .cat-order-image { @include catalog-order(3); padding-top: 1.2em;}
