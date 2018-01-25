@@ -136,7 +136,8 @@ $page_title = 'Tool Catalog';
 require(SHARED_PATH . '/header.php');
 require(SHARED_PATH . '/nav.php');
 ?>
-<section class="container-fluid">
+
+<section id="#top" class="container-fluid">
     <div class="row">
         <div class="col-12">
             <h1 class="text-center">
@@ -158,7 +159,7 @@ require(SHARED_PATH . '/nav.php');
         </nav>
     </div>
 </section>
-<main>
+
     <section class="container-fluid">
         <div class="row">
            <?php if (isset($items)) { ?>
