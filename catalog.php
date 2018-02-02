@@ -107,6 +107,16 @@
 $con = $db; // grab db to con for connection into queries.
 
 if (isset($param)) {
+    $first_item_query = "SELECT t.item_name, t.item_code, t.sale_price,
+                         b.brand, c.category, i.image
+                         FROM Tools as t
+                         JOIN Brands as  b ON t.b_id = b.b_id
+                         JOIN Categories c ON t.c_id = c.c_id
+                         LEFT OUTER JOIN Images i ON t.t_id = i.t_id
+                         WHERE i.image_num = 1;";
+
+
+
     $multi_item_query = "SELECT t.t_id AS id, t.item_code AS code, t.item_name AS name,
                                     t.retail_price AS retail, t.sale_price AS price,
                                     t.item_pieces AS  pieces, t.qty AS quantity,
