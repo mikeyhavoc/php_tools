@@ -43,8 +43,8 @@ $section = null;
  */
 
 ?>
-<?php   require (SHARED_PATH . '/header.php');
-            require (SHARED_PATH . '/nav.php');
+<?php require (SHARED_PATH . '/header.php');
+      require (SHARED_PATH . '/nav.php');
     ?>
    <?php if (isset($_GET['status']) && $_GET['status'] == 'thanks') { ?>
     <div class="container text-center">
