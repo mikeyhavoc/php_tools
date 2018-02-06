@@ -104,17 +104,22 @@
           $section = null;
       }
   }
+
 $con = $db; // grab db to con for connection into queries.
 
 if (isset($param)) {
-    $first_item_query = "SELECT t.t_id as id, t.item_name, t.item_code, t.sale_price,
-                         b.brand, c.category, i.image
-                         FROM Tools AS t
-                         JOIN Brands AS  b ON t.b_id = b.b_id
-                         JOIN Categories c ON t.c_id = c.c_id
-                         JOIN Types tt ON t.tt_id = tt.tt_id
-                         LEFT OUTER JOIN Images i ON t.t_id = i.t_id
-                         WHERE tt.tool_type = :tool AND i.image_num = 1";
+    $first_item_query = "SELECT t.t_id AS id, t.item_code AS code, t.item_name AS name,
+                       t.retail_price AS retail, t.sale_price AS price,
+                       t.item_pieces AS  pieces, t.qty AS quantity,
+                       t.sold AS sold, t.description AS description,
+                       b.brand AS brand, c.category AS category,                                  
+                       tt.tool_type AS section, i.image AS image
+                       FROM Tools AS t
+                       INNER JOIN Brands AS b ON t.b_id = b.b_id
+                       INNER JOIN Categories AS c ON t.c_id = c.c_id
+                       INNER JOIN Images AS i ON t.t_id = i.t_id
+                       LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
+                       WHERE tt.tool_type = :tool AND i.image_num = 1";
     $variables[':tool'] = $param;
     $items = execute_query($con, $first_item_query, $variables);
 
