@@ -77,19 +77,10 @@ $section = null;
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label ml-2" for="email">Email</label>
                 <div class="col-sm-8">
-                    <input type="email" class="form-control bar-width" id="email" name="email" placeholder="Email">
+                    <input type="email" class="form-control bar-width" id="email" name="email" placeholder="Email" required>
                 </div>
             </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label ml-2" for="area-near">Area Near or Located</label>
-                <select class="form-control select-width" name="area-near" id="area-near" required>
-                    <option value="">select</option>
-                    <option value="bradenton">Bradenton</option>
-                    <option value="sarasota">Sarasota</option>
-                    <option value="lakewood-ranch">Lakewood Ranch</option>
-                    <option value="palmetto">Palmetto</option>
-                </select>
-            </div>
+
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label ml-2" for="phone-number">Contact Number</label>
                 <div class="col-sm-8">
@@ -109,7 +100,7 @@ $section = null;
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label ml-2" for="subject">Subject:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control bar-width" id="subject" name="subject">
+                        <input type="text" class="form-control bar-width" id="subject" name="subject" placeholder="subject or inquiry about tool.">
                     </div>
                 </div>
                 <div class="form-group row">
