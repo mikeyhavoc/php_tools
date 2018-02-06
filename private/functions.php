@@ -1,4 +1,6 @@
 <?php
+include 'initialize.php';
+
 /**
  * Created by PhpStorm.
  * User: mike
