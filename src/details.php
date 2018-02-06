@@ -59,7 +59,7 @@ try {
 }
 $pageTitle = 'Details';
 include(SHARED_PATH . '/header.php');
-include (SHARED_PATH . '/nav.php');
+include(SHARED_PATH . '/nav.php');
 ?>
 <div class="row">
     <div class="col-12">

@@ -29,7 +29,7 @@ define('WWW_ROOT', ''); # just comment out and use the one below when in windows
 //define("WWW_ROOT", '' . WINDOWS);
 # windows go from blank root to localhost/ for xampp
 
-define("IMAGES", WWW_ROOT . '/public');
+define("IMAGES", WWW_ROOT . '/public/');
 // easily connects root->(tools-site)->public->|img|
 
 require_once('functions.php');

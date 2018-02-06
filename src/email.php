@@ -20,6 +20,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email_body .= 'Inquiry: ' . $inquiry_questions . "<br>";
     $email_body .= "<pre>";
 
+    $to = 'garywsitems@gmail.com';
+    $email_subject = $subject;
+    $message = $email_body;
+
+
+
+    $headers[] = 'MIME-Version: 1.0';
+    $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+    // Additional headers
+    $headers[] = 'To: Gw <garywsitems@gmail.com>';
+    $headers[] = 'From: middleware <mikey.havocworkshop@gmail.com>';
+    $headers[] = 'Cc: . '. $full_name . ' . '. $email . ' .  ';
+    $headers[] = 'Bcc: migi <mikeyjhavoc@gmail.com>';
+
+
+
+    mail($to, $email_subject, $message, implode("\r\n", $headers));
+
+
 
 
     //TODO. send email.
@@ -43,8 +62,8 @@ $section = null;
  */
 
 ?>
-<?php require (SHARED_PATH . '/header.php');
-      require (SHARED_PATH . '/nav.php');
+<?php require(SHARED_PATH . '/header.php');
+      require(SHARED_PATH . '/nav.php');
     ?>
    <?php if (isset($_GET['status']) && $_GET['status'] == 'thanks') { ?>
     <div class="container text-center">
@@ -123,4 +142,4 @@ $section = null;
     </form>
      <?php } ?>
    </section>
-<?php include (SHARED_PATH . '/footer.php'); ?>
+<?php include(SHARED_PATH . '/footer.php'); ?>
