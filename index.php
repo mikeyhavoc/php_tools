@@ -21,7 +21,14 @@ require(SHARED_PATH . '/nav.php');
               <article role="article" class="info col-12 col-sm-6 ">
                 <h2 class="text-center">Info</h2>
                 <p class="text-left">
-                  Greetings, I am a retired body and fender man. I am selling off my tools now. I am located in the Bradenton area. Sales are local only, no shipping tools.
+                    Hi I am Gary and have been working in body shops over 40 years.
+                    I have been in local <em>Bradenton</em> shops for about 25 years. I am <em>selling
+                    off my tools</em>.<br> If you are interested I can provide work place references.
+                    <br>These tools are my own tools, not selling other peoples tools for them so <em>do not ask</em>.
+                   Also, These are mostly <strong>American made tools</strong>, All still usable, many are lightly used,
+                    some even new.
+
+
                 </p>
               </article>
               <article role="article" class="tool-info col-12 col-sm-6">
@@ -31,6 +38,8 @@ require(SHARED_PATH . '/nav.php');
                       <li>Generally <em>most</em> of these items there is only one of said item.</li>
                       <li>if any questions about an Item please email</li>
                       <li>listing will be updated asap after sales occur</li>
+                        <li>Sales are local only</li>
+                        <li>No Shipping Tools</li>
                     </ul>
               </article>
             </section>
