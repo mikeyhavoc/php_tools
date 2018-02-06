@@ -38,8 +38,8 @@ require(SHARED_PATH . '/nav.php');
                       <li>Generally <em>most</em> of these items there is only one of said item.</li>
                       <li>if any questions about an Item please email</li>
                       <li>listing will be updated asap after sales occur</li>
-                        <li>Sales are local only</li>
-                        <li>No Shipping Tools</li>
+                      <li>Sales are local only</li>
+                      <li>No Shipping Tools</li>
                     </ul>
               </article>
             </section>
