@@ -1,47 +1,36 @@
 {
-  "name": "garyselling",
-  "version": "0.0.5",
-  "description": "selling body tools local to bradenton fl",
-  "main": "index.html",
+  "name": "php-tools",
+  "version": "1.0.0",
+  "description": "tools site",
+  "main": "index.js",
   "scripts": {
-    "test": "standard && node my-tests.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mikeyhavoc/php_tools.git"
   },
-  "keywords": [
-    "body",
-    "tools",
-    "bradenton",
-    "mechanic",
-    "tools",
-    "sockets"
-  ],
   "author": "michael williams",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mikeyhavoc/php_tools/issues"
   },
   "homepage": "https://github.com/mikeyhavoc/php_tools#readme",
   "devDependencies": {
     "@cedx/gulp-php-minify": "^7.1.1",
-    "autoprefixer": "^7.2.4",
-    "eslint": "^4.17.0",
+    "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.9.2",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-plumber": "^1.2.0",
-    "gulp-postcss": "^7.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-ruby-sass": "^3.0.0",
-    "gulp-sourcemaps": "^2.6.3",
-    "gulp-uglify": "^3.0.0",
-    "gutil": "^1.6.4"
-  },
-  "dependencies": {},
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "gulp-copy": "^1.1.0",
+    "gulp-debug": "^3.2.0",
+    "gulp-htmlclean": "^2.7.16",
+    "gulp-image": "^4.2.0",
+    "gulp-imageoptim": "^1.0.9",
+    "gulp-newer": "^1.4.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^3.1.0",
+    "gulp-series": "^1.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-util": "^3.0.8"
+  }
 }
