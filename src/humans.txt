@@ -12,5 +12,5 @@
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    jQuery,
+    PHP, MySQL, HTML5, CSS3, Javascript
+    jQuery, bootstrap.v.4.0.0 ,
