@@ -106,9 +106,9 @@
   }
 
 $con = $db; // grab db to con for connection into queries.
-
-if (isset($param)) {
-    $first_item_query = "SELECT t.t_id AS id, t.item_code AS code, t.item_name AS name,
+try {
+    if (isset($param)) {
+        $first_item_query = "SELECT t.t_id AS id, t.item_code AS code, t.item_name AS name,
                        t.retail_price AS retail, t.sale_price AS price,
                        t.item_pieces AS  pieces, t.qty AS quantity,
                        t.sold AS sold, t.description AS description,
@@ -120,19 +120,26 @@ if (isset($param)) {
                        INNER JOIN Images AS i ON t.t_id = i.t_id
                        LEFT OUTER JOIN Types AS tt ON t.tt_id = tt.tt_id
                        WHERE tt.tool_type = :tool AND i.image_num = 1";
-    $variables[':tool'] = $param;
-    $items = execute_query($con, $first_item_query, $variables);
-
+        $variables[':tool'] = $param;
+        $items = execute_query($con, $first_item_query, $variables);
     }
+}catch(PDOException $e) {
+    $e->getMessage();
+    exit;
+}
 
-
-if (isset($param)) {
-    $breadcrumb_query = "SELECT c.tool_type AS category
+try {
+    if (isset($param)) {
+        $breadcrumb_query = "SELECT c.tool_type AS category
                      FROM Tools AS t
                      JOIN Types c ON t.tt_id = c.tt_id
                      WHERE c.tool_type = :breadcrumb LIMIT 1";
-    $crumbs[':breadcrumb'] = $param;
-    $breadcrumb = execute_query($con, $breadcrumb_query, $crumbs);
+        $crumbs[':breadcrumb'] = $param;
+        $breadcrumb = execute_query($con, $breadcrumb_query, $crumbs);
+    }
+}catch(PDOException $e) {
+    $e->getMessage();
+    exit;
 }
 
 ?>
