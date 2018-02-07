@@ -1,82 +1,108 @@
-'use  strict'
+const
+    gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    gutil = require('gulp-util'),
+    image = require('gulp-image'),
+    newer = require('gulp-newer'),
+    debug = require('gulp-debug'),
+    series = require('gulp-series'),
+    rigger = require('gulp-rigger'),
+    notify = require('gulp-notify'),
+    browserSync = require('browser-sync'),
+    sourcemaps = require('gulp-sourcemaps'),
+    {phpMinify} = require('@cedx/gulp-php-minify'),
+    imageOptim = require('gulp-imageoptim'),
+    htmlclean = require('gulp-htmlclean');
 
-const sourceJs = './src/public/js/**/*.js';
-const destJs = './dest/public/js/';
+const paths = {
+    src: 'src/**/*',
+    srcPhp: 'src/**/*.php',
+    srcCss: 'src/public/css/**/*.css',
+    srcJs: 'src/public/js/**/*.js',
+    srcImg: 'src/public/img/**/*.jpg',
 
-const gulp = require('gulp');
-const sass = require('gulp-ruby-sass');
-const postcss = require('gulp-postcss');
-const sourcemaps = require('gulp-sourcemaps');
-const autoprefixer = require('autoprefixer');
-const imagemin = require('gulp-imagemin');
-const phpMinify = require('@cedx/gulp-php-minify');
-const cleanCSS = require('gulp-clean-css');
-const uglify = require('gulp-uglify');
-const pump = require('pump');
-const gutil = require('gutil');
+    tmp: 'tmp',
+    tmpIndex: 'tmp/index.php',
+    tmpCss: 'tmp/**/*.css',
+    tmpJs: 'tmp/**/*.js',
 
+    dist: 'dist',
+    distIndex: 'dist/Index.php',
+    distPhp: 'dist/**/*.php',
+    distCss: 'dist/public/css/**/*.css',
+    distJs: 'dist/public/js/**/*.js',
+    distImg: 'dist/public/img/**/*.jpg',
+
+};
+
+
+
+
+
+
+
+
+
+// SASS
 gulp.task('sass', function () {
-    sass('./src/public/sass/**/*.scss')
-        .on('error', sass.logError)
-        .pipe(gulp.dest('./dist/public/sass/'))
-});
-
-
-gulp.task('build-css', function () {
-    return gulp.src('./src/public/sass/**/*.css')
+    return gulp.src(src + '/public/sass/**/*.scss')
+        .pipe(newer(dest + '/public/css/'))
         .pipe(sourcemaps.init())
-        .pipe(postcss([autoprefixer()]))
-        .pipe(sourcemaps.write('maps'))
-        .pipe(gulp.dest('./dist/public/css/'));
+        .pipe(sass({
+            outputStyle: 'compressed',
+            }).on('error', sass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(dest + '/public/css'))
+        .pipe(debug({ title: 'sass:' }))
+});
+
+// rigger
+gulp.task('js', function() {
+    return gulp.src(src + '/public/js/**/*.js')
+        .pipe(newer(dest + 'public/js'))
+        .pipe(rigger())
+        .pipe(gulp.dest(dest + '/public/js'))
+        .pipe(debug({ title: 'js:' }))
+});
+
+// html
+gulp.task('php-minify', function() {
+    return gulp.src('src/**/*.php', {read: false})
+
+        .pipe(newer(dest))
+
+        .pipe(gulp.dest(dest))
+        .pipe(debug({ title: 'PHP:' }))
+});
+
+gulp.task('browser-sync', function () {
+    browserSync.init({
+        server: {
+            baseDir: 'dest/'
+        }
+    })
+});
+
+gulp.task('image', function() {
+    return gulp.src('src/public/img/**/*')
+        .pipe(imageOptim.optimize())
+        .pipe(gulp.dest('dest/public/img/'));
+});
+
+// watch
+gulp.task('watch', ['php-minify', 'image', 'sass', 'js', 'browser-sync'], function() {
+    gulp.watch(src + '/public/sass/*.scss', ['sass']);
+    gulp.watch(dest + '/dest/public/css/*.css', browserSync.reload);
+    gulp.watch(src + '/**/*.php', ['php-minify']);
+
+    gulp.watch(src + '/public/js/*', ['js'], );
+    gulp.watch(dest + '/public/js/', browserSync.reload)
+    gulp.watch(src + '/public/img/*', ['image']);
+    gulp.watch(dest + '/public/img/', browserSync.reload);
+    gulp.watch(src + '/**/*.php', ['phpMinify']);
+    gulp.watch(dest + '/**/*', browserSync.reload);
 
 });
 
-gulp.task('minify-css',() => {
-    return gulp.src('./src/public/**/*.css')
-        .pipe(sourcemaps.init())
-        .pipe(cleanCSS())
-        .pipe(sourcemaps.write('./dist/public/css/maps/'))
-        .pipe(gulp.dest('./dist/public/css/'));
-});
-
-gulp.task('images', function () {
-    return gulp.src('./src/public/img/**/*.jpg')
-        .pipe(imagemin({
-            progressive: true
-        }))
-        .pipe(gulp.dest('./dist/public/imgs/'));
-});
-
-function minifyJS(srcJs, destJs, filenameRoot) {
-    return gulp.src(sourceFiles)
-        .pipe(plumber())
-    return gulp.src(sourceFiles)
-        .pipe(sourcemaps.init())
-        .pipe(plumber())
-        .pipe(concat(filenameRoot + '.js'))
-        .pipe(gulp.dest(destinationFolder)) // save .js
-        .pipe(uglify({preserveComments: 'license'}))
-        .pipe(rename({extname: '.min.js'}))
-        .pipe(sourcemaps.write('maps'))
-        .pipe(gulp.dest(destinationFolder)) // save .min.js
-});
-
-gulp.task('minifyphp', () => gulp.src('.src/**/*.php', {read: false})
-    .pipe(phpMinify())
-    .pipe(gulp.dest('./dist/'))
-);
-
-
-
-
-
-gulp.task('watch', function () {
-    gulp.watch('./src/public/sass/**/*.scss', ['sass']);
-    gulp.watch('./src/public/sass/**/*.css', ['build-css']);
-    gulp.watch('./src/public/**/*.css', ['minify-css']);
-    gulp.watch('./src/public/img/**/*.jpg', ['images']);
-    gulp.watch('./src/public/js/**/*.js', ['compress']);
-    gulp.watch('.src/**/*.php', ['minifyphp']);
-
-
-});
+// build
+gulp.task('default', ['watch'])
