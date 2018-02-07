@@ -9,7 +9,7 @@
     <meta name="robots" content="noindex">
     <meta name="description" content="Garys tools, retired bodyman selling his body tools locally in bradenton fl.">
     <link href="https://fonts.googleapis.com/css?family=Supermercado+One" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo url_for('public/css/bootstrap-full.css'); ?>">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo url_for('public/css/main.css'); ?>">
 
     <title><?php echo $page_title; ?></title>
