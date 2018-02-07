@@ -17,90 +17,83 @@ const
 const paths = {
     src: 'src/**/*',
     srcPhp: 'src/**/*.php',
+    srcSass: 'src/public/sass/**/*.sass',
     srcCss: 'src/public/css/**/*.css',
     srcJs: 'src/public/js/**/*.js',
     srcImg: 'src/public/img/**/*.jpg',
 
     tmp: 'tmp',
-    tmpIndex: 'tmp/index.php',
+    tmpPhp: 'tmp/**/*.php',
     tmpCss: 'tmp/**/*.css',
     tmpJs: 'tmp/**/*.js',
 
     dist: 'dist',
     distIndex: 'dist/Index.php',
-    distPhp: 'dist/**/*.php',
-    distCss: 'dist/public/css/**/*.css',
-    distJs: 'dist/public/js/**/*.js',
-    distImg: 'dist/public/img/**/*.jpg',
+    distPhp: 'dist/',
+    distCss: 'dist/public/css/',
+    distJs: 'dist/public/js/',
+    distImg: 'dist/public/img/',
 
 };
 
 
-
-
-
-
-
-
-
 // SASS
 gulp.task('sass', function () {
-    return gulp.src(src + '/public/sass/**/*.scss')
-        .pipe(newer(dest + '/public/css/'))
+    return gulp.src(paths.srcSass)
+        .pipe(newer(paths.distCss))
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed',
             }).on('error', sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(dest + '/public/css'))
+        .pipe(gulp.dest(paths.distCss))
         .pipe(debug({ title: 'sass:' }))
 });
 
 // rigger
 gulp.task('js', function() {
-    return gulp.src(src + '/public/js/**/*.js')
-        .pipe(newer(dest + 'public/js'))
+    return gulp.src(paths.srcJs)
+        .pipe(newer(paths.distJs))
         .pipe(rigger())
-        .pipe(gulp.dest(dest + '/public/js'))
-        .pipe(debug({ title: 'js:' }))
+        .pipe(gulp.dest(paths.distJs))
+        .pipe(debug({ title: 'JS:' }))
 });
 
-// html
-gulp.task('php-minify', function() {
-    return gulp.src('src/**/*.php', {read: false})
+gulp.task('image', function() {
+    return gulp.src(paths.srcImg)
+        .pipe(imageOptim.optimize())
+        .pipe(gulp.dest(paths.distImg));
+});
 
-        .pipe(newer(dest))
+// PHP
 
-        .pipe(gulp.dest(dest))
-        .pipe(debug({ title: 'PHP:' }))
+gulp.task('php-copy', function() {
+    return gulp.src(paths.srcPhp)
+        .pipe(newer(paths.dist))
+        .pipe(gulp.dest(paths.dist));
 });
 
 gulp.task('browser-sync', function () {
     browserSync.init({
         server: {
-            baseDir: 'dest/'
+            baseDir: paths.dist
         }
     })
 });
 
-gulp.task('image', function() {
-    return gulp.src('src/public/img/**/*')
-        .pipe(imageOptim.optimize())
-        .pipe(gulp.dest('dest/public/img/'));
-});
 
 // watch
 gulp.task('watch', ['php-minify', 'image', 'sass', 'js', 'browser-sync'], function() {
-    gulp.watch(src + '/public/sass/*.scss', ['sass']);
-    gulp.watch(dest + '/dest/public/css/*.css', browserSync.reload);
-    gulp.watch(src + '/**/*.php', ['php-minify']);
+    gulp.watch(paths.srcSass, ['sass']);
+    gulp.watch(paths.distCss, browserSync.reload);
 
-    gulp.watch(src + '/public/js/*', ['js'], );
-    gulp.watch(dest + '/public/js/', browserSync.reload)
-    gulp.watch(src + '/public/img/*', ['image']);
-    gulp.watch(dest + '/public/img/', browserSync.reload);
-    gulp.watch(src + '/**/*.php', ['phpMinify']);
-    gulp.watch(dest + '/**/*', browserSync.reload);
+
+    gulp.watch(paths.srcJs, ['js'], );
+    gulp.watch(paths.distJs, browserSync.reload)
+    gulp.watch(paths.srcImg, ['image']);
+    gulp.watch(paths.distImg, browserSync.reload);
+    gulp.watch(paths.srcPhp, ['php-copy']);
+    gulp.watch(paths.distPhp, browserSync.reload);
 
 });
 
