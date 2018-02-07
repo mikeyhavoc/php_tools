@@ -1,5 +1,8 @@
 'use  strict'
 
+const sourceJs = './src/public/js/**/*.js';
+const destJs = './dest/public/js/';
+
 const gulp = require('gulp');
 const sass = require('gulp-ruby-sass');
 const postcss = require('gulp-postcss');
@@ -44,7 +47,7 @@ gulp.task('images', function () {
         .pipe(gulp.dest('./dist/public/imgs/'));
 });
 
-function minifyJS(sourceFiles, destinationFolder, filenameRoot) {
+function minifyJS(srcJs, destJs, filenameRoot) {
     return gulp.src(sourceFiles)
         .pipe(plumber())
     return gulp.src(sourceFiles)
@@ -52,10 +55,11 @@ function minifyJS(sourceFiles, destinationFolder, filenameRoot) {
         .pipe(plumber())
         .pipe(concat(filenameRoot + '.js'))
         .pipe(gulp.dest(destinationFolder)) // save .js
-        .pipe(uglify({ preserveComments: 'license' }))
-        .pipe(rename({ extname: '.min.js' }))
+        .pipe(uglify({preserveComments: 'license'}))
+        .pipe(rename({extname: '.min.js'}))
         .pipe(sourcemaps.write('maps'))
         .pipe(gulp.dest(destinationFolder)) // save .min.js
+});
 
 gulp.task('minifyphp', () => gulp.src('.src/**/*.php', {read: false})
     .pipe(phpMinify())
