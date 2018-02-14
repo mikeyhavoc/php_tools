@@ -22,12 +22,8 @@ const paths = {
     srcJs: 'src/public/js/**/*.js',
     srcImg: 'src/public/img/**/*.jpg',
 
-    tmp: 'tmp',
-    tmpPhp: 'tmp/**/*.php',
-    tmpCss: 'tmp/**/*.css',
-    tmpJs: 'tmp/**/*.js',
 
-    dist: 'dist',
+    dist: 'dist/',
     distIndex: 'dist/Index.php',
     distPhp: 'dist/',
     distCss: 'dist/public/css/',
@@ -38,17 +34,28 @@ const paths = {
 
 
 // SASS
+// gulp.task('sass', function () {
+//     return gulp.src(paths.srcSass)
+//         .pipe(newer(paths.distCss))
+//        // .pipe(sourcemaps.init())
+//         .pipe(sass({
+//             outputStyle: 'compressed',
+//             }).on('error', sass.logError))
+//        // .pipe(sourcemaps.write())
+//         .pipe(gulp.dest(paths.distCss))
+//         .pipe(debug({ title: 'sass:' }))
+// });
+
+
 gulp.task('sass', function () {
-    return gulp.src(paths.srcSass)
-        .pipe(newer(paths.distCss))
-        .pipe(sourcemaps.init())
-        .pipe(sass({
-            outputStyle: 'compressed',
-            }).on('error', sass.logError))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(paths.distCss))
-        .pipe(debug({ title: 'sass:' }))
+    return gulp.src('.src/public/sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('.src/public/css'));
 });
+
+
+
+
 
 // rigger
 gulp.task('js', function() {
@@ -83,7 +90,7 @@ gulp.task('browser-sync', function () {
 
 
 // watch
-gulp.task('watch', ['php-minify', 'image', 'sass', 'js', 'browser-sync'], function() {
+gulp.task('watch', ['php-copy','sass', 'js', 'browser-sync'], function() {
     gulp.watch(paths.srcSass, ['sass']);
     gulp.watch(paths.distCss, browserSync.reload);
 
