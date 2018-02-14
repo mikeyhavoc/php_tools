@@ -75,7 +75,7 @@
           $page_name = 'Discs';
           $section = 'wheels';
           $param = 'wheels';
-      } elseif ( $_GET['cat'] == 'cch') {
+      } elseif ( $_GET['cat'] == 'hcc') {
           $page_name = 'Clamps/Chains/Hooks';
           $section = 'hcc';
           $param = 'hcc';
@@ -149,7 +149,7 @@ require(SHARED_PATH . '/header.php');
 require(SHARED_PATH . '/nav.php');
 ?>
 
-<section id="#top" class="container-fluid">
+<section class="container-fluid">
     <div class="row">
         <div class="col-12">
             <h1 class="text-center">
