@@ -75,7 +75,7 @@
           $page_name = 'Discs';
           $section = 'wheels';
           $param = 'wheels';
-      } elseif ( $_GET['cat'] == 'hcc') {
+      } elseif ( $_GET['cat'] == 'cch') {
           $page_name = 'Clamps/Chains/Hooks';
           $section = 'hcc';
           $param = 'hcc';
@@ -161,8 +161,8 @@ require(SHARED_PATH . '/nav.php');
                 <li class="breadcrumb-item"><a class="" aria-current="page" href="<?php echo url_for('index.php'); ?>">Home</a></li>
                 <?php if(isset($breadcrumb)) { ?>
                     <?php foreach ($breadcrumb as $crumb) { ?>
-                        <li class="breadcrumb-item active">
-                            <a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a>
+                        <li class="breadcrumb-item">
+                            <a class="disabled text-muted" href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a>
                         </li>
                     <?php } //end foreach?>
                 <?php } ?>
@@ -191,7 +191,7 @@ require(SHARED_PATH . '/nav.php');
                                                 <img class="cat-order-image thumbnail box-image-width" src="<?php echo IMAGES .  $item['image']; ?>" alt="<?php echo $item['description']; ?>">
 
 
-                                                <h4 class="cat-order-price" data-value="<?php echo $item['price']; ?>">Price: <?php echo $price = ($item['price'] = 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
+                                                <h4 class="cat-order-price" data-value="<?php echo $item['price']; ?>">Price: <?php echo $price = ($item['price'] == 0 ? 'Make offer' :  '$' . $item['price']); ?></h4>
 
                                                 <h4 class="cat-order-sold sale"><?php echo $sold = ($item['sold'] == 0 ? 'For Sale' : 'sold'); ?></h4>
 
