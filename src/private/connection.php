@@ -7,8 +7,8 @@
  */
 /* Connect to a MySQL database using driver invocation */
 $dsn = 'mysql:dbname=Sales;host=127.0.0.1';
-$user = 'michael';
-$password = 'Social#9';
+$user = 's';
+$password = ;
 
 try {
     $db = new PDO($dsn, $user, $password);
