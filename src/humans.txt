@@ -2,12 +2,12 @@
 # The humans responsible & technology colophon
 
 # TEAM
-
-    Michael Willliams -- developer- Manic developer designs
+    manic development, mikeyjwilliams.com, garystools.mikeyjwilliams.com -> Michael Williams.
+    garystools.mikeyjwilliams.com  -> Gary Williams
 
 # THANKS
 
-    TeamTreehouse, Stackoverflow, 'Your Common Sense', Dr. Murphy, Adrian Tillman, Twitter Bootstrap, Html5 creators,
+    TeamTreehouse, Stackoverflow, 'Your Common Sense', Twitter Bootstrap, Html5 creators,
     css3 creators, Jquery team, javascript team,
 
 # TECHNOLOGY COLOPHON
