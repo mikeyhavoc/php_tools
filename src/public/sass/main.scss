@@ -1,150 +1,26 @@
-//******* variables *******
 
-@mixin box-size { box-sizing: border-box; }
-@mixin font-pad { font-size: 1.2em;  padding: 0.5em 0.75em; margin-top: 0;}
-@mixin catalog-order($order-placement) { order: $order-placement; }
-
-%column {// creates a beautiful column in a mobile device.
-  display: flex; flex-wrap: wrap; flex-direction: column;
-  align-content: center; align-items: center; }
-
-$color-black: #000000;
-$logo-font: 4.75em;
-$font-stack-family: 'Supermercado One', Baskerville, Palatino;
-$card-background: lightgrey;
-$tool-color: darken(coral, 15%);
-$tool-border-radius: 15px;
-$tool-border: 2px $tool-color solid;
-$global-border: 6%;
+@import "variables";
+@import "mixins/mixin";
+@import "partials/partials";
+@import "basics";
+@import "imageBoxes";
+@import "tools";
+@import "alignments";
+@import "at-medias";
 
 
 
-$global-width: 100%;
-$global-third-width: 75%;
 
 
 
-$mini-image-size: 9.375em;
-$mini-image-size-blade: 12.500em;
-$max-image-size: 28.125em;
-
-$card-bottom-margin: 5%;
-$card-inside-padding: 0.75em;
-
-$code-display-method: flex;
-$code-margin-bottom: -0.50em;
-
-$thumb-width: 9.375em;
-$thumb-height: 6.250em;
-$submit-width: 25%;
-//**** end variables   ******
-root { font-size: 16px; }
-html {
-  @include box-size;
-}
-
-* { @include box-size;
-
-  &:before { @include box-size; }
 
 
-  &:after { @include box-size;  }
-}
-
-ol { /* bread crumb */
-  li { font-size: 1.5em; }
-}
-.hook {color: black;}
-.tools { /* Gary's Tool List TITLE */
-  font-family: $font-stack-family;
-  font-size: $logo-font;
-
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.submit-width { width: $submit-width ;}
 
 
-.image { max-width: 28.125em; min-width: 12.500em; padding-top: 0; }
-.box-image-width { width: $mini-image-size;  }
-.box-blade-width { width: $mini-image-size-blade; }
-.box-image-height { height: $mini-image-size; }
-.thumbnail { padding: 0; }
-
-.card {
-  background: $card-background; border-radius: $global-border;
-  border: 1px solid red; margin-left: auto;
-  margin-right: auto; margin-bottom: $card-bottom-margin;
-  width: $global-width;
-  padding: $card-inside-padding;
-}
-.code { @extend %column; }
-
-.cards { width: 100%; margin-bottom: 1em; }
 
 
-.info, .tool-info { @include font-pad; font-size: 1.2em; padding: 1em 0.75em;}
 
 
-.large { font-size: 3em; }
-
-.card-holder { display: flex; flex-wrap: wrap}
 
 
-.catalog-images { max-width: $global-width; }
 
-.box-blade-width { width: 12.500em; }
-
-.half { width: $global-width / 2; border-radius: $global-border; }
-
-.listing {
-  list-style-type: none;
-}
-
-.btn.btn-danger { margin-bottom: 0.25em; }
-
-.btn-width {
-  margin-top: 0.5em;
-  max-width: 13.625em;
-}
-
-.sale { text-decoration-line: underline; }
-
-.center { align-self: center; }
-
-div  {
-  .bottom-drop:first-child {margin-bottom: $code-margin-bottom; }
-}
-.cat-order-name { padding-top: 0.75em; }
-
-.bar-width { width: $global-width - 10%; margin-right: 1em; margin-left: 1em; margin-top: 1em; }
-.select-width { width: $global-width - 15%; margin-right: 1em; margin-left: 1.5em; }
-@media screen and (min-width:27.000em)/* 432px or greater. */ {
-  .bar-width { width: $global-width; margin-right: 0; margin-left: 0; }
-  .select-width { width: $global-width - 37%; margin-left: 1em; margin-right: 0; }
-  .b-width { width: $global-width - 10%; }
-  .b-right { margin-left: 1.5em; }
-  .b-left { margin-right: 1.5em; }
-  .cat-order-name { @include catalog-order(1);  }
-  .cat-order-code { @include catalog-order(2); /*padding-bottom: 0.25em;*/ }
-  .cat-order-image { @include catalog-order(3); padding-top: 1.2em;}
-  .cat-order-price { @include catalog-order(5);  padding-top: 0.5em; }
-  .cat-order-sold { @include catalog-order(6);}
-  .cat-order-btn { @include catalog-order(4); }
-}
-.form-inline .form-control { width: 66%;  }
-
-@media screen and (min-width: 38.438em) /* 615 px to 768px  */ {
-
-  .mobile-s { display: flex; flex-direction: row;}
-
-  .info { width: $global-width / 2; }
-  .tool-info { width: $global-width; }
-
-}
-
-@media screen and (min-width: 40.563em) /* change to ems */ {
-  .col-ssm-6 { justify-content: space-around; }
-
-
-}
