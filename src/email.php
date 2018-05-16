@@ -22,9 +22,9 @@ $mail->SMTPSecure = 'tls';
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "*****@gmail.com";
+$mail->Username = "@gmail.com";
 //Password to use for SMTP authentication
-$mail->Password = '*****';
+$mail->Password = '';
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -77,10 +77,54 @@ $section = null;
  */
 
 ?>
-<?php require(SHARED_PATH . '/header.php');
-require(SHARED_PATH . '/nav.php');
-?>
-<?php if (isset($_GET['status']) && $_GET['status'] == 'thanks') { ?>
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116676832-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-116676832-2');
+        </script>
+        <!-- Hotjar Tracking Code for www.garystools.mikeyjwilliams.com -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:835035,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="robots" content="noindex">
+        <meta name="description" content="Garys tools, retired bodyman selling his body tools locally in bradenton fl.">
+        <link href="https://fonts.googleapis.com/css?family=Supermercado+One" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo node_module("./node_modules/bootstrap/dist/css/bootstrap.min.css") ?>">
+        <link rel="stylesheet" href="<?php echo node_module('public/css/main.css'); ?>">
+
+        <title><?php echo $page_title; ?></title>
+    </head>
+<body>
+<header role="banner" class='container-fluid'>
+    <section class='row'>
+        <h1 class="col-12 col-md-4 tools logo__section logo">
+            <a class="logo__title logo" href="<?php echo url_for( 'index.php'); ?>">Garys Tools</a>
+        </h1>
+    </section>
+</header>
+
+
     <div class="container text-center">
         <div class="row">
             <div class="col-12">
