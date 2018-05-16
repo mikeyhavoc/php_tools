@@ -32,5 +32,10 @@
     "gulp-series": "^1.0.2",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-util": "^3.0.8"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
   }
 }
