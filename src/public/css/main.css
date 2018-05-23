@@ -180,5 +180,14 @@ div .bottom-drop:first-child {
 @media screen and (min-width: 40.563em) {
   .col-ssm-6 {
     justify-content: space-around; } }
+.privacy__box {
+  margin: 0 2em 1.5em; }
+
+@media (min-width: 470px) {
+  .privacy__box {
+    margin: 0 8em 2em 8em; } }
+@media (min-width: 991px) {
+  .privacy__box {
+    margin: 0 10em 2em 10em; } }
 
 /*# sourceMappingURL=main.css.map */
