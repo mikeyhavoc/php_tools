@@ -104,7 +104,7 @@ $section = null;
     </section>
 </header>
 
-
+<?php if (isset($_GET['status']) && $_GET['status'] == 'email.php?status=thanks') { ?>
     <div class="container text-center">
         <div class="row">
             <div class="col-12">
@@ -152,6 +152,12 @@ $section = null;
                     <p>please leave this field blank</p>
                 </div>
             </div>
+            <div class="form-group form-check row">
+                <div class="col-sm-12">
+                    <input type="checkbox" class="form-check-input" id="verify" required>
+                    <label for="verify" class="form-check-label">confirm live in Manatee, Sarasota counties or nearby.</label>
+                </div>
+            </div>
         </fieldset>
         <legend class="text-center">Tool Inquiry</legend>
         <fieldset id="inquiry-info">
@@ -176,8 +182,6 @@ $section = null;
                 </div>
             </div>
         </fieldset>
-        </div>
-        </div>
     </form>
 <?php } ?>
     </section>
