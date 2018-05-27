@@ -237,5 +237,6 @@ try {
         </div>
         <!-- /.row -->
     </section>
+<?php include(SHARED_PATH . 'js/quckyAnalaytids.html'); ?>
 </main>
 <?php include(SHARED_PATH . '/footer.php'); ?>
