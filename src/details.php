@@ -140,6 +140,7 @@ $pageTitle = 'Details'; ?>
 
     </div>
 <section/>
+        <?php include (SHARED_PATH . 'js/quckyAnalaytids.html'); ?>
 <?php
 require(SHARED_PATH . '/footer.php');
 ?>
