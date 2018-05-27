@@ -1,29 +1,39 @@
 module.exports = {
     "env": {
+        "es6": true,
         "browser": true,
-        "commonjs": true,
-        "es6": true
+        "commonjs": true
+
     },
     "extends": "eslint:recommended",
     "parserOptions": {
         "sourceType": "module"
     },
     "rules": {
-        "indent": [
+        "space": [
             "error",
-            4
+            2
         ],
         "linebreak-style": [
             "error",
             "unix"
         ],
+
         "quotes": [
-            "error",
-            "single"
-        ],
+           [ 2, "single" , { "avoidEscape": true}],
+           [ 3 , "backtick", { "avoidEscape" : true}]
+          /*eslint-env es6*/
+
+
+          ],
         "semi": [
             "error",
             "always"
+        ],
+        "no-unreachable":[ "error",
+        ],
+        "curly": [ "error"
         ]
+
     }
 };
