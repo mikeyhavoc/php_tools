@@ -1,7 +1,14 @@
 </main>
 <a type="button" role="button" class="btn btn-lg btn-outline-primary" href="#top">Top</a>
 <footer role="footer">
-    <p>Created by Michael Williams, &copy;<?php echo DATE(Y); ?>  last update <?php echo DATE("d, m, Y H:i:s.", getlastmod()); ?></p>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 text-left">
+            <p>Created by Michael Williams, &copy;<?php echo DATE(Y); ?>  last update <?php echo DATE("d, m, Y H:i:s.", getlastmod()); ?></p>
+        </div>
+        <div class="col-sm-12 col-md-6 text-right">
+            <a href="./privacy.html" class="mr-3">Pirvacy Page</a>
+        </div>
+    </div>
 
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
