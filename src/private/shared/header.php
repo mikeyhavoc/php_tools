@@ -15,7 +15,7 @@
     <title><?php echo $page_title; ?></title>
 </head>
 <body>
-    <header role="banner" class='container-fluid'>
+    <header role="banner" class="container-fluid">
       <section class='row'>
         <h1 class="col-12 col-md-4 tools logo__section logo">
             <a class="logo__title logo" href="<?php echo url_for( 'index.php'); ?>">Garys Tools</a>
