@@ -130,5 +130,6 @@ $page_title = 'Gary\'s Tool Selling Site'; ?>
 
 <?php
  require(SHARED_PATH . '/nav.php');
+ incluse(SHARED_PATH . 'js/quckyAnalaytics.html');
  require(SHARED_PATH . '/footer.php');
  ?>
