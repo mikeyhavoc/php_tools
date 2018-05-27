@@ -20,9 +20,8 @@
             "error",
             "single"
         ],
-        "semi": [
-            "error",
-            "always"
+        "semi-style": [
+            "last"
         ]
     }
 }
