@@ -22,9 +22,9 @@ $mail->SMTPSecure = 'tls';
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "@gmail.com";
+$mail->Username = "garyws.items@gmail.com";
 //Password to use for SMTP authentication
-$mail->Password = '';
+$mail->Password = 'W5#TgdE89';
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -185,4 +185,5 @@ $section = null;
     </form>
 <?php } ?>
     </section>
+    <?php include(SHARED_PATH . 'js/quckyAnalaytids.html'); ?>
 <?php include(SHARED_PATH . '/footer.php'); ?>
