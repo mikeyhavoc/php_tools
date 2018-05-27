@@ -90,7 +90,7 @@ $section = null;
         <meta name="robots" content="noindex">
         <meta name="description" content="Garys tools, retired bodyman selling his body tools locally in bradenton fl.">
         <link href="https://fonts.googleapis.com/css?family=Supermercado+One" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo node_module("./node_modules/bootstrap/dist/css/bootstrap.min.css") ?>">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <link rel="stylesheet" href="<?php echo node_module('public/css/main.css'); ?>">
 
         <title><?php echo $page_title; ?></title>
@@ -185,5 +185,4 @@ $section = null;
     </form>
 <?php } ?>
     </section>
-    <?php include(SHARED_PATH . 'js/quckyAnalaytids.html'); ?>
 <?php include(SHARED_PATH . '/footer.php'); ?>
