@@ -1,85 +1,71 @@
-'use strict';
+"use strict";
 
-import gulp from 'gulp';
-import
-
-
+import gulp from "gulp";
+import sourcemaps from "gulp-sourcemaps";
 
 
-
-
-
-    gutil = require('gulp-util'),
-    image = require('gulp-image'),
-    newer = require('gulp-newer'),
-    debug = require('gulp-debug'),
-    series = require('gulp-series'),
-    rigger = require('gulp-rigger'),
-    notify = require('gulp-notify'),
-    browserSync = require('browser-sync'),
-
-    concat = require('gulp-concat');
-    {phpMinify} = require('@cedx/gulp-php-minify'),
-    imageOptim = require('gulp-imageoptim');,
-    htmlclean = require('gulp-htmlclean');
+    gutil = require("gulp-util"),
+    image = require("gulp-image"),
+    newer = require("gulp-newer"),
+    debug = require("gulp-debug"),
+    series = require("gulp-series"),
+    rigger = require("gulp-rigger"),
+    notify = require("gulp-notify"),
+    browserSync = require("browser-sync"),
+    concat = require("gulp-concat");
+    {phpMinify} = require("@cedx/gulp-php-minify"),
+    imageOptim = require("gulp-imageoptim");
+    htmlclean = require("gulp-htmlclean");
 
 const paths = {
-    src: 'src/**/*',
-    srcPhp: 'src/**/*.php',
+    src: "src/**/*",
+    srcPhp: "src/**/*.php",
 
-    srcJs: 'src/public/js/**/*.js',
-    srcImg: 'src/public/img/**/*.jpg',
+    srcJs: "src/public/js/**/*.js",
+    srcImg: "src/public/img/**/*.jpg",
 
 
-    dist: 'dist/',
-    distIndex: 'dist/Index.php',
-    distPhp: 'dist/',
+    dist: "dist/",
+    distIndex: "dist/Index.php",
+    distPhp: "dist/",
 
-    distJs: 'dist/public/js/',
-    distImg: 'dist/public/img/',
+    distJs: "dist/public/js/",
+    distImg: "dist/public/img/",
 
 };
 
-const styles
-    = {
-        sassDest: '.src/public/css',
-        srcCss: '.src/public/css',
-        srccCss: './dist/css'
-
-      };
+const styles = {
+      sassSrc: ".src/public/sass/",
+      sassDest: ".src/public/css",
+      srcCss: ".src/public/css",
+      srccCss: "./dist/css"
+    };
 
 // modular sass -> css style gulp.task.
-gulp.task('sassCss', function() {
-    import sass from 'gulp-sass';
-    import sourcemaps from 'sourcemaps';
-    import cleanCss from 'gulp-clean-css';
+gulp.task("sassCss", () => {
+    import sass from "gulp-sass";
+    import sourcemaps from "gulp-sourcemaps";
+    import cleanCss from "gulp-clean-css";
+    import concat from "gulp-concat";
 
-    gulp.src('./src/public/sass/**.*.scss')
-    return gulp.src('.src/public/sass/**/*.scss')
-        .pipe(sourcemaps.init('.map'))
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('.src/public/css'));
+    gulp.src(sassSrc + "/**.*.scss")
+    return gulp.src(".src/public/sass/**/*.scss")
+	    .pipe(sourcemaps.init(".map"))
+		  .pipe(concat("style.min.css"), {newLine: ""})
+	    .pipe(sass().on("error", sass.logError))
+	    .pipe(gulp.dest(".src/public/css")
+		  .pipe(sourcemaps.write('.map'))
+	    .pipe(cleanCss( { })
+	    .pipe(gulp.dest(paths.srcCss));
 });
 
-//
-//        .pipe(cleanCss( {
-//            compatiability: "ie9",
-//            target: "Resources",
-//            relativeTo: ""
-//        })
-//        )
-//        .pipe(concat("style.min.css")), {newLine: ""}))
-//         .pipe(sourcemaps.write())
-//         .pipe(gulp.dest(paths.srcCss));
-// });
 
-
-gulp.task('sass', function () {
+gulp.task("sass", function () {
 
 });
 
-gulp.task('miniCss', () => {
-    return gulp.src('src/public/css/**/*.css')
+gulp.task("miniCss", () => {
+    return gulp.src("src/public/css/**/*.css")
 
     }))
 
@@ -91,15 +77,15 @@ gulp.task('miniCss', () => {
 
 
 // rigger
-gulp.task('js', function() {
+gulp.task("js", function() {
     return gulp.src(paths.srcJs)
         .pipe(newer(paths.distJs))
         .pipe(rigger())
         .pipe(gulp.dest(paths.distJs))
-        .pipe(debug({ title: 'JS:' }))
+        .pipe(debug({ title: "JS:" }))
 });
 
-gulp.task('image', function() {
+gulp.task("image", function() {
 
     return gulp.src(paths.srcImg)
         .pipe(imageOptim.optimize())
@@ -108,13 +94,13 @@ gulp.task('image', function() {
 
 // PHP
 
-gulp.task('php-copy', function() {
+gulp.task("php-copy", function() {
     return gulp.src(paths.srcPhp)
       .pipe(newer(paths.dist))
       .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('browser-sync', function () {
+gulp.task("browser-sync", function () {
     browserSync.init({
         server: {
             baseDir: paths.dist
@@ -126,4 +112,4 @@ gulp.task('browser-sync', function () {
 // watch
 
 // build
-gulp.task('default', ['sass, ']);
+gulp.task("default", ["sass, "]);
