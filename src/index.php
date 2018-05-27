@@ -11,13 +11,34 @@ $section = null;
 $page_title = 'Gary\'s Tool Site';
 
 //require(SHARED_PATH . '/header.php');
-$page_title = 'Gary\'s Tool Selling Site'; ?>
+$page_title = 'Gary\'s Tool Selling Site';
+?>
 
 <!doctype html>
 <html lang="en">
 <head>
-   <?php include SHARED_PATH . '/js/googleanalytics.js'; ?>
-    <?php include SHARED_PATH . '/js/hotjarAnalytics.js'; ?>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-116676832-2');
+    </script>
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:835035,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+
+<!--   --><?php //include SHARED_PATH . '/js/googleanalytics.js'; ?>
+<!--    --><?php //include SHARED_PATH . '/js/hotjarAnalytics.js'; ?>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -25,8 +46,8 @@ $page_title = 'Gary\'s Tool Selling Site'; ?>
     <meta name="robots" content="noindex">
     <meta name="description" content="Garys tools, retired bodyman selling his body tools locally in bradenton fl.">
     <link href="https://fonts.googleapis.com/css?family=Supermercado+One" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo node_module("./node_modules/bootstrap/dist/css/bootstrap.min.css") ?>">
-    <link rel="stylesheet" href="<?php echo node_module('public/css/main.css'); ?>">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/main.css">
 
     <title><?php echo $page_title; ?></title>
 </head>
@@ -128,8 +149,5 @@ $page_title = 'Gary\'s Tool Selling Site'; ?>
         </div>
     </div>
 
-<?php
- require(SHARED_PATH . '/nav.php');
- incluse(SHARED_PATH . 'js/quckyAnalaytics.html');
- require(SHARED_PATH . '/footer.php');
- ?>
+<?php require(SHARED_PATH . '/nav.php'); ?>
+<?php require(SHARED_PATH . '/footer.php'); ?>
