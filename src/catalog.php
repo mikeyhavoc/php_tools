@@ -155,7 +155,7 @@ try {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="robots" content="noindex">
+    <meta name="keywords" content="garys tools, bradenton tools, body tools, bradenton body tools, bradenton gary tools">
     <meta name="description" content="Garys tools, retired bodyman selling his body tools locally in bradenton fl.">
     <link href="https://fonts.googleapis.com/css?family=Supermercado+One" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -201,7 +201,7 @@ try {
     <section class="container-fluid">
         <div class="row">
            <?php if (isset($items)) { ?>
-            <?php foreach ( $items as $item) { ?>
+            <?php foreach ( $items as $item) : ?>
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="container-fluid">
                         <article class="cards">
@@ -232,11 +232,10 @@ try {
                 </div>
             </div>
                    <!-- /.col-sm-6 -->
-            <?php } //end foreach?>
+            <?php endforeach; //end foreach?>
             <?php } //end isset items?>
         </div>
         <!-- /.row -->
     </section>
-<?php include(SHARED_PATH . 'js/quckyAnalaytids.html'); ?>
 </main>
 <?php include(SHARED_PATH . '/footer.php'); ?>
