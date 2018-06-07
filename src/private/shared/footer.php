@@ -6,7 +6,7 @@
             <p>Created by Michael Williams, &copy;<?php echo DATE(Y); ?>  last update <?php echo DATE("d, m, Y H:i:s.", getlastmod()); ?></p>
         </div>
         <div class="col-sm-12 col-md-6 text-right">
-            <a href="./privacy.html" class="mr-3">Pirvacy Page</a>
+            <a href="./privacy.html" class="mr-3">Privacy Page</a>
         </div>
     </div>
 
