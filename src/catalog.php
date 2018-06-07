@@ -232,10 +232,11 @@ try {
                 </div>
             </div>
                    <!-- /.col-sm-6 -->
-            <?php endforeach; //end foreach?>
+            <?php endforeach;  //end foreach?>
             <?php } //end isset items?>
         </div>
         <!-- /.row -->
     </section>
 </main>
+</body>
 <?php include(SHARED_PATH . '/footer.php'); ?>
