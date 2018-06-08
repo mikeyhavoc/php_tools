@@ -73,61 +73,62 @@ $page_title = 'Gary\'s Tool Selling Site';
               </article>
             </section>
         </div>
-        <div class="container-fluid">
-            <div class="row">
-                    <div class="col-12 col-sm-6 col-md-4">
-                        <article role="article" class="card">
+            <div class="container-fluid">
+                <div class="row">
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <article role="article" class="card">
 
-                            <h2 class="text-center">
-                                <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>" >
-                                    Sockets
+                                <h2 class="text-center">
+                                    <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>" >
+                                        Sockets
+                                    </a>
+                                </h2>
+                                <p class="text-center">
+                                    Tool Type: Sockets.<br>
+                                </p>
+                                <a href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>">
+                                    <img class="catalog-images center-block img-responsive img-rounded" src="<?php echo  IMAGES . '/img/socket/i322-socket-1.jpg'; ?>" >
                                 </a>
-                            </h2>
-                            <p class="text-center">
-                                Tool Type: Sockets.<br>
-                            </p>
-                            <a href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>">
-                                <img class="catalog-images center-block img-responsive img-rounded" src="<?php echo  IMAGES . '/img/socket/i322-socket-1.jpg'; ?>" >
-                            </a>
-                        </article>
-                    </div><!--/ item one -->
-                        <div class="col-sm-6 col-md-4">
-                                <article role="article" class="card">
+                            </article>
+                        </div><!--/ item one -->
+                            <div class="col-sm-6 col-md-4">
+                                    <article role="article" class="card">
+
+                                        <h3 class="text-center">
+                                            <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>" >
+                                                Wrenches
+                                            </a>
+                                        </h3>
+                                        <p class="text-center">
+                                            Tool Type: Mostly wrench sets some singles.<br>
+                                        </p>
+                                        <a href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>">
+                                            <img class="catalog-images center-block img-responsive img- img-rounded" src="<?php echo IMAGES . '/img/wrench/a2-wrench.jpg'; ?>" >
+                                        </a>
+                                    </article>
+                            </div><!--/ item one -->
+
+
+
+                                <div class="col-sm-6 col-md-4">
+                                    <article role="article" class="card">
 
                                     <h3 class="text-center">
-                                        <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>" >
-                                            Wrenches
+                                        <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>" >
+                                            Air Tools
                                         </a>
                                     </h3>
                                     <p class="text-center">
-                                        Tool Type: Mostly wrench sets some singles.<br>
+                                            Tool Type: Air drills, etc.<br>
                                     </p>
-                                    <a href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>">
-                                        <img class="catalog-images center-block img-responsive img- img-rounded" src="<?php echo IMAGES . '/img/wrench/a2-wrench.jpg'; ?>" >
-                                    </a>
-                                </article>
-                        </div><!--/ item one -->
-
-
-
-                            <div class="col-sm-6 col-md-4">
-                                <article role="article" class="card">
-
-                                <h3 class="text-center">
-                                    <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>" >
-                                        Air Tools
-                                    </a>
-                                </h3>
-                                <p class="text-center">
-                                        Tool Type: Air drills, etc.<br>
-                                </p>
-                                    <a href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>">
-                                        <img class="catalog-images center-block img-rounded" src="<?php echo  IMAGES . '/img/air/b48-air.jpg'; ?>" >
-                                    </a>
-                                </article>
-                            </div>
+                                        <a href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>">
+                                            <img class="catalog-images center-block img-rounded" src="<?php echo  IMAGES . '/img/air/b48-air.jpg'; ?>" >
+                                        </a>
+                                    </article>
+                                </div>
+            </div>
         </div>
     </div>
-
+</body>
 <?php require(SHARED_PATH . '/nav.php'); ?>
 <?php require(SHARED_PATH . '/footer.php'); ?>
