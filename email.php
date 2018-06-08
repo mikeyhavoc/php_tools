@@ -2,10 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: mikey
- * Date: 6/8/18
+ * Date: 12/21/17
  * Time: 10:22 AM
  */
-require_once 'private/initialize.php';
+require_once 'bootstrap.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 require 'vendor/autoload.php';
 //Create a new PHPMailer instance
@@ -29,9 +30,9 @@ $mail->SMTPSecure = 'tls';
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "";
+$mail->Username = "@gmail.com"; // REMEMBER TO PUT USER EMAIL IN BEFORE RUNNING !!!! ------ DEV
 //Password to use for SMTP authentication
-$mail->Password = '';
+$mail->Password = ''; // REMEMBER TO PUT PASS WORD IN BEFORE RUNNING !!!!!!------------DEV
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -67,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!$mail->send()) {
         echo "Mailer Error: " . $mail->ErrorInfo;
     } else {
-        header("location:email.view.php?status=thanks");
+        header("location:email.php?status=thanks");
     }//Create a new PHPMailer instance
 
 }
