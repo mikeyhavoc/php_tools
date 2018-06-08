@@ -87,8 +87,10 @@
             </div>
             <div class="form-group form-check row">
                 <div class="col-sm-12">
-                    <input type="checkbox" class="form-check-input" id="verify" required>
-                    <label for="verify" class="form-check-label">confirm live in Manatee, Sarasota counties or nearby.</label>
+                    <section class="ml-3">
+                        <input type="checkbox" class="form-check-input " id="verify" required>
+                        <label for="verify" class="form-check-label">confirm live in Manatee, Sarasota counties or nearby.</label>
+                    </section>
                 </div>
             </div>
         </fieldset>
