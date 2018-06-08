@@ -10,9 +10,9 @@ class Connection
 {
     public static function make()
     {
-        $dsn = 'mysql:dbname=;host=127.0.0.1';
-        $user = '';
-        $password = '';
+        $dsn = 'mysql:dbname=;host=127.0.0.1'; // DEV => ENTER DB
+        $user = '';  // DEV=> ENTER USER
+        $password = ''; // DEV enter PASS
 
         try {
             return new PDO($dsn, $user, $password);
