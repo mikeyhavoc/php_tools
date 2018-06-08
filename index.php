@@ -130,5 +130,5 @@ $page_title = 'Gary\'s Tool Selling Site';
         </div>
     </div>
 </body>
-<?php require(SHARED_PATH . '/nav.php'); ?>
+
 <?php require(SHARED_PATH . '/footer.php'); ?>
