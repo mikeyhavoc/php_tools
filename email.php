@@ -29,9 +29,9 @@ $mail->SMTPSecure = 'tls';
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "garyws.items@gmail.com";
+$mail->Username = "";
 //Password to use for SMTP authentication
-$mail->Password = 'W5#TgdE89';
+$mail->Password = '';
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -67,11 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!$mail->send()) {
         echo "Mailer Error: " . $mail->ErrorInfo;
     } else {
-        header("location:email.php?status=thanks");
+        header("location:email.view.php?status=thanks");
     }//Create a new PHPMailer instance
 
 }
 $page_title = 'Tool Inquiry';
 $section = null;
 
-require ('views/email.view.php');
+require_once('views/email.view.php');
