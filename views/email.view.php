@@ -37,7 +37,7 @@
     </section>
 </header>
 
-<?php if (isset($_GET['status']) && $_GET['status'] == 'email.php?status=thanks') { ?>
+<?php if (isset($_GET['status']) && ($_GET['status'] == 'thanks')) { ?>
     <div class="container text-center">
         <div class="row">
             <div class="col-12">
@@ -116,6 +116,7 @@
             </div>
         </fieldset>
     </form>
-<?php } ?>
     </section>
+<?php } ?>
+
 <?php include(SHARED_PATH . '/footer.php'); ?>
