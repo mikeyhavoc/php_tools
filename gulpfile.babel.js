@@ -1,8 +1,8 @@
 "use strict";
 
 import gulp from "gulp";
-import sourcemaps from "gulp-sourcemaps";
-
+import sourcemaps from "gulp-sourc;
+import concat from 'gulp-concat';
 
     gutil = require("gulp-util"),
 
@@ -12,7 +12,7 @@ import sourcemaps from "gulp-sourcemaps";
     rigger = require("gulp-rigger"),
     notify = require("gulp-notify"),
 
-    concat = require("gulp-concat");
+
     {phpMinify} = require("@cedx/gulp-php-minify"),
     imageOptim = require("gulp-imageoptim");
     htmlclean = require("gulp-htmlclean");
