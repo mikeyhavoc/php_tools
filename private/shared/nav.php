@@ -15,25 +15,25 @@
 
                         <div class="dropdown-menu" aria-labeledby="hand-tools">
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=crimps'); ?>">Crimps/Cutters</a>
+                            <?php anchor_dropdown('catalog.php?cat=crimps', 'Crimps/Cutters'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=files'); ?>">Files</a>
+                            <?php anchor_dropdown('catalog.php?cat=files', 'Files'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=hammers'); ?>">Hammers</a>
+                            <?php anchor_dropdown('catalog.php?cat=hammers', 'Hammers'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=pliers'); ?>">Pliers</a>
+                            <?php anchor_dropdown('catalog.php?cat=pliers', 'Pliers'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=bars'); ?>">pry and pic bars</a>
+                            <?php anchor_dropdown('catalog.php?cat=bars', 'Pry & Pic Bars'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=ratchets'); ?>">Ratchets</a>
+                            <?php anchor_dropdown('catalog.php?cat=ratchets', 'Ratchets'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=screwdrivers'); ?>">Screwdrivers</a>
+                            <?php anchor_dropdown('catalog.php?cat=screwdrivers', 'Screwdrivers'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=spoons'); ?>">spoons</a>
+                            <?php anchor_dropdown('catalog.php?cat=spoons', 'Spoons');  ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=vise_grips'); ?>">Vise Grips</a>
+                            <?php anchor_dropdown('catalog.php?cat=vise_grips', 'Vise Grips'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=wrenches'); ?>">Wrenches</a>
+                            <?php anchor_dropdown('catalog.php?cat=wrenches', 'wrenches'); ?>
 
                         </div>
                     </li>
