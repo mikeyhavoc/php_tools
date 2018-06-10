@@ -15,25 +15,25 @@
 
                         <div class="dropdown-menu" aria-labeledby="hand-tools">
 
-                            <?php anchor_dropdown('catalog.php?cat=crimps', 'Crimps/Cutters'); ?>
+                            <?php dropdown_anchor('catalog.php?cat=crimps', 'Crimps/Cutters'); ?>
 
-                            <?php anchor_dropdown('catalog.php?cat=files', 'Files'); ?>
+                            <?php dropdown_anchor('catalog.php?cat=files', 'Files'); ?>
 
-                            <?php anchor_dropdown('catalog.php?cat=hammers', 'Hammers'); ?>
+                            <?php dropdown_anchor('catalog.php?cat=hammers', 'Hammers'); ?>
 
-                            <?php anchor_dropdown('catalog.php?cat=pliers', 'Pliers'); ?>
+                            <?php dropdown_anchor('catalog.php?cat=pliers', 'Pliers'); ?>
 
-                            <?php anchor_dropdown('catalog.php?cat=bars', 'Pry & Pic Bars'); ?>
+                            <?php dropdown_anchor('catalog.php?cat=bars', 'Pry & Pic Bars'); ?>
 
-                            <?php anchor_dropdown('catalog.php?cat=ratchets', 'Ratchets'); ?>
+                            <?php dropdown_anchor('catalog.php?cat=ratchets', 'Ratchets'); ?>
 
-                            <?php anchor_dropdown('catalog.php?cat=screwdrivers', 'Screwdrivers'); ?>
+                            <?php dropdown_anchor('catalog.php?cat=screwdrivers', 'Screwdrivers'); ?>
 
-                            <?php anchor_dropdown('catalog.php?cat=spoons', 'Spoons');  ?>
+                            <?php dropdown_anchor('catalog.php?cat=spoons', 'Spoons');  ?>
 
-                            <?php anchor_dropdown('catalog.php?cat=vise_grips', 'Vise Grips'); ?>
+                            <?php dropdown_anchor('catalog.php?cat=vise_grips', 'Vise Grips'); ?>
 
-                            <?php anchor_dropdown('catalog.php?cat=wrenches', 'wrenches'); ?>
+                            <?php dropdown_anchor('catalog.php?cat=wrenches', 'wrenches'); ?>
 
                         </div>
                     </li>
@@ -43,44 +43,44 @@
                         <div class="dropdown-menu" aria-labelledby="tool-parts">
 
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=bits'); ?>">Bits</a>
+                            <?php dropdown_anchor('catalog.php?cat=bits', 'Bits'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=blades'); ?>">Blades</a>
+                            <?php dropdown_anchor('catalog.php?cat=blades', 'Blades'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=cables'); ?>">cables</a>
+                            <?php dropdown_anchor('catalog.php?cat=cables', 'Cables'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=chisels'); ?>">chisels</a>
+                            <?php dropdown_anchor('catalog.php?cat=chisels', 'Chisels'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=discs'); ?>">Discs/wheels</a>
+                            <?php dropdown_anchor('catalog.php?cat=discs', 'Discs/Wheels'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=extensions'); ?>">Extensions</a>
+                            <?php dropdown_anchor('catalog.php?cat=extensions', 'Extensions'); ?>
 
-                            <a class="dropdown-item" href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>">Sockets</a>
+                            <?php dropdown_anchor('catalog.php?cat=sockets', 'Sockets'); ?>
 
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo url_for( 'catalog.php?cat=air-tools'); ?>">Air Tools</a>
+                        <?php nav_anchor('catalog.php?cat=air-tools', 'Air Tools'); ?>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo url_for( 'catalog.php?cat=misc'); ?>">Misc Tools</a>
+                        <?php nav_anchor('catalog.php?cat=misc', 'Misc Tools'); ?>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" class="nav-item" href="<?php echo url_for( 'catalog.php?cat=removers'); ?>">Removers</a>
+                        <?php nav_anchor('catalog.php?cat=removers', 'Removers'); ?>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo url_for( 'catalog.php?cat=jacks'); ?>">Jacks</a>
+                        <?php nav_anchor('catalog.php?cat=jacks', 'Jacks'); ?>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo url_for( 'catalog.php?cat=cch'); ?>">Clamps/hooks/chains</a>
+                        <?php nav_anchor('catalog.php?cat=cch', 'Clamps/Hooks/Chains'); ?>
                     </li>
                     <li class="nav-item">
-                        <a href="<?php echo url_for('/email.php'); ?>" class="nav-link">Tools Inquiry</a>
+                        <?php nav_anchor('/email.php', 'Contact'); ?>
                     </li>
 
 
