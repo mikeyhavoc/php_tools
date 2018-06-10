@@ -49,3 +49,15 @@ function execute_query($con, $query, $variables) {
     return $stmt;
 
 }
+
+#########################################################################
+
+function dropdown_anchor($link, $name)
+{
+    echo '<a class="dropdown-item" href=' . url_for($link) . '>' . $name . '</a>';
+}
+
+function nav_anchor($link, $name)
+{
+    echo '<a class="nav-link" href=' .  url_for( $link  ) . '>' . $name . '</a>';
+}
