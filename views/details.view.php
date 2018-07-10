@@ -23,7 +23,7 @@
 <header role="banner" class='container-fluid'>
     <section class='row'>
         <h1 class="col-12 col-md-4 tools logo__section logo">
-            <a class="logo__title logo" href="<?php echo url_for( 'index.view.php'); ?>">Garys Tools</a>
+            <a class="logo__title logo" href="<?php echo url_for( 'index.php'); ?>">Garys Tools</a>
         </h1>
     </section>
 </header>
@@ -36,7 +36,7 @@
     <div class="col-12">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?php echo url_for('index.view.php'); ?>">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
                 <?php if(isset($breadcrumb)) { ?>
                 <?php foreach ($breadcrumb as $crumb) { ?>
                     <li class="breadcrumb-item"><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
