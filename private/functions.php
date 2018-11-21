@@ -1,5 +1,5 @@
 <?php
-include 'initialize.php';
+//include 'initialize.php';
 
 /**
  * Created by PhpStorm.

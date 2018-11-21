@@ -32,7 +32,6 @@ define('WWW_ROOT', ''); # just comment out and use the one below when in windows
 define("IMAGES", WWW_ROOT . '/public/');
 // easily connects root->(tools-site)->public->|img|
 
-require_once('functions.php');
-include('connection.php');
+
 
 

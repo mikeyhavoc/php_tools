@@ -1,18 +1,18 @@
 "use strict";
 
 import gulp from "gulp";
-import sourcemaps from "gulp-sourcemaps";
-
+import sourcemaps from "gulp-sourc;
+import concat from 'gulp-concat';
 
     gutil = require("gulp-util"),
-    image = require("gulp-image"),
+
     newer = require("gulp-newer"),
     debug = require("gulp-debug"),
     series = require("gulp-series"),
     rigger = require("gulp-rigger"),
     notify = require("gulp-notify"),
-    browserSync = require("browser-sync"),
-    concat = require("gulp-concat");
+
+
     {phpMinify} = require("@cedx/gulp-php-minify"),
     imageOptim = require("gulp-imageoptim");
     htmlclean = require("gulp-htmlclean");
@@ -47,6 +47,11 @@ gulp.task("sassCss", () => {
     import sourcemaps from "gulp-sourcemaps";
     import cleanCss from "gulp-clean-css";
     import concat from "gulp-concat";
+
+
+    import babelify from 'babelify';
+		import fs from 'fs';
+		import browserify from 'browserify';
 
     gulp.src(sassSrc + "/**.*.scss")
     return gulp.src(".src/public/sass/**/*.scss")

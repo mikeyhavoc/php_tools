@@ -1,71 +1,4 @@
-<?php require_once 'private/initialize.php';
-use PHPMailer\PHPMailer\PHPMailer;
-require 'vendor/autoload.php';
-//Create a new PHPMailer instance
-$mail = new PHPMailer;
-//Tell PHPMailer to use SMTP
-$mail->isSMTP();
-//Enable SMTP debugging
-// 0 = off (for production use)
-// 1 = client messages
-// 2 = client and server messages
-$mail->SMTPDebug = 0;
-//Set the hostname of the mail server
-$mail->Host = 'smtp.gmail.com';
-// use
-// $mail->Host = gethostbyname('smtp.gmail.com');
-// if your network does not support SMTP over IPv6
-//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-$mail->Port = 587;
-//Set the encryption system to use - ssl (deprecated) or tls
-$mail->SMTPSecure = 'tls';
-//Whether to use SMTP authentication
-$mail->SMTPAuth = true;
-//Username to use for SMTP authentication - use full email address for gmail
-$mail->Username = "garyws.items@gmail.com";
-//Password to use for SMTP authentication
-$mail->Password = 'W5#TgdE89';
-
-
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $first_name = trim(filter_input(INPUT_POST, 'first-name', FILTER_SANITIZE_STRING));
-    $last_name = trim(filter_input(INPUT_POST, 'last-name', FILTER_SANITIZE_STRING));
-    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
-    $phone_number = trim(filter_input(INPUT_POST, 'phone-number', FILTER_SANITIZE_STRING));
-    $subject = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING));
-    $inquiry_questions = trim(filter_input(INPUT_POST, 'inquiry-questions', FILTER_SANITIZE_SPECIAL_CHARS));
-    $full_name = $first_name . ' ' . $last_name;
-
-    $email_body .= 'Full Name:' . $full_name . "\n";
-    $email_body .= 'Email: ' . $email . "\n";
-    $email_subject = $subject;
-    $email_body .= 'Phone number: ' . $phone_number . "\n";
-    $email_body .= 'Subject: ' . $subject . "\n";
-    $email_body .= 'Inquiry: ' . $inquiry_questions . "\n";
-
-
-
-//Set who the message is to be sent from
-    $mail->setFrom($email, $first_name);
-//Set an alternative reply-to address
-    $mail->addReplyTo($email, $full_name);
-//Set who the message is to be sent to
-    $mail->addAddress('garyws.items@gmail.com', 'gary tools');
-//Set the subject line
-    $mail->Subject = $email_subject;
-//Read an HTML message body from an external file, convert referenced images to embedded,
-//convert HTML into a basic plain-text alternative body
-    $mail->Body = $email_body;
-//send the message, check for errors
-    if (!$mail->send()) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
-    } else {
-        header("location:email.php?status=thanks");
-    }//Create a new PHPMailer instance
-
-}
-$page_title = 'Tool Inquiry';
-$section = null;
+<?php
 /**
  * Copyright (c) 2018. Michael Williams Manic Designer Developments.
  */
@@ -87,11 +20,11 @@ $section = null;
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="robots" content="noindex">
+        <meta name="keywords" content="garys tools, tools contact, bradenton tool sale">
         <meta name="description" content="Garys tools, retired bodyman selling his body tools locally in bradenton fl.">
         <link href="https://fonts.googleapis.com/css?family=Supermercado+One" rel="stylesheet">
-        <link rel="stylesheet" href="<?php echo node_module("./node_modules/bootstrap/dist/css/bootstrap.min.css") ?>">
-        <link rel="stylesheet" href="<?php echo node_module('public/css/main.css'); ?>">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?php echo url_for(node_module('public/css/main.css')); ?>">
 
         <title><?php echo $page_title; ?></title>
     </head>
@@ -104,7 +37,7 @@ $section = null;
     </section>
 </header>
 
-<?php if (isset($_GET['status']) && $_GET['status'] == 'email.php?status=thanks') { ?>
+<?php if (isset($_GET['status']) && ($_GET['status'] == 'thanks')) { ?>
     <div class="container text-center">
         <div class="row">
             <div class="col-12">
@@ -154,8 +87,10 @@ $section = null;
             </div>
             <div class="form-group form-check row">
                 <div class="col-sm-12">
-                    <input type="checkbox" class="form-check-input" id="verify" required>
-                    <label for="verify" class="form-check-label">confirm live in Manatee, Sarasota counties or nearby.</label>
+                    <section class="ml-3">
+                        <input type="checkbox" class="form-check-input " id="verify" required>
+                        <label for="verify" class="form-check-label">confirm live in Manatee, Sarasota counties or nearby.</label>
+                    </section>
                 </div>
             </div>
         </fieldset>
@@ -183,7 +118,7 @@ $section = null;
             </div>
         </fieldset>
     </form>
-<?php } ?>
     </section>
-    <?php include(SHARED_PATH . 'js/quckyAnalaytids.html'); ?>
+<?php } ?>
+
 <?php include(SHARED_PATH . '/footer.php'); ?>

@@ -1,63 +1,6 @@
 
 
-<?php require_once('private/initialize.php');
 
-/**
- * Created by PhpStorm.
- * User: mike
- * Date: 12/21/17
- * Time: 11:52 PM
- */
-$id_num = $_GET['id']; // grabbing Global Variable GET id
-$id = filter_var($id_num, FILTER_SANITIZE_NUMBER_INT); // filtering and sanitizing number going into array for value.
-$con = $db; // the connection to the db.
-// single item SQL Query.
-try {
-    $single_item_full_query = "SELECT t.item_code AS code, t.item_name AS name, 
-                      t.retail_price AS retail, t.sale_price AS price, 
-                      t.item_pieces AS pieces, t.qty AS quantity, t.sold AS sold,
-                      b.brand AS brand, c.category AS category, tt.tool_type AS tool_type,
-                      t.description AS description,
-                      i.image as images FROM Tools AS t
-                      INNER JOIN Brands AS b ON t.b_id = b.b_id
-                      INNER JOIN Categories AS c ON t.c_id = c.c_id
-                      INNER JOIN Images AS i ON i.t_id = t.t_id 
-                      LEFT OUTER JOIN Types AS tt ON tt.tt_id = t.tt_id
-                      WHERE t.t_id = :id LIMIT 1";
-$variables[':id'] = $id;
-
-    $items = execute_query($con, $single_item_full_query, $variables)->fetchAll();
-
-}catch(PDOException $e) {
-   echo $e->getMessage();
-}
-try {
-    $single_images_item_query = "SELECT t.t_id as id,
-                                  t.description as description,
-                                  i.image as image
-                                  FROM Tools as t
-                                  JOIN Images as i
-                                  ON t.t_id = i.t_id
-                                  WHERE t.t_id = :image";
-    $var[':image'] = $id_num;
-    $images = execute_query($con, $single_images_item_query, $var)->fetchAll();
-
-}catch(PDOException $e){
-    echo $e->getMessage();
-}
-
-try {
-    $single_item_breadcrumb_query = "SELECT t.item_code as code,  c.tool_type as category
-                           FROM Tools as t
-                           JOIN Types c ON t.tt_id = c.tt_id
-                           WHERE t.t_id = :breadcrumb LIMIT 1";
-    $crumbs[':breadcrumb'] = $id_num;
-    $breadcrumb = execute_query($con, $single_item_breadcrumb_query, $crumbs);
-
-}catch(PDOException $e) {
-    echo $e->getMessage();
-}
-$pageTitle = 'Details'; ?>
 
 <!doctype html>
 <html lang="en">
@@ -68,11 +11,11 @@ $pageTitle = 'Details'; ?>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="robots" content="noindex">
+    <meta name="keywords" content="garys tools, bradenton tools, bradenton gary tools, tool sale">
     <meta name="description" content="Garys tools, retired bodyman selling his body tools locally in bradenton fl.">
     <link href="https://fonts.googleapis.com/css?family=Supermercado+One" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo node_module("./node_modules/bootstrap/dist/css/bootstrap.min.css") ?>">
-    <link rel="stylesheet" href="<?php echo node_module('public/css/main.css'); ?>">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo url_for(node_module('public/css/main.css')); ?>">
 
     <title><?php echo $page_title; ?></title>
 </head>
@@ -80,7 +23,7 @@ $pageTitle = 'Details'; ?>
 <header role="banner" class='container-fluid'>
     <section class='row'>
         <h1 class="col-12 col-md-4 tools logo__section logo">
-            <a class="logo__title logo" href="<?php echo url_for( 'index.php'); ?>">Garys Tools</a>
+            <a class="logo__title logo" href="<?php echo url_for( 'index.view.php'); ?>">Garys Tools</a>
         </h1>
     </section>
 </header>
@@ -93,7 +36,7 @@ $pageTitle = 'Details'; ?>
     <div class="col-12">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?php echo url_for('index.php'); ?>">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo url_for('index.view.php'); ?>">Home</a></li>
                 <?php if(isset($breadcrumb)) { ?>
                 <?php foreach ($breadcrumb as $crumb) { ?>
                     <li class="breadcrumb-item"><a href="catalog.php?cat=<?php echo $crumb['category']; ?>"><?php echo $crumb['category']; ?></a></li>
@@ -140,7 +83,6 @@ $pageTitle = 'Details'; ?>
 
     </div>
 <section/>
-        <?php include (SHARED_PATH . 'js/quckyAnalaytids.html'); ?>
-<?php
-require(SHARED_PATH . '/footer.php');
-?>
+
+
+        <?php include(SHARED_PATH . '/footer.php'); ?>
