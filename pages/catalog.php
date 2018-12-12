@@ -6,7 +6,7 @@
  * Time: 10:36 AM
  */
 
- require_once('bootstrap.php');
+ require_once('../bootstrap.php');
 
 if ( isset($_GET['cat']) ) {
     if ( $_GET['cat'] == 'wrenches') {
@@ -144,4 +144,4 @@ try {
  $page_title = 'Tool Catalog';
 
 
-require_once('views/catalog.view.php');
+require ('../views/catalog.view.php');
