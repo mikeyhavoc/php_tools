@@ -1,3 +1,4 @@
 node_modules
 Database/Connection.php
 .idea
+.idea/workspace.xml
