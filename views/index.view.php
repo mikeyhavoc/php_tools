@@ -63,7 +63,7 @@
                             <article role="article" class="card">
 
                                 <h2 class="text-center">
-                                    <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'catalog.php?cat=sockets'); ?>" >
+                                    <a class="btn btn-lg btn-outline-danger" href="<?php echo url_for( 'pages/catalog.php?cat=sockets'); ?>" >
                                         Sockets
                                     </a>
                                 </h2>
