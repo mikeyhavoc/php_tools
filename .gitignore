@@ -1,3 +1,4 @@
 node_modules
-private/connection.php
+Database/Connection.php
 .idea
+.idea/workspace.xml
